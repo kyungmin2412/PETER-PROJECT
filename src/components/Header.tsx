@@ -16,24 +16,29 @@ export function Header({ asOfLabel, generatedAt, forUser, dataMode }: HeaderProp
       });
 
   return (
-    <header className="border-b" style={{ borderColor: "var(--border)" }}>
-      <div className="mx-auto max-w-6xl px-4 py-6">
-        <div className="text-[11px] uppercase tracking-[0.2em] text-ink-muted">
-          US Market Daily
-        </div>
-        <div className="mt-1 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
-          <h1 className="text-2xl font-bold text-ink-primary">미국 시장 데일리</h1>
+    <header style={{ background: "var(--surface)" }}>
+      <div className="mx-auto max-w-6xl px-4 py-8">
+        <div className="flex flex-wrap items-center gap-2">
+          <span
+            className="rounded-full px-2.5 py-1 text-xs font-semibold"
+            style={{ background: "var(--accent-tint)", color: "var(--accent)" }}
+          >
+            US Market Daily
+          </span>
           {dataMode === "sample" && (
             <span
-              className="rounded-full border px-2.5 py-0.5 text-[11px] font-medium text-ink-secondary"
-              style={{ borderColor: "var(--border)" }}
+              className="rounded-full px-2.5 py-1 text-xs font-medium text-ink-muted"
+              style={{ background: "var(--surface-2)" }}
             >
               샘플 데이터
             </span>
           )}
         </div>
-        <p className="mt-1 text-sm text-ink-secondary">{asOfLabel}</p>
-        <p className="mt-0.5 text-xs text-ink-muted">
+        <h1 className="mt-3 text-3xl font-bold tracking-tight text-ink-primary">
+          미국 시장 데일리
+        </h1>
+        <p className="mt-2 text-sm text-ink-secondary">{asOfLabel}</p>
+        <p className="mt-1 text-xs text-ink-muted">
           발행 {generatedLabel} KST{forUser ? ` · For. ${forUser}` : ""}
         </p>
       </div>

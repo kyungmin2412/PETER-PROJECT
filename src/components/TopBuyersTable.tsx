@@ -12,7 +12,11 @@ export function TopBuyersTable({ title, rows }: { title: string; rows: TopBuyer[
       <table className="w-full border-collapse text-sm">
         <tbody>
           {rows.map((row) => (
-            <tr key={row.rank} className="border-t" style={{ borderColor: "var(--grid)" }}>
+            <tr
+              key={row.rank}
+              className="border-t transition-colors hover:bg-[var(--surface-2)]"
+              style={{ borderColor: "var(--grid)" }}
+            >
               <td className="w-8 px-4 py-2.5 text-ink-muted">{row.rank}</td>
               <td className="px-2 py-2.5 text-ink-primary">{row.name}</td>
               <td className="px-2 py-2.5 text-right tabular text-ink-primary">

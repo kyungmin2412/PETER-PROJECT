@@ -8,7 +8,7 @@ export function WatchlistTable({ items }: { items: WatchlistItem[] }) {
     <Card className="overflow-x-auto p-0">
       <table className="w-full min-w-[720px] border-collapse text-sm">
         <thead>
-          <tr className="text-left text-[11px] uppercase tracking-wide text-ink-muted">
+          <tr className="text-left text-xs font-medium text-ink-muted">
             <th className="px-4 py-3 font-medium">종목</th>
             <th className="px-3 py-3 text-right font-medium">종가</th>
             <th className="px-3 py-3 text-right font-medium">대비</th>
@@ -18,7 +18,11 @@ export function WatchlistTable({ items }: { items: WatchlistItem[] }) {
         </thead>
         <tbody>
           {items.map((item) => (
-            <tr key={item.symbol} className="border-t" style={{ borderColor: "var(--grid)" }}>
+            <tr
+              key={item.symbol}
+              className="border-t transition-colors hover:bg-[var(--surface-2)]"
+              style={{ borderColor: "var(--grid)" }}
+            >
               <td className="px-4 py-3">
                 <div className="font-medium text-ink-primary">{item.name}</div>
                 <div className="text-xs text-ink-muted">{item.symbol}</div>

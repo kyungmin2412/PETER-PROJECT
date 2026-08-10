@@ -63,15 +63,15 @@ export default function Home() {
       />
 
       <nav
-        className="sticky top-0 z-10 overflow-x-auto border-b backdrop-blur"
-        style={{ background: "rgba(13,13,13,0.85)", borderColor: "var(--border)" }}
+        className="sticky top-0 z-10 overflow-x-auto backdrop-blur"
+        style={{ background: "var(--nav-bg)", borderBottom: "1px solid var(--border)" }}
       >
-        <div className="mx-auto flex max-w-6xl gap-1 px-4 py-2 text-xs">
+        <div className="mx-auto flex max-w-6xl gap-1.5 px-4 py-3 text-sm">
           {NAV.map((item) => (
             <a
               key={item.id}
               href={`#${item.id}`}
-              className="whitespace-nowrap rounded-md px-2.5 py-1.5 text-ink-secondary hover:bg-white/5 hover:text-ink-primary"
+              className="whitespace-nowrap rounded-full px-3 py-1.5 font-medium text-ink-secondary transition-colors hover:bg-[var(--surface-2)] hover:text-ink-primary"
             >
               {item.label}
             </a>
@@ -79,10 +79,7 @@ export default function Home() {
         </div>
       </nav>
 
-      <main
-        className="mx-auto w-full max-w-6xl flex-1 divide-y px-4"
-        style={{ borderColor: "var(--border)" }}
-      >
+      <main className="mx-auto w-full max-w-6xl flex-1 px-4">
         <Section id="macro" index={1} title="매크로 지표" subtitle="Macro · Daily Candle">
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <PriceCard series={data.macro.nasdaq} />

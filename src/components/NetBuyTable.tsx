@@ -15,7 +15,7 @@ export function NetBuyTable({ rows }: { rows: InvestorNetBuy[] }) {
     <Card className="overflow-x-auto p-0">
       <table className="w-full min-w-[420px] border-collapse text-sm">
         <thead>
-          <tr className="text-left text-[11px] uppercase tracking-wide text-ink-muted">
+          <tr className="text-left text-xs font-medium text-ink-muted">
             <th className="px-4 py-3 font-medium">시장</th>
             <th className="px-3 py-3 text-right font-medium">외국인</th>
             <th className="px-3 py-3 text-right font-medium">기관</th>
