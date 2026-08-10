@@ -1,23 +1,51 @@
 @import "tailwindcss";
 
 :root {
-  --page: #0d0d0d;
-  --surface: #1a1a19;
-  --surface-2: #212120;
-  --ink-primary: #ffffff;
-  --ink-secondary: #c3c2b7;
-  --ink-muted: #898781;
-  --grid: #2c2c2a;
-  --baseline: #383835;
-  --border: rgba(255, 255, 255, 0.1);
+  --page: #f2f4f6;
+  --surface: #ffffff;
+  --surface-2: #f2f4f6;
+  --ink-primary: #191f28;
+  --ink-secondary: #4e5968;
+  --ink-muted: #8b95a1;
+  --grid: #e5e8eb;
+  --baseline: #d1d6db;
+  --border: rgba(15, 23, 42, 0.06);
+  --card-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px -4px rgba(15, 23, 42, 0.06);
+  --nav-bg: rgba(255, 255, 255, 0.85);
 
-  --up: #e66767;
-  --up-strong: #e34948;
-  --down: #3987e5;
-  --down-strong: #2a78d6;
-  --neutral-mid: #383835;
+  --up: #f04452;
+  --up-strong: #e6303f;
+  --down: #3182f6;
+  --down-strong: #2272eb;
+  --neutral-mid: #d1d6db;
 
-  --accent: #d95926;
+  --accent: #3182f6;
+  --accent-tint: rgba(49, 130, 246, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page: #0f1012;
+    --surface: #1c1d1f;
+    --surface-2: #232427;
+    --ink-primary: #f2f4f6;
+    --ink-secondary: #b0b8c1;
+    --ink-muted: #7d8590;
+    --grid: #2c2e33;
+    --baseline: #3a3d42;
+    --border: rgba(255, 255, 255, 0.08);
+    --card-shadow: none;
+    --nav-bg: rgba(15, 16, 18, 0.85);
+
+    --up: #ff5a63;
+    --up-strong: #ff3b47;
+    --down: #4593fc;
+    --down-strong: #5aa1ff;
+    --neutral-mid: #3a3d42;
+
+    --accent: #4593fc;
+    --accent-tint: rgba(69, 147, 252, 0.14);
+  }
 }
 
 @theme inline {
@@ -37,7 +65,8 @@
 body {
   background: var(--page);
   color: var(--ink-primary);
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-family: "Apple SD Gothic Neo", Pretendard, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Noto Sans KR", "Malgun Gothic", sans-serif;
 }
 
 .tabular {

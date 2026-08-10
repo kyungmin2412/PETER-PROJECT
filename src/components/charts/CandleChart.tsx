@@ -98,7 +98,7 @@ export function CandleChart({ candles, decimals = 2, height = 132 }: CandleChart
                 y={bodyTop}
                 width={bodyWidth}
                 height={bodyH}
-                rx={0.6}
+                rx={1.2}
                 fill={color}
               />
             </g>
