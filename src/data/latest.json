@@ -1,23 +1,16 @@
 {
-  "generatedAt": "2026-08-10T23:05:50.403933+00:00",
+  "generatedAt": "2026-08-11T23:10:43.212750+00:00",
   "asOfLabel": "2026-08-07 (금) 미국 시장 종가 · 뉴욕 16:00 EDT",
   "forUser": "Peterk",
   "macro": {
     "nasdaq": {
       "symbol": "IXIC",
       "name": "나스닥종합지수",
-      "last": 26605.36,
-      "change": -85.26,
-      "changePercent": -0.32,
+      "last": 26445.45,
+      "change": -159.91,
+      "changePercent": -0.6,
       "asOf": "2026-08-07 (금) 미국 시장 종가 · 뉴욕 16:00 EDT",
       "candles": [
-        {
-          "date": "2026-07-09",
-          "open": 25918.31,
-          "high": 26215.82,
-          "low": 25825.85,
-          "close": 26206.89
-        },
         {
           "date": "2026-07-10",
           "open": 26175.54,
@@ -171,6 +164,13 @@
           "high": 26724.63,
           "low": 26548.26,
           "close": 26605.36
+        },
+        {
+          "date": "2026-08-11",
+          "open": 26672.17,
+          "high": 26679.26,
+          "low": 26372.31,
+          "close": 26445.45
         }
       ]
     },
@@ -178,189 +178,182 @@
       "symbol": "US10Y",
       "name": "미국 10년물 국채금리",
       "unit": "%",
-      "last": 0.47,
-      "change": 0.004,
-      "changePercent": 0.86,
+      "last": 4.684,
+      "change": -0.015,
+      "changePercent": -0.32,
       "asOf": "2026-08-07 (금) 미국 시장 종가 · 뉴욕 16:00 EDT",
       "candles": [
         {
-          "date": "2026-07-09",
-          "open": 0.458,
-          "high": 0.458,
-          "low": 0.453,
-          "close": 0.454
-        },
-        {
           "date": "2026-07-10",
-          "open": 0.454,
-          "high": 0.457,
-          "low": 0.454,
-          "close": 0.457
+          "open": 4.541,
+          "high": 4.571,
+          "low": 4.539,
+          "close": 4.569
         },
         {
           "date": "2026-07-13",
-          "open": 0.459,
-          "high": 0.462,
-          "low": 0.457,
-          "close": 0.461
+          "open": 4.585,
+          "high": 4.618,
+          "low": 4.573,
+          "close": 4.609
         },
         {
           "date": "2026-07-14",
-          "open": 0.461,
-          "high": 0.461,
-          "low": 0.453,
-          "close": 0.459
+          "open": 4.614,
+          "high": 4.614,
+          "low": 4.525,
+          "close": 4.585
         },
         {
           "date": "2026-07-15",
-          "open": 0.461,
-          "high": 0.461,
-          "low": 0.454,
-          "close": 0.455
+          "open": 4.608,
+          "high": 4.61,
+          "low": 4.539,
+          "close": 4.545
         },
         {
           "date": "2026-07-16",
-          "open": 0.458,
-          "high": 0.46,
-          "low": 0.456,
-          "close": 0.457
+          "open": 4.582,
+          "high": 4.596,
+          "low": 4.561,
+          "close": 4.569
         },
         {
           "date": "2026-07-17",
-          "open": 0.452,
-          "high": 0.455,
-          "low": 0.451,
-          "close": 0.454
+          "open": 4.521,
+          "high": 4.55,
+          "low": 4.511,
+          "close": 4.541
         },
         {
           "date": "2026-07-20",
-          "open": 0.457,
-          "high": 0.461,
-          "low": 0.456,
-          "close": 0.46
+          "open": 4.566,
+          "high": 4.608,
+          "low": 4.56,
+          "close": 4.598
         },
         {
           "date": "2026-07-21",
-          "open": 0.46,
-          "high": 0.464,
-          "low": 0.46,
-          "close": 0.463
+          "open": 4.6,
+          "high": 4.64,
+          "low": 4.598,
+          "close": 4.628
         },
         {
           "date": "2026-07-22",
-          "open": 0.464,
-          "high": 0.466,
-          "low": 0.463,
-          "close": 0.466
+          "open": 4.64,
+          "high": 4.661,
+          "low": 4.632,
+          "close": 4.657
         },
         {
           "date": "2026-07-23",
-          "open": 0.47,
-          "high": 0.471,
-          "low": 0.469,
-          "close": 0.47
+          "open": 4.699,
+          "high": 4.714,
+          "low": 4.693,
+          "close": 4.703
         },
         {
           "date": "2026-07-24",
-          "open": 0.468,
-          "high": 0.469,
-          "low": 0.465,
-          "close": 0.468
+          "open": 4.683,
+          "high": 4.691,
+          "low": 4.651,
+          "close": 4.679
         },
         {
           "date": "2026-07-27",
-          "open": 0.465,
-          "high": 0.466,
-          "low": 0.463,
-          "close": 0.464
+          "open": 4.647,
+          "high": 4.665,
+          "low": 4.63,
+          "close": 4.641
         },
         {
           "date": "2026-07-28",
-          "open": 0.463,
-          "high": 0.464,
-          "low": 0.459,
-          "close": 0.46
+          "open": 4.63,
+          "high": 4.635,
+          "low": 4.588,
+          "close": 4.604
         },
         {
           "date": "2026-07-29",
-          "open": 0.464,
-          "high": 0.466,
-          "low": 0.461,
-          "close": 0.462
+          "open": 4.637,
+          "high": 4.655,
+          "low": 4.61,
+          "close": 4.622
         },
         {
           "date": "2026-07-30",
-          "open": 0.467,
-          "high": 0.469,
-          "low": 0.465,
-          "close": 0.466
+          "open": 4.669,
+          "high": 4.686,
+          "low": 4.651,
+          "close": 4.663
         },
         {
           "date": "2026-07-31",
-          "open": 0.468,
-          "high": 0.475,
-          "low": 0.468,
-          "close": 0.474
+          "open": 4.684,
+          "high": 4.747,
+          "low": 4.682,
+          "close": 4.745
         },
         {
           "date": "2026-08-03",
-          "open": 0.467,
-          "high": 0.47,
-          "low": 0.467,
-          "close": 0.469
+          "open": 4.671,
+          "high": 4.702,
+          "low": 4.671,
+          "close": 4.686
         },
         {
           "date": "2026-08-04",
-          "open": 0.466,
-          "high": 0.467,
-          "low": 0.462,
-          "close": 0.463
+          "open": 4.665,
+          "high": 4.668,
+          "low": 4.619,
+          "close": 4.627
         },
         {
           "date": "2026-08-05",
-          "open": 0.461,
-          "high": 0.464,
-          "low": 0.461,
-          "close": 0.462
+          "open": 4.609,
+          "high": 4.639,
+          "low": 4.607,
+          "close": 4.617
         },
         {
           "date": "2026-08-06",
-          "open": 0.464,
-          "high": 0.468,
-          "low": 0.464,
-          "close": 0.467
+          "open": 4.643,
+          "high": 4.676,
+          "low": 4.635,
+          "close": 4.67
         },
         {
           "date": "2026-08-07",
-          "open": 0.466,
-          "high": 0.467,
-          "low": 0.46,
-          "close": 0.466
+          "open": 4.664,
+          "high": 4.672,
+          "low": 4.603,
+          "close": 4.66
         },
         {
           "date": "2026-08-10",
-          "open": 0.466,
-          "high": 0.47,
-          "low": 0.466,
-          "close": 0.47
+          "open": 4.662,
+          "high": 4.703,
+          "low": 4.662,
+          "close": 4.699
+        },
+        {
+          "date": "2026-08-11",
+          "open": 4.692,
+          "high": 4.703,
+          "low": 4.668,
+          "close": 4.684
         }
       ]
     },
     "usdkrw": {
       "symbol": "USDKRW",
       "name": "달러/원",
-      "last": 1417.94,
-      "change": 10.94,
-      "changePercent": 0.78,
+      "last": 1412.19,
+      "change": -5.12,
+      "changePercent": -0.36,
       "asOf": "2026-08-07 (금) 미국 시장 종가 · 뉴욕 16:00 EDT",
       "candles": [
-        {
-          "date": "2026-07-10",
-          "open": 1507.1,
-          "high": 1512.72,
-          "low": 1499.15,
-          "close": 1505.91
-        },
         {
           "date": "2026-07-13",
           "open": 1498.05,
@@ -510,10 +503,17 @@
         },
         {
           "date": "2026-08-11",
-          "open": 1417.72,
-          "high": 1418.33,
-          "low": 1417.55,
-          "close": 1417.94
+          "open": 1418.15,
+          "high": 1418.43,
+          "low": 1408.9,
+          "close": 1417.31
+        },
+        {
+          "date": "2026-08-12",
+          "open": 1412.31,
+          "high": 1412.8,
+          "low": 1411.33,
+          "close": 1412.19
         }
       ]
     },
@@ -521,18 +521,11 @@
       "symbol": "CL",
       "name": "WTI유",
       "unit": "$/bbl",
-      "last": 82.11,
-      "change": 3.93,
-      "changePercent": 5.03,
+      "last": 83.51,
+      "change": 1.38,
+      "changePercent": 1.68,
       "asOf": "2026-08-07 (금) 미국 시장 종가 · 뉴욕 16:00 EDT",
       "candles": [
-        {
-          "date": "2026-07-09",
-          "open": 74.95,
-          "high": 75.13,
-          "low": 71.42,
-          "close": 72.08
-        },
         {
           "date": "2026-07-10",
           "open": 71.86,
@@ -682,10 +675,17 @@
         },
         {
           "date": "2026-08-10",
-          "open": 82.35,
-          "high": 82.35,
-          "low": 82.06,
-          "close": 82.11
+          "open": 78.42,
+          "high": 82.38,
+          "low": 77.79,
+          "close": 82.13
+        },
+        {
+          "date": "2026-08-11",
+          "open": 83.49,
+          "high": 83.6,
+          "low": 83.35,
+          "close": 83.51
         }
       ]
     }
@@ -694,25 +694,25 @@
     {
       "name": "마이크론",
       "symbol": "MU",
-      "close": 861.0,
-      "change": -16.57,
-      "changePercent": -1.89,
+      "close": 868.52,
+      "change": 7.52,
+      "changePercent": 0.87,
       "comment": "폐장후 880.00 · 씨티 TP 1,150 하향"
     },
     {
       "name": "SK하이닉스(ADR)",
       "symbol": "SKHY",
-      "close": 135.29,
-      "change": -2.62,
-      "changePercent": -1.9,
+      "close": 141.65,
+      "change": 6.36,
+      "changePercent": 4.7,
       "comment": "38조원 신규 팹 승인 → 공급 우려"
     },
     {
       "name": "샌디스크",
       "symbol": "SNDK",
-      "close": 1237.92,
-      "change": 25.71,
-      "changePercent": 2.12,
+      "close": 1271.05,
+      "change": 33.13,
+      "changePercent": 2.68,
       "comment": "실적 서프라이즈에도 가이던스 실망"
     },
     {
@@ -726,81 +726,81 @@
     {
       "name": "엔비디아",
       "symbol": "NVDA",
-      "close": 217.55,
-      "change": -6.41,
-      "changePercent": -2.86,
+      "close": 217.5,
+      "change": -0.05,
+      "changePercent": -0.02,
       "comment": "SpaceX AI 인프라 전량 채택 · 주간 +11%"
     },
     {
       "name": "알파벳 A",
       "symbol": "GOOGL",
-      "close": 357.52,
-      "change": 3.22,
-      "changePercent": 0.91,
+      "close": 343.8,
+      "change": -13.72,
+      "changePercent": -3.84,
       "comment": "250억달러 회사채 발행 보도"
     },
     {
       "name": "아마존닷컴",
       "symbol": "AMZN",
-      "close": 278.09,
-      "change": 3.61,
-      "changePercent": 1.32,
+      "close": 272.27,
+      "change": -5.82,
+      "changePercent": -2.09,
       "comment": "AWS 연환산 169B · 캐펙스 220B 상향"
     },
     {
       "name": "마이크로소프트",
       "symbol": "MSFT",
-      "close": 506.06,
-      "change": 6.07,
-      "changePercent": 1.21,
+      "close": 503.81,
+      "change": -2.25,
+      "changePercent": -0.44,
       "comment": "Azure 성장, 실적 후 +16% 유지"
     },
     {
       "name": "TSMC(ADR)",
       "symbol": "TSM",
-      "close": 418.47,
-      "change": -1.57,
-      "changePercent": -0.37,
+      "close": 422.06,
+      "change": 3.59,
+      "changePercent": 0.86,
       "comment": "연 캐펙스 600~640억달러로 상향"
     },
     {
       "name": "인텔",
       "symbol": "INTC",
-      "close": 97.52,
-      "change": -4.13,
-      "changePercent": -4.06,
+      "close": 97.71,
+      "change": 0.19,
+      "changePercent": 0.19,
       "comment": "반도체 관세 수혜 기대, 낙폭 회복"
     },
     {
       "name": "애플",
       "symbol": "AAPL",
-      "close": 308.26,
-      "change": -5.07,
-      "changePercent": -1.62,
+      "close": 304.91,
+      "change": -3.35,
+      "changePercent": -1.09,
       "comment": "인도 매출 100억달러 · 메모리 원가 부담"
     },
     {
       "name": "테슬라",
       "symbol": "TSLA",
-      "close": 330.88,
-      "change": 2.3,
-      "changePercent": 0.7,
+      "close": 332.81,
+      "change": 1.93,
+      "changePercent": 0.58,
       "comment": "SpaceX와 Terafab 168억달러 반도체 팹"
     },
     {
       "name": "일라이릴리",
       "symbol": "LLY",
-      "close": 1231.94,
-      "change": 46.23,
-      "changePercent": 3.9,
+      "close": 1215.02,
+      "change": -16.92,
+      "changePercent": -1.37,
       "comment": "2분기 서프라이즈, 사상 최고권"
     },
     {
       "name": "코인베이스",
       "symbol": "COIN",
-      "close": 148.68,
-      "change": -4.92,
-      "changePercent": -3.2,
+      "close": 148.58,
+      "change": -0.1,
+      "changePercent": -0.07,
       "comment": "예측시장 소송 패소 · 52주 저점권 *"
     }
   ],
@@ -808,62 +808,62 @@
     {
       "name": "임의소비재",
       "symbol": "XLY",
-      "changePercent": -0.16
+      "changePercent": -0.36
     },
     {
       "name": "소재",
       "symbol": "XLB",
-      "changePercent": 0.61
+      "changePercent": 0.11
     },
     {
       "name": "유틸리티",
       "symbol": "XLU",
-      "changePercent": -1.1
+      "changePercent": 1.16
     },
     {
       "name": "산업재",
       "symbol": "XLI",
-      "changePercent": -0.31
+      "changePercent": 0.6
     },
     {
       "name": "필수소비재",
       "symbol": "XLP",
-      "changePercent": -0.2
+      "changePercent": -0.31
     },
     {
       "name": "에너지",
       "symbol": "XLE",
-      "changePercent": 4.66
+      "changePercent": 1.25
     },
     {
       "name": "정보기술",
       "symbol": "XLK",
-      "changePercent": -0.88
+      "changePercent": -0.12
     },
     {
       "name": "헬스케어",
       "symbol": "XLV",
-      "changePercent": 1.67
+      "changePercent": -0.26
     },
     {
       "name": "부동산",
       "symbol": "XLRE",
-      "changePercent": -1.29
+      "changePercent": -0.72
     },
     {
       "name": "통신서비스",
       "symbol": "XLC",
-      "changePercent": 0.52
+      "changePercent": -0.5
     },
     {
       "name": "금융",
       "symbol": "XLF",
-      "changePercent": 0.36
+      "changePercent": -0.02
     },
     {
       "name": "반도체(참고)",
       "symbol": "SOXX",
-      "changePercent": -2.55
+      "changePercent": 0.91
     }
   ],
   "macroThemes": [
@@ -1522,18 +1522,11 @@
     "usdkrw": {
       "symbol": "USDKRW-SEOUL",
       "name": "달러/원 (서울외환시장)",
-      "last": 1417.9,
-      "change": 10.9,
-      "changePercent": 0.77,
+      "last": 1412.1,
+      "change": -5.2,
+      "changePercent": -0.37,
       "asOf": "8/7 서울외환시장 주간거래 종가(15:30) 기준",
       "candles": [
-        {
-          "date": "2026-07-10",
-          "open": 1507.1,
-          "high": 1512.7,
-          "low": 1499.2,
-          "close": 1505.9
-        },
         {
           "date": "2026-07-13",
           "open": 1498.1,
@@ -1683,10 +1676,17 @@
         },
         {
           "date": "2026-08-11",
-          "open": 1417.7,
-          "high": 1418.3,
-          "low": 1417.6,
-          "close": 1417.9
+          "open": 1418.2,
+          "high": 1418.4,
+          "low": 1408.9,
+          "close": 1417.3
+        },
+        {
+          "date": "2026-08-12",
+          "open": 1412.3,
+          "high": 1412.8,
+          "low": 1411.3,
+          "close": 1412.1
         }
       ]
     },
@@ -2083,6 +2083,6 @@
       "머니투데이"
     ],
     "disclaimer": "본 자료는 정보 제공 목적의 자동 생성 리포트이며 투자 권유가 아닙니다. 최종 투자 판단과 그 책임은 투자자 본인에게 있습니다.",
-    "dataMode": "sample"
+    "dataMode": "live"
   }
 }
