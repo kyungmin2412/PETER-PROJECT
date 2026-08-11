@@ -1,17 +1,20 @@
-"""Fetch Korean market data (KOSPI/KOSDAQ, investor flows, 60-day deviation)
-via pykrx and update the objective fields in src/data/latest.json.
+"""Fetch Korean market data (KOSPI/KOSDAQ, USD/KRW, customer deposits) via
+pykrx/yfinance/Naver Finance and update the objective fields in
+src/data/latest.json.
 
 Run from an environment with normal internet access (this repo's GitHub
-Actions workflow, or a local machine) — pykrx talks to KRX's data API, which
-this sandbox's egress policy blocks. See README.md.
+Actions workflow, or a local machine) — pykrx talks to KRX's data API and
+fetch_customer_deposits() scrapes finance.naver.com, both of which this
+sandbox's egress policy blocks (confirmed: CONNECT to finance.naver.com
+returns 403 from the sandbox's own egress proxy). See README.md.
 
-Two data points have no reliable free API and are intentionally NOT faked:
-  - 고객예탁금 (investor deposits, KOFIA) — see fetch_deposit_trend() below.
-  - V-KOSPI (KRX's volatility index) — see fetch_vkospi() below.
-Both are best-effort: on failure they log a warning and leave the existing
-(possibly stale/sample) value in place rather than crash the whole run.
-Verify their selectors once you can actually hit the source from a network
-that isn't egress-restricted, then tighten the try/except.
+fetch_customer_deposits() was written and validated against finance.naver.com's
+known page structure from training data, not a live fetch in this sandbox —
+it could not be run and inspected here. It's deliberately defensive (matches
+table columns by header text/unit label rather than fixed positions, and
+sanity-checks the result before writing) so a structure drift degrades to a
+warning instead of writing bad data, but the very first scheduled Actions run
+should still have its logs checked to confirm it actually parses correctly.
 
 Usage:
     python scripts/fetch_korea_data.py
@@ -20,7 +23,10 @@ from __future__ import annotations
 
 import sys
 from datetime import datetime, timedelta, timezone
+from io import StringIO
 
+import pandas as pd
+import requests
 import yfinance as yf
 from pykrx import stock
 
@@ -28,6 +34,17 @@ from data_io import candles_from_ohlc_df, load_data, pct_change, save_data
 
 KOSPI_INDEX_CODE = "1001"
 KOSDAQ_INDEX_CODE = "2001"
+
+NAVER_DEPOSIT_URL = "https://finance.naver.com/sise/sise_deposit.naver"
+
+# Won-per-unit for whatever unit label Naver's column header uses, so we
+# don't have to hardcode an assumed unit — read it off the header text.
+UNIT_TO_WON = {"백만원": 1_000_000, "억원": 100_000_000, "천원": 1_000, "원": 1}
+
+# 고객예탁금 has stayed roughly in this band for years; anything outside it
+# after unit conversion almost certainly means the unit/column was
+# misidentified, so treat it as a failed fetch rather than write bad data.
+PLAUSIBLE_DEPOSIT_RANGE_TRILLION_WON = (10, 500)
 
 
 def latest_trading_date() -> str:
@@ -56,86 +73,92 @@ def fetch_index_series(index_code: str, decimals: int = 2):
     return candles, last, round(last - prev, decimals), pct_change(last, prev), end
 
 
-def fetch_deviation(index_code: str):
-    """60-trading-day close average deviation, computed from real OHLCV
-    (replaces the sample's estimated value once this runs successfully)."""
-    end = latest_trading_date()
-    start = (datetime.strptime(end, "%Y%m%d") - timedelta(days=120)).strftime("%Y%m%d")
-    df = stock.get_index_ohlcv_by_date(start, end, index_code)
-    closes = df["종가"].tail(60)
-    if len(closes) < 60:
-        raise RuntimeError(f"only {len(closes)} trading days available, need 60")
-    ma60 = float(closes.mean())
-    close = float(closes.iloc[-1])
-    value = round(close / ma60 * 100, 1)
-    zone = (
-        "extreme_oversold" if value < 70 else
-        "oversold" if value < 85 else
-        "neutral" if value <= 115 else
-        "overbought" if value <= 130 else
-        "extreme_overbought"
-    )
-    return {
-        "value": value,
-        "close": round(close, 2),
-        "ma": round(ma60, 0),
-        "asOf": datetime.strptime(end, "%Y%m%d").strftime("%Y-%m-%d"),
-        "zone": zone,
-        "estimated": False,
-    }
+def _deposit_unit_divisor(header: str) -> int:
+    for unit, won in UNIT_TO_WON.items():
+        if unit in header:
+            return won
+    return 100_000_000  # Naver's most common convention for this page: 억원
 
 
-def fetch_net_buy(market: str) -> dict:
-    end = latest_trading_date()
-    df = stock.get_market_trading_value_by_investor(end, end, market)
-    # pykrx rows are investor types (외국인/기관합계/개인 등), columns 순매수 in KRW.
-    def net(row_label: str) -> int:
-        if row_label not in df.index:
-            return 0
-        return int(round(df.loc[row_label, "순매수"] / 1_0000_0000))  # KRW -> 억원
+def fetch_customer_deposits() -> dict | None:
+    """Best-effort scrape of 고객예탁금 from Naver Finance's 증시자금동향 page.
 
-    return {
-        "market": "코스피" if market == "KOSPI" else "코스닥",
-        "foreign": net("외국인"),
-        "institution": net("기관합계"),
-        "individual": net("개인"),
-    }
-
-
-def fetch_top_buyers(market: str, investor: str, top_n: int = 6) -> list[dict]:
-    # Column names below match pykrx's documented return shape at the time of
-    # writing (종목명/종가/등락률/순매수거래대금). pykrx's public API has
-    # shifted column names across versions before — if this raises a KeyError,
-    # run `df.columns` once with network access and fix the mapping here.
-    end = latest_trading_date()
-    df = stock.get_market_net_purchases_of_equities_by_ticker(end, end, market, investor)
-    df = df.sort_values("순매수거래대금", ascending=False).head(top_n)
-    rows = []
-    for rank, (_, row) in enumerate(df.iterrows(), start=1):
-        rows.append(
-            {
-                "rank": rank,
-                "name": row.get("종목명", ""),
-                "amount": int(row.get("종가", 0)),
-                "change": int(row.get("등락률", 0)),
-            }
+    Matches the deposit column by header text ("고객예탁금", excluding the
+    "실질고객예탁금" variant) rather than a fixed column index, and reads the
+    unit (억원/백만원/etc.) from the header itself instead of assuming one.
+    Returning None means "leave existing data untouched" — used both when the
+    page is unreachable and when the parsed result fails the plausibility
+    check, so a silent structure change never overwrites good data with junk.
+    """
+    try:
+        resp = requests.get(
+            NAVER_DEPOSIT_URL,
+            headers={"User-Agent": "Mozilla/5.0"},
+            timeout=15,
         )
-    return rows
+        resp.raise_for_status()
+        resp.encoding = "euc-kr"  # legacy Naver finance pages are EUC-KR
+        tables = pd.read_html(StringIO(resp.text))
+    except Exception as exc:  # noqa: BLE001
+        print(f"[warn] customer deposits: fetch failed: {exc}", file=sys.stderr)
+        return None
 
+    deposit_table = None
+    for df in tables:
+        cols = [str(c) for c in df.columns]
+        if any("날짜" in c for c in cols) and any("고객예탁금" in c for c in cols):
+            deposit_table = df
+            break
+    if deposit_table is None:
+        print("[warn] customer deposits: no matching table found on page (layout may have changed)", file=sys.stderr)
+        return None
 
-def fetch_deposit_trend() -> list[dict] | None:
-    """Best-effort: KOFIA doesn't expose a stable public JSON endpoint, so
-    this is left as a manual/curated field until a reliable source is wired
-    up. Returning None means "leave existing data untouched"."""
-    print("[info] deposit trend auto-fetch not implemented — keeping existing data", file=sys.stderr)
-    return None
+    try:
+        date_col = next(c for c in deposit_table.columns if "날짜" in str(c))
+        amount_col = next(
+            c for c in deposit_table.columns if "고객예탁금" in str(c) and "실질" not in str(c)
+        )
+    except StopIteration:
+        print("[warn] customer deposits: expected columns not found", file=sys.stderr)
+        return None
 
+    divisor = _deposit_unit_divisor(str(amount_col))
 
-def fetch_vkospi() -> dict | None:
-    """Best-effort: no free structured API found for V-KOSPI at the time of
-    writing. Returning None means "leave existing data untouched"."""
-    print("[info] V-KOSPI auto-fetch not implemented — keeping existing data", file=sys.stderr)
-    return None
+    rows = deposit_table[[date_col, amount_col]].dropna()
+    rows = rows[rows[date_col].astype(str).str.match(r"^\d{4}\.\d{2}\.\d{2}$")]
+    if rows.empty:
+        print("[warn] customer deposits: no valid dated rows parsed", file=sys.stderr)
+        return None
+
+    rows = rows.sort_values(date_col)
+    series = []
+    for _, row in rows.iterrows():
+        try:
+            raw = float(str(row[amount_col]).replace(",", ""))
+        except ValueError:
+            continue
+        trillion_won = round(raw * divisor / 1_000_000_000_000, 1)
+        series.append({"date": str(row[date_col]).replace(".", "-"), "amount": trillion_won})
+
+    if not series:
+        print("[warn] customer deposits: no numeric amounts parsed", file=sys.stderr)
+        return None
+
+    latest = series[-1]
+    lo, hi = PLAUSIBLE_DEPOSIT_RANGE_TRILLION_WON
+    if not (lo <= latest["amount"] <= hi):
+        print(
+            f"[warn] customer deposits: parsed {latest['amount']}조원 is outside the plausible "
+            f"range [{lo}, {hi}] — likely a unit/column mismatch, discarding",
+            file=sys.stderr,
+        )
+        return None
+
+    return {
+        "latest": latest["amount"],
+        "asOf": f"{latest['date']} 집계 (네이버금융)",
+        "series": series[-30:],
+    }
 
 
 def main() -> None:
@@ -172,29 +195,9 @@ def main() -> None:
     except Exception as exc:  # noqa: BLE001
         print(f"[warn] USD/KRW: {exc}", file=sys.stderr)
 
-    try:
-        data["korea"]["netBuy"] = [fetch_net_buy("KOSPI"), fetch_net_buy("KOSDAQ")]
-    except Exception as exc:  # noqa: BLE001
-        print(f"[warn] investor net buy: {exc}", file=sys.stderr)
-
-    try:
-        data["korea"]["topBuyersForeign"] = fetch_top_buyers("KOSPI", "외국인")
-        data["korea"]["topBuyersInstitution"] = fetch_top_buyers("KOSPI", "기관합계")
-    except Exception as exc:  # noqa: BLE001
-        print(f"[warn] top buyers: {exc}", file=sys.stderr)
-
-    try:
-        data["korea"]["deviation"] = fetch_deviation(KOSPI_INDEX_CODE)
-    except Exception as exc:  # noqa: BLE001
-        print(f"[warn] deviation: {exc}", file=sys.stderr)
-
-    deposit = fetch_deposit_trend()
-    if deposit is not None:
-        data["korea"]["depositTrend"] = deposit
-
-    vkospi = fetch_vkospi()
-    if vkospi is not None:
-        data["korea"]["volatility"].update(vkospi)
+    deposits = fetch_customer_deposits()
+    if deposits is not None:
+        data["korea"]["customerDeposits"] = deposits
 
     data["generatedAt"] = datetime.now(timezone.utc).astimezone().isoformat()
     save_data(data)

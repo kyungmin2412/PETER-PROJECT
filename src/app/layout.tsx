@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "미국 시장 데일리 | Peter's Dashboard",
-  description: "미국·한국 시장 데일리 브리핑 대시보드",
+  title: "투자 대시보드 | Peter's Dashboard",
+  description: "미국·한국 시장 지표를 한눈에 보는 투자 대시보드",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
