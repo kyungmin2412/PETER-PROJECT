@@ -3,6 +3,13 @@ name: Deploy dashboard to GitHub Pages
 on:
   push:
     branches: [main]
+  workflow_run:
+    # update-data.yml commits with the default GITHUB_TOKEN, and pushes made
+    # with that token don't trigger other workflows' `push` events (GitHub's
+    # loop-prevention). Without this, a successful data update never
+    # redeploys the site. workflow_run isn't subject to that restriction.
+    workflows: ["Update market data"]
+    types: [completed]
   workflow_dispatch: {}
 
 permissions:
@@ -16,9 +23,12 @@ concurrency:
 
 jobs:
   build:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.ref }}
 
       - uses: actions/setup-node@v4
         with:

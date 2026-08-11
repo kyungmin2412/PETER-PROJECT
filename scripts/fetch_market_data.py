@@ -19,7 +19,7 @@ from data_io import candles_from_ohlc_df, load_data, pct_change, save_data
 
 MACRO_TICKERS = {
     "nasdaq": ("^IXIC", 2, 1.0),
-    "us10y": ("^TNX", 3, 0.1),  # Yahoo quotes ^TNX as yield * 10
+    "us10y": ("^TNX", 3, 1.0),  # yfinance returns the yield directly (e.g. 4.70 = 4.70%)
     "usdkrw": ("KRW=X", 2, 1.0),
     "wti": ("CL=F", 2, 1.0),
 }
@@ -94,6 +94,7 @@ def main() -> None:
             print(f"[warn] sector {symbol}: {exc}", file=sys.stderr)
 
     data["generatedAt"] = now_kst
+    data["meta"]["dataMode"] = "live"
     save_data(data)
     print("Updated src/data/latest.json with live US market data." if ok else
           "Updated src/data/latest.json (some tickers failed — see warnings above).")
