@@ -1,11 +1,4 @@
-"""Shared helpers for reading/writing src/data/latest.json.
-
-The fetch scripts only overwrite the *objective* (quantitative) subtrees —
-prices, candles, sector performance, investor flows, deviation, volatility.
-Editorial subtrees (macroThemes, stockCatalysts, sectorLeaders, policyWatch,
-mostWatched, koreaIssues, stockNews, and each watchlist item's `comment`)
-require human or LLM curation and are preserved as-is.
-"""
+"""Shared helpers for reading/writing src/data/latest.json."""
 from __future__ import annotations
 
 import json

@@ -1,5 +1,5 @@
-"""Fetch US market data (indices, watchlist stocks, sector ETFs) via yfinance
-and update the objective fields in src/data/latest.json.
+"""Fetch US market data (indices, sector ETFs) via yfinance and update the
+objective fields in src/data/latest.json.
 
 Run from an environment with normal internet access (this repo's GitHub
 Actions workflow, or a local machine) — it cannot run inside a network-
@@ -19,8 +19,9 @@ from data_io import candles_from_ohlc_df, load_data, pct_change, save_data
 
 MACRO_TICKERS = {
     "nasdaq": ("^IXIC", 2, 1.0),
+    "sp500": ("^GSPC", 2, 1.0),
+    "dow": ("^DJI", 2, 1.0),
     "us10y": ("^TNX", 3, 1.0),  # yfinance returns the yield directly (e.g. 4.70 = 4.70%)
-    "usdkrw": ("KRW=X", 2, 1.0),
     "wti": ("CL=F", 2, 1.0),
 }
 
@@ -63,23 +64,9 @@ def main() -> None:
 
     ok = True
     for key, (symbol, decimals, scale) in MACRO_TICKERS.items():
-        ok &= update_price_series(data["macro"][key], symbol, decimals, scale, as_of)
+        ok &= update_price_series(data["us"][key], symbol, decimals, scale, as_of)
 
-    for item in data["watchlist"]:
-        symbol = item["symbol"]
-        try:
-            hist = yf.Ticker(symbol).history(period="5d", interval="1d", auto_adjust=False)
-            if len(hist) < 2:
-                raise RuntimeError("insufficient history")
-            last = round(float(hist["Close"].iloc[-1]), 2)
-            prev = round(float(hist["Close"].iloc[-2]), 2)
-            item["close"] = last
-            item["change"] = round(last - prev, 2)
-            item["changePercent"] = pct_change(last, prev)
-        except Exception as exc:  # noqa: BLE001
-            print(f"[warn] watchlist {symbol}: {exc}", file=sys.stderr)
-
-    sector_by_symbol = {s["symbol"]: s for s in data["sectors"]}
+    sector_by_symbol = {s["symbol"]: s for s in data["us"]["sectors"]}
     for symbol in SECTOR_TICKERS:
         if symbol not in sector_by_symbol:
             continue

@@ -23,7 +23,7 @@ export function Header({ asOfLabel, generatedAt, forUser, dataMode }: HeaderProp
             className="rounded-full px-2.5 py-1 text-xs font-semibold"
             style={{ background: "var(--accent-tint)", color: "var(--accent)" }}
           >
-            US Market Daily
+            Investment Dashboard
           </span>
           {dataMode === "sample" && (
             <span
@@ -35,7 +35,7 @@ export function Header({ asOfLabel, generatedAt, forUser, dataMode }: HeaderProp
           )}
         </div>
         <h1 className="mt-3 text-3xl font-bold tracking-tight text-ink-primary">
-          미국 시장 데일리
+          투자 대시보드
         </h1>
         <p className="mt-2 text-sm text-ink-secondary">{asOfLabel}</p>
         <p className="mt-1 text-xs text-ink-muted">
