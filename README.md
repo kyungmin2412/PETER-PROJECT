@@ -16,9 +16,10 @@ GitHub Actions (스케줄 cron)   ────────────┘
   서버가 필요 없어 GitHub Pages에 바로 올라갑니다.
 - **데이터**: `src/data/latest.json` 하나가 대시보드 전체를 구동합니다. 스키마는
   `src/lib/types.ts` 참고.
-- **자동 갱신**: `.github/workflows/update-data.yml`이 평일 06:00 KST에 실행되어
+- **자동 갱신**: `.github/workflows/update-data.yml`이 평일 06:17 KST경 실행되어
   `scripts/fetch_*.py`로 실데이터를 받아 `latest.json`을 갱신하고 `main`에 커밋합니다.
   그 커밋이 `.github/workflows/deploy.yml`을 트리거해 정적 사이트를 다시 빌드·배포합니다.
+  스케줄 시각을 정각(21:00 UTC)에서 21:17 UTC로 옮긴 이유는 아래 "알려진 한계" 참고.
 - **왜 두 워크플로로 나눴나**: 이 리포를 개발한 세션은 조직 네트워크 정책상 금융
   데이터 사이트(Yahoo Finance, Investing.com, KRX 등)에 직접 접근할 수 없어서, 데이터
   수집 스크립트를 이 세션 안에서 직접 실행·검증하지 못했습니다. GitHub Actions
@@ -74,11 +75,28 @@ python scripts/fetch_korea_data.py
 
 1. 저장소 Settings → Pages → Source를 **GitHub Actions**로 설정.
 2. `main` 브랜치에 푸시하면 `deploy.yml`이 자동으로 빌드·배포합니다.
-3. `next.config.ts`의 `basePath`는 저장소 이름(`peter-project`)에 맞춰져 있습니다.
-   저장소 이름을 바꾸면 이 값도 함께 바꿔야 합니다.
+3. `next.config.ts`의 `basePath`는 `GITHUB_REPOSITORY` 환경변수(Actions가 자동 설정,
+   정확한 대소문자 포함)에서 저장소 이름을 가져옵니다. 저장소를 옮기거나 이름을
+   바꿔도 별도로 손댈 필요가 없습니다.
+4. (선택) `data.krx.co.kr`에 계정을 만들고, 저장소 Settings → Secrets and variables →
+   Actions에 `KRX_ID`, `KRX_PW`를 등록하면 한국 시장 데이터 수집이 더 안정적으로
+   동작할 가능성이 높습니다. 아래 "알려진 한계" 참고.
 
 ## 알려진 한계
 
+- **한국 시장 데이터(KOSPI/KOSDAQ/수급/이격도)가 pykrx에서 실패할 수 있습니다.**
+  2026-08-10 첫 스케줄 실행에서 실제로 전부 실패했습니다 (로그: `KRX 로그인 실패`,
+  `Expecting value: line 1 column 1`). pykrx 소스를 확인해보니 2026-04에 KRX 로그인
+  세션 기능이 추가됐고, `KRX_ID`/`KRX_PW` 환경변수가 없으면 비로그인 상태로 요청하는데
+  이게 더 이상 안정적으로 통하지 않는 것으로 보입니다. `update-data.yml`은 이미
+  `secrets.KRX_ID`/`secrets.KRX_PW`를 전달하도록 준비돼 있으니, 저장소 Secrets에
+  KRX 계정 정보를 등록하면 해결될 가능성이 높습니다 — 다만 이 세션은 KRX 접속
+  자체가 막혀 있어 등록 후 실제로 고쳐지는지는 직접 검증하지 못했습니다. 다음
+  스케줄 실행(또는 workflow_dispatch 수동 실행) 로그로 확인해 주세요.
+- **스케줄이 예정 시각보다 늦게 실행될 수 있습니다.** GitHub Actions는 예약 실행을
+  큐에 넣어 처리하는데, 정각처럼 몰리는 시간대는 지연이 흔합니다. 첫 실행이 06:00
+  KST가 아니라 약 08:05 KST에 돌았던 것도 이 때문으로, 정각(21:00 UTC)에서 21:17
+  UTC로 옮겨 완화를 시도했지만 완전히 없앨 수는 없습니다.
 - `korea.depositTrend`, `korea.volatility`는 안정적인 무료 데이터 소스가 확인되지
   않아 자동 수집이 미구현 상태입니다 (스텁 함수가 경고만 남기고 기존 값 유지).
 - `fetch_top_buyers()`가 사용하는 pykrx 컬럼명은 pykrx 문서 기준으로 작성했으며,

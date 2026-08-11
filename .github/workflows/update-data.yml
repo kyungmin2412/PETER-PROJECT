@@ -2,8 +2,11 @@ name: Update market data
 
 on:
   schedule:
-    # 06:00 KST Mon–Fri (21:00 UTC Sun–Thu), after the US market close.
-    - cron: "0 21 * * 0-4"
+    # ~06:17 KST Mon–Fri (21:17 UTC Sun–Thu), after the US market close.
+    # Off the top of the hour on purpose — GitHub queues scheduled runs and
+    # exact hour/half-hour marks see the most congestion, which is the most
+    # likely reason the 21:00-on-the-dot run landed ~2h late on 2026-08-10.
+    - cron: "17 21 * * 0-4"
   workflow_dispatch: {}
 
 permissions:
@@ -26,6 +29,9 @@ jobs:
         run: python scripts/fetch_market_data.py
 
       - name: Fetch Korea market data
+        env:
+          KRX_ID: ${{ secrets.KRX_ID }}
+          KRX_PW: ${{ secrets.KRX_PW }}
         run: python scripts/fetch_korea_data.py
 
       - name: Commit data if changed
