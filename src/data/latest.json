@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-11T23:35:14.811735+00:00",
+  "generatedAt": "2026-08-11T23:37:23.203790+00:00",
   "asOfLabel": "2026-08-07 (금) 미국 시장 종가 · 뉴욕 16:00 EDT",
   "forUser": "Peterk",
   "us": {
@@ -692,9 +692,9 @@
       "symbol": "CL",
       "name": "WTI유",
       "unit": "$/bbl",
-      "last": 83.51,
-      "change": 1.38,
-      "changePercent": 1.68,
+      "last": 83.49,
+      "change": 1.36,
+      "changePercent": 1.66,
       "asOf": "2026-08-07 (금) 미국 시장 종가 · 뉴욕 16:00 EDT",
       "candles": [
         {
@@ -856,7 +856,7 @@
           "open": 83.49,
           "high": 83.6,
           "low": 83.35,
-          "close": 83.51
+          "close": 83.49
         }
       ]
     },
