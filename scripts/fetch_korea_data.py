@@ -128,6 +128,11 @@ def fetch_customer_deposits() -> dict | None:
     rows = rows[rows[date_col].astype(str).str.match(r"^\d{4}\.\d{2}\.\d{2}$")]
     if rows.empty:
         print("[warn] customer deposits: no valid dated rows parsed", file=sys.stderr)
+        print(
+            f"[debug] customer deposits: date_col={date_col!r} amount_col={amount_col!r} "
+            f"sample rows:\n{deposit_table[[date_col, amount_col]].head(5).to_string()}",
+            file=sys.stderr,
+        )
         return None
 
     rows = rows.sort_values(date_col)
