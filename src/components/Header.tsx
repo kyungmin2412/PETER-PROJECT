@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 interface HeaderProps {
   asOfLabel: string;
   generatedAt: string;
@@ -31,12 +29,9 @@ export function Header({ generatedAt, forUser, dataMode }: HeaderProps) {
             </span>
           )}
         </div>
-        <div className="flex flex-col items-end gap-1">
-          <Image src="/logo.png" alt="페테르인베스트" width={93} height={29} priority />
-          <p className="text-xs text-ink-muted">
-            발행 {generatedLabel} KST{forUser ? ` · For. ${forUser}` : ""}
-          </p>
-        </div>
+        <p className="text-xs text-ink-muted">
+          발행 {generatedLabel} KST{forUser ? ` · For. ${forUser}` : ""}
+        </p>
       </div>
     </header>
   );
