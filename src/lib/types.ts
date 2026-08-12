@@ -23,6 +23,18 @@ export interface SectorItem {
   changePercent: number;
 }
 
+export interface BigTechItem {
+  category: string;
+  name: string;
+  ticker: string;
+  price: number;
+  change: number;
+  changePercent: number;
+  changePercent1w: number;
+  changePercent1m: number;
+  asOf: string;
+}
+
 export interface DepositPoint {
   date: string;
   amount: number;
@@ -42,6 +54,7 @@ export interface UsMarketData {
   us10y: PriceSeries;
   wti: PriceSeries;
   sectors: SectorItem[];
+  bigTech: BigTechItem[];
 }
 
 export interface KoreaMarketData {

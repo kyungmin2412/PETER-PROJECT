@@ -40,6 +40,40 @@ SECTOR_TICKERS = [
     "XLK", "XLV", "XLRE", "XLC", "XLF", "SOXX",
 ]
 
+# (구분, 티커, 종목명). SPCX (SpaceX) may not resolve via yfinance — it's
+# fetched the same defensive way as everything else here, so a failure just
+# leaves that one row's existing value in place instead of crashing the run.
+BIGTECH_TICKERS = [
+    ("HW", "AAPL", "애플"),
+    ("SW", "MSFT", "마이크로소프트"),
+    ("광고", "GOOGL", "알파벳"),
+    ("우주", "SPCX", "스페이스X"),
+    ("이커머스", "AMZN", "아마존"),
+    ("광고", "META", "메타"),
+]
+
+
+def fetch_bigtech_item(symbol: str, decimals: int = 2):
+    """1일/1주/1개월 등락률. 1주 = 최근 5거래일 전 종가 대비, 1개월 = 최근
+    21거래일 전 종가 대비 (거래일 기준, 달력일이 아님)."""
+    hist = yf.Ticker(symbol).history(period="3mo", interval="1d", auto_adjust=False)
+    closes = hist["Close"].dropna()
+    if len(closes) < 22:
+        raise RuntimeError(f"insufficient history ({len(closes)} rows, need >= 22)")
+    last = float(closes.iloc[-1])
+    prev = float(closes.iloc[-2])
+    week_ago = float(closes.iloc[-6])
+    month_ago = float(closes.iloc[-22])
+    last_date = closes.index[-1].strftime("%Y-%m-%d")
+    return (
+        round(last, decimals),
+        round(last - prev, decimals),
+        pct_change(last, prev),
+        pct_change(last, week_ago),
+        pct_change(last, month_ago),
+        last_date,
+    )
+
 
 def fetch_series(symbol: str, decimals: int, scale: float):
     hist = yf.Ticker(symbol).history(period="2mo", interval="1d", auto_adjust=False)
@@ -102,6 +136,31 @@ def main() -> None:
             sector_by_symbol[symbol]["changePercent"] = pct_change(last, prev)
         except Exception as exc:  # noqa: BLE001
             print(f"[warn] sector {symbol}: {exc}", file=sys.stderr)
+
+    bigtech_by_ticker = {item["ticker"]: item for item in data["us"]["bigTech"]}
+    for category, symbol, name in BIGTECH_TICKERS:
+        try:
+            price, change, change_pct, change_pct_1w, change_pct_1m, last_date = fetch_bigtech_item(symbol)
+        except Exception as exc:  # noqa: BLE001
+            print(f"[warn] bigtech {symbol}: {exc}", file=sys.stderr)
+            continue
+        item = bigtech_by_ticker.get(symbol)
+        if item is None:
+            item = {"category": category, "name": name, "ticker": symbol}
+            data["us"]["bigTech"].append(item)
+            bigtech_by_ticker[symbol] = item
+        item.update(
+            {
+                "category": category,
+                "name": name,
+                "price": price,
+                "change": change,
+                "changePercent": change_pct,
+                "changePercent1w": change_pct_1w,
+                "changePercent1m": change_pct_1m,
+                "asOf": format_as_of(last_date),
+            }
+        )
 
     data["generatedAt"] = now_kst
     data["meta"]["dataMode"] = "live"

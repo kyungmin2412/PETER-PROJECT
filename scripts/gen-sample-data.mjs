@@ -168,6 +168,14 @@ const data = {
       { name: "금융", symbol: "XLF", changePercent: -0.36 },
       { name: "반도체", symbol: "SOXX", changePercent: 2.02 },
     ],
+    bigTech: [
+      { category: "HW", name: "애플", ticker: "AAPL", price: 304.91, change: 1.24, changePercent: 0.41, changePercent1w: 2.1, changePercent1m: 5.4, asOf: asOfUS },
+      { category: "SW", name: "마이크로소프트", ticker: "MSFT", price: 503.81, change: -2.15, changePercent: -0.43, changePercent1w: 1.3, changePercent1m: 3.8, asOf: asOfUS },
+      { category: "광고", name: "알파벳", ticker: "GOOGL", price: 343.80, change: 3.60, changePercent: 1.06, changePercent1w: 4.2, changePercent1m: 9.1, asOf: asOfUS },
+      { category: "우주", name: "스페이스X", ticker: "SPCX", price: 133.29, change: -0.85, changePercent: -0.63, changePercent1w: -2.4, changePercent1m: 6.7, asOf: asOfUS },
+      { category: "이커머스", name: "아마존", ticker: "AMZN", price: 272.27, change: 2.22, changePercent: 0.82, changePercent1w: 1.9, changePercent1m: 4.0, asOf: asOfUS },
+      { category: "광고", name: "메타", ticker: "META", price: 599.12, change: -4.30, changePercent: -0.71, changePercent1w: 0.6, changePercent1m: 2.5, asOf: asOfUS },
+    ],
   },
   korea: {
     kospi: series({

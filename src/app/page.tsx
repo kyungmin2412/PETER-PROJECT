@@ -4,6 +4,7 @@ import type { DashboardData } from "@/lib/types";
 import { Header } from "@/components/Header";
 import { StatTile } from "@/components/StatTile";
 import { SectorGrid } from "@/components/SectorGrid";
+import { BigTechTable } from "@/components/BigTechTable";
 import { DepositChart } from "@/components/DepositChart";
 
 const data = rawData as unknown as DashboardData;
@@ -69,6 +70,10 @@ export default function Home() {
           <div className="mt-6">
             <h3 className="mb-3 text-sm font-medium text-ink-secondary">섹터별 ETF 등락률</h3>
             <SectorGrid sectors={data.us.sectors} />
+          </div>
+          <div className="mt-6">
+            <h3 className="mb-3 text-sm font-medium text-ink-secondary">빅테크</h3>
+            <BigTechTable items={data.us.bigTech} />
           </div>
         </MarketPanel>
 
