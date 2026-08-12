@@ -904,12 +904,12 @@
       {
         "name": "부동산",
         "symbol": "XLRE",
-        "changePercent": NaN
+        "changePercent": -0.72
       },
       {
         "name": "통신서비스",
         "symbol": "XLC",
-        "changePercent": NaN
+        "changePercent": -0.5
       },
       {
         "name": "금융",

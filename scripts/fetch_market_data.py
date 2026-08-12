@@ -129,10 +129,11 @@ def main() -> None:
             continue
         try:
             hist = yf.Ticker(symbol).history(period="5d", interval="1d", auto_adjust=False)
-            if len(hist) < 2:
+            closes = hist["Close"].dropna()
+            if len(closes) < 2:
                 raise RuntimeError("insufficient history")
-            last = float(hist["Close"].iloc[-1])
-            prev = float(hist["Close"].iloc[-2])
+            last = float(closes.iloc[-1])
+            prev = float(closes.iloc[-2])
             sector_by_symbol[symbol]["changePercent"] = pct_change(last, prev)
         except Exception as exc:  # noqa: BLE001
             print(f"[warn] sector {symbol}: {exc}", file=sys.stderr)
