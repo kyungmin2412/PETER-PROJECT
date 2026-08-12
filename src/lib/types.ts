@@ -56,6 +56,8 @@ export interface UsMarketData {
   sectors: SectorItem[];
   bigTech: BigTechItem[];
   aiHardware: BigTechItem[];
+  renewable: BigTechItem[];
+  powerInfra: BigTechItem[];
 }
 
 export interface KoreaMarketData {

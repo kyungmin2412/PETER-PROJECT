@@ -76,6 +76,28 @@ AI_HW_TICKERS = [
     ("전력반도체", "NVTS", "나비타스세미컨덕터"),
 ]
 
+RENEWABLE_TICKERS = [
+    ("Utility", "FSLR", "퍼스트솔라"),
+    ("Inverter", "ENPH", "엔페이즈에너지"),
+    ("Installer", "RUN", "선런"),
+    ("Tracker", "NXT", "넥스트래커"),
+    ("Tracker", "ARRY", "어레이테크놀로지스"),
+    ("EBOC", "SHLS", "숄스테크놀로지스"),
+]
+
+POWER_INFRA_TICKERS = [
+    ("SOFC", "BE", "블룸에너지"),
+    ("가스터빈", "SEI", "솔라리스에너지인프라"),
+    ("전력기기", "ETN", "이턴"),
+    ("가스터빈", "GEV", "GE버노바"),
+    ("전력설치", "PWR", "퀀타서비스"),
+    ("전력기기", "POWL", "파월인더스트리즈"),
+    ("원자력", "CEG", "컨스텔레이션에너지"),
+    ("원자력", "VST", "비스트라"),
+    ("SMR", "SMR", "뉴스케일파워"),
+    ("SMR", "OKLO", "오클로"),
+]
+
 
 def fetch_bigtech_item(symbol: str, decimals: int = 2):
     """1일/1주/1개월 등락률. 1주 = 최근 5거래일 전 종가 대비, 1개월 = 최근
@@ -194,6 +216,8 @@ def main() -> None:
 
     update_watchlist(data["us"]["bigTech"], BIGTECH_TICKERS, "bigtech")
     update_watchlist(data["us"]["aiHardware"], AI_HW_TICKERS, "ai-hw")
+    update_watchlist(data["us"]["renewable"], RENEWABLE_TICKERS, "renewable")
+    update_watchlist(data["us"]["powerInfra"], POWER_INFRA_TICKERS, "power-infra")
 
     data["generatedAt"] = now_kst
     data["meta"]["dataMode"] = "live"
