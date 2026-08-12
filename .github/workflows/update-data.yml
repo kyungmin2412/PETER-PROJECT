@@ -2,12 +2,14 @@ name: Update market data
 
 on:
   schedule:
-    # 06:30 KST every day (21:30 UTC the previous day), per explicit request.
-    # GitHub queues scheduled runs and the exact half-hour mark can see some
-    # congestion (a contributing factor in a ~2h-late run on 2026-08-10 at
-    # the top of the hour), so an actual firing a few minutes after 06:30 is
-    # expected/normal, not a failure.
-    - cron: "30 21 * * *"
+    # 06:27 KST every day (21:27 UTC the previous day), per explicit request.
+    # Originally 06:30 exactly, but that's a popular round-number slot across
+    # all of GitHub Actions and the one scheduled run so far landed ~1h35m
+    # late (queued at 21:30 UTC, actually ran 23:05 UTC) — moved a few
+    # minutes off the half-hour mark to sidestep that queuing congestion.
+    # Even so, GitHub doesn't guarantee scheduled runs fire at the exact
+    # minute, so some jitter is still expected/normal, not a failure.
+    - cron: "27 21 * * *"
   workflow_dispatch: {}
 
 permissions:
