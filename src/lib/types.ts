@@ -54,12 +54,18 @@ export interface InvestorFlowItem {
   netAmount: number;
 }
 
-export interface InvestorFlowData {
+export interface InvestorFlowPeriod {
   asOf: string;
   foreignBuy: InvestorFlowItem[];
   foreignSell: InvestorFlowItem[];
   institutionBuy: InvestorFlowItem[];
   institutionSell: InvestorFlowItem[];
+}
+
+export interface InvestorFlowData {
+  daily: InvestorFlowPeriod;
+  weekly: InvestorFlowPeriod;
+  monthly: InvestorFlowPeriod;
 }
 
 export interface UsMarketData {

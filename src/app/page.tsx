@@ -111,10 +111,7 @@ export default function Home() {
             />
           </div>
           <div className="mt-6">
-            <div className="mb-3 flex items-baseline justify-between gap-2">
-              <h3 className="text-sm font-medium text-ink-secondary">외국인/기관 순매수·순매도 상위 (거래대금순)</h3>
-              <span className="text-[11px] text-ink-muted">{data.korea.investorFlow.asOf}</span>
-            </div>
+            <h3 className="mb-3 text-sm font-medium text-ink-secondary">외국인/기관 순매수·순매도 상위 (거래대금순)</h3>
             <InvestorFlowGrid data={data.korea.investorFlow} />
           </div>
         </MarketPanel>

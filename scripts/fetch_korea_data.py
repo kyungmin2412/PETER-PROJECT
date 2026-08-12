@@ -286,13 +286,18 @@ def _krx_prev_trading_day() -> str:
     return d.strftime("%Y%m%d")
 
 
-def _pykrx_net_purchases(trd_dd: str, investor: str) -> list[dict]:
-    """전 종목의 순매수거래대금 (net buy value, already signed) for one
-    investor type on one day — sorting this list ascending/descending
-    client-side gives both the buy-top and sell-top."""
-    df = pykrx_stock.get_market_net_purchases_of_equities_by_ticker(trd_dd, trd_dd, "ALL", investor)
+def _period_range(end_trd_dd: str, days_back: int) -> tuple[str, str]:
+    end_dt = datetime.strptime(end_trd_dd, "%Y%m%d")
+    return (end_dt - timedelta(days=days_back)).strftime("%Y%m%d"), end_trd_dd
+
+
+def _pykrx_net_purchases(fromdate: str, todate: str, investor: str) -> list[dict]:
+    """전 종목의 순매수거래대금 (net buy value, already signed, summed over
+    [fromdate, todate]) for one investor type — sorting this list ascending/
+    descending client-side gives both the buy-top and sell-top."""
+    df = pykrx_stock.get_market_net_purchases_of_equities_by_ticker(fromdate, todate, "ALL", investor)
     if df is None or df.empty:
-        raise RuntimeError(f"pykrx returned no rows for investor={investor!r}, date={trd_dd}")
+        raise RuntimeError(f"pykrx returned no rows for investor={investor!r}, range={fromdate}-{todate}")
 
     parsed = []
     for code, row in df.iterrows():
@@ -308,36 +313,56 @@ def _pykrx_net_purchases(trd_dd: str, investor: str) -> list[dict]:
             }
         )
     if len(parsed) < 10:
-        raise RuntimeError(f"only {len(parsed)} rows parsed for investor={investor!r}, expected a full market list")
+        raise RuntimeError(
+            f"only {len(parsed)} rows parsed for investor={investor!r}, range={fromdate}-{todate}, "
+            "expected a full market list"
+        )
     return parsed
 
 
-def fetch_investor_top10() -> dict | None:
-    """전일 외국인/기관 순매수·순매도 상위 10종목 (거래대금 기준), via pykrx
-    (needs KRX_ID/KRX_PW env vars — see module docstring). Returning None
-    means "leave existing data untouched", same convention as
-    fetch_customer_deposits()."""
-    trd_dd = _krx_prev_trading_day()
-    try:
-        result: dict = {}
-        for label, investor in (("foreign", "외국인"), ("institution", "기관합계")):
-            parsed = _pykrx_net_purchases(trd_dd, investor)
-            buy_sorted = sorted(parsed, key=lambda x: x["netAmount"], reverse=True)[:10]
-            sell_sorted = sorted(parsed, key=lambda x: x["netAmount"])[:10]
-            result[f"{label}Buy"] = [{"rank": i + 1, **p} for i, p in enumerate(buy_sorted)]
-            result[f"{label}Sell"] = [{"rank": i + 1, **p} for i, p in enumerate(sell_sorted)]
-    except Exception as exc:  # noqa: BLE001
-        print(f"[warn] investor top10: {exc}", file=sys.stderr)
-        return None
-
-    d = datetime.strptime(trd_dd, "%Y%m%d")
+def _fetch_investor_period(fromdate: str, todate: str, as_of: str) -> dict:
+    """Raises on failure — caller decides what 'leave it untouched' means."""
+    result: dict = {}
+    for label, investor in (("foreign", "외국인"), ("institution", "기관합계")):
+        parsed = _pykrx_net_purchases(fromdate, todate, investor)
+        buy_sorted = sorted(parsed, key=lambda x: x["netAmount"], reverse=True)[:10]
+        sell_sorted = sorted(parsed, key=lambda x: x["netAmount"])[:10]
+        result[f"{label}Buy"] = [{"rank": i + 1, **p} for i, p in enumerate(buy_sorted)]
+        result[f"{label}Sell"] = [{"rank": i + 1, **p} for i, p in enumerate(sell_sorted)]
     return {
-        "asOf": f"{d.strftime('%Y-%m-%d')} 종가 기준 (KRX)",
+        "asOf": as_of,
         "foreignBuy": result["foreignBuy"],
         "foreignSell": result["foreignSell"],
         "institutionBuy": result["institutionBuy"],
         "institutionSell": result["institutionSell"],
     }
+
+
+def fetch_investor_top10() -> dict[str, dict]:
+    """전일 / 1주일 누적 / 1개월 누적 외국인·기관 순매수·순매도 상위 10종목
+    (거래대금 기준), via pykrx (needs KRX_ID/KRX_PW env vars — see module
+    docstring). Each period is fetched independently and only the periods
+    that succeed are included in the result — main() keeps whatever a
+    period already had if that period's fetch fails, rather than one bad
+    period wiping out the other two."""
+    trd_dd = _krx_prev_trading_day()
+    end_d = datetime.strptime(trd_dd, "%Y%m%d")
+    week_from, _ = _period_range(trd_dd, 6)
+    month_from, _ = _period_range(trd_dd, 30)
+
+    periods = {
+        "daily": (trd_dd, trd_dd, f"{end_d:%Y-%m-%d} 종가 기준 (KRX)"),
+        "weekly": (week_from, trd_dd, f"{week_from[:4]}-{week_from[4:6]}-{week_from[6:]} ~ {end_d:%Y-%m-%d} 누적 (KRX)"),
+        "monthly": (month_from, trd_dd, f"{month_from[:4]}-{month_from[4:6]}-{month_from[6:]} ~ {end_d:%Y-%m-%d} 누적 (KRX)"),
+    }
+
+    results: dict[str, dict] = {}
+    for period_key, (fromdate, todate, as_of) in periods.items():
+        try:
+            results[period_key] = _fetch_investor_period(fromdate, todate, as_of)
+        except Exception as exc:  # noqa: BLE001
+            print(f"[warn] investor top10 ({period_key}): {exc}", file=sys.stderr)
+    return results
 
 
 def main() -> None:
@@ -379,8 +404,9 @@ def main() -> None:
         data["korea"]["customerDeposits"] = deposits
 
     investor_flow = fetch_investor_top10()
-    if investor_flow is not None:
-        data["korea"]["investorFlow"] = investor_flow
+    data["korea"].setdefault("investorFlow", {})
+    for period_key, period_data in investor_flow.items():
+        data["korea"]["investorFlow"][period_key] = period_data
 
     data["generatedAt"] = datetime.now(timezone.utc).astimezone().isoformat()
     save_data(data)

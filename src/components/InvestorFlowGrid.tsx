@@ -1,6 +1,9 @@
+"use client";
+
+import { useState } from "react";
 import { Card } from "@/components/ui/Card";
 import { formatSigned } from "@/lib/format";
-import type { InvestorFlowData, InvestorFlowItem } from "@/lib/types";
+import type { InvestorFlowData, InvestorFlowItem, InvestorFlowPeriod } from "@/lib/types";
 
 function RankList({
   title,
@@ -38,13 +41,44 @@ function RankList({
   );
 }
 
+const PERIODS: { key: keyof InvestorFlowData; label: string }[] = [
+  { key: "daily", label: "전일" },
+  { key: "weekly", label: "1주일 누적" },
+  { key: "monthly", label: "1개월 누적" },
+];
+
 export function InvestorFlowGrid({ data }: { data: InvestorFlowData }) {
+  const [period, setPeriod] = useState<keyof InvestorFlowData>("daily");
+  const active: InvestorFlowPeriod = data[period];
+
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-      <RankList title="외국인 순매수 상위" items={data.foreignBuy} tone="up" />
-      <RankList title="외국인 순매도 상위" items={data.foreignSell} tone="down" />
-      <RankList title="기관 순매수 상위" items={data.institutionBuy} tone="up" />
-      <RankList title="기관 순매도 상위" items={data.institutionSell} tone="down" />
+    <div>
+      <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+        <div className="flex gap-1.5">
+          {PERIODS.map((p) => (
+            <button
+              key={p.key}
+              type="button"
+              onClick={() => setPeriod(p.key)}
+              className="rounded-full px-3 py-1.5 text-xs font-medium transition-colors"
+              style={
+                period === p.key
+                  ? { background: "var(--accent)", color: "#ffffff" }
+                  : { background: "var(--surface-2)", color: "var(--ink-secondary)" }
+              }
+            >
+              {p.label}
+            </button>
+          ))}
+        </div>
+        <span className="text-[11px] text-ink-muted">{active.asOf}</span>
+      </div>
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <RankList title="외국인 순매수 상위" items={active.foreignBuy} tone="up" />
+        <RankList title="외국인 순매도 상위" items={active.foreignSell} tone="down" />
+        <RankList title="기관 순매수 상위" items={active.institutionBuy} tone="up" />
+        <RankList title="기관 순매도 상위" items={active.institutionSell} tone="down" />
+      </div>
     </div>
   );
 }

@@ -2075,255 +2075,759 @@
       ]
     },
     "investorFlow": {
-      "asOf": "2026-08-11 종가 기준 (KRX)",
-      "foreignBuy": [
-        {
-          "rank": 1,
-          "name": "삼성전자",
-          "code": "005930",
-          "netAmount": 5840.9
-        },
-        {
-          "rank": 2,
-          "name": "SK스퀘어",
-          "code": "402340",
-          "netAmount": 646.1
-        },
-        {
-          "rank": 3,
-          "name": "셀트리온",
-          "code": "068270",
-          "netAmount": 634.7
-        },
-        {
-          "rank": 4,
-          "name": "삼성바이오로직스",
-          "code": "207940",
-          "netAmount": 180.8
-        },
-        {
-          "rank": 5,
-          "name": "SK",
-          "code": "034730",
-          "netAmount": 161.0
-        },
-        {
-          "rank": 6,
-          "name": "카카오",
-          "code": "035720",
-          "netAmount": 159.6
-        },
-        {
-          "rank": 7,
-          "name": "HD현대중공업",
-          "code": "329180",
-          "netAmount": 132.7
-        },
-        {
-          "rank": 8,
-          "name": "우리금융지주",
-          "code": "316140",
-          "netAmount": 119.0
-        },
-        {
-          "rank": 9,
-          "name": "아모레퍼시픽",
-          "code": "090430",
-          "netAmount": 116.4
-        },
-        {
-          "rank": 10,
-          "name": "한진칼",
-          "code": "180640",
-          "netAmount": 111.6
-        }
-      ],
-      "foreignSell": [
-        {
-          "rank": 1,
-          "name": "SK하이닉스",
-          "code": "000660",
-          "netAmount": -2985.5
-        },
-        {
-          "rank": 2,
-          "name": "삼성전기",
-          "code": "009150",
-          "netAmount": -471.0
-        },
-        {
-          "rank": 3,
-          "name": "LG전자",
-          "code": "066570",
-          "netAmount": -426.7
-        },
-        {
-          "rank": 4,
-          "name": "주성엔지니어링",
-          "code": "036930",
-          "netAmount": -372.1
-        },
-        {
-          "rank": 5,
-          "name": "삼화콘덴서",
-          "code": "001820",
-          "netAmount": -348.1
-        },
-        {
-          "rank": 6,
-          "name": "KB금융",
-          "code": "105560",
-          "netAmount": -338.5
-        },
-        {
-          "rank": 7,
-          "name": "삼성SDI",
-          "code": "006400",
-          "netAmount": -299.0
-        },
-        {
-          "rank": 8,
-          "name": "알테오젠",
-          "code": "196170",
-          "netAmount": -284.9
-        },
-        {
-          "rank": 9,
-          "name": "한화오션",
-          "code": "042660",
-          "netAmount": -266.1
-        },
-        {
-          "rank": 10,
-          "name": "CJ제일제당",
-          "code": "097950",
-          "netAmount": -261.9
-        }
-      ],
-      "institutionBuy": [
-        {
-          "rank": 1,
-          "name": "SK하이닉스",
-          "code": "000660",
-          "netAmount": 1035.3
-        },
-        {
-          "rank": 2,
-          "name": "삼성전자",
-          "code": "005930",
-          "netAmount": 763.0
-        },
-        {
-          "rank": 3,
-          "name": "삼성전자우",
-          "code": "005935",
-          "netAmount": 377.3
-        },
-        {
-          "rank": 4,
-          "name": "한화솔루션",
-          "code": "009830",
-          "netAmount": 324.6
-        },
-        {
-          "rank": 5,
-          "name": "삼성에스디에스",
-          "code": "018260",
-          "netAmount": 264.9
-        },
-        {
-          "rank": 6,
-          "name": "삼성바이오로직스",
-          "code": "207940",
-          "netAmount": 263.5
-        },
-        {
-          "rank": 7,
-          "name": "S-Oil",
-          "code": "010950",
-          "netAmount": 204.0
-        },
-        {
-          "rank": 8,
-          "name": "GS건설",
-          "code": "006360",
-          "netAmount": 176.2
-        },
-        {
-          "rank": 9,
-          "name": "제주반도체",
-          "code": "080220",
-          "netAmount": 175.9
-        },
-        {
-          "rank": 10,
-          "name": "에스피지",
-          "code": "058610",
-          "netAmount": 167.4
-        }
-      ],
-      "institutionSell": [
-        {
-          "rank": 1,
-          "name": "SK스퀘어",
-          "code": "402340",
-          "netAmount": -755.9
-        },
-        {
-          "rank": 2,
-          "name": "알테오젠",
-          "code": "196170",
-          "netAmount": -555.0
-        },
-        {
-          "rank": 3,
-          "name": "한화오션",
-          "code": "042660",
-          "netAmount": -337.0
-        },
-        {
-          "rank": 4,
-          "name": "삼양식품",
-          "code": "003230",
-          "netAmount": -271.2
-        },
-        {
-          "rank": 5,
-          "name": "HD현대중공업",
-          "code": "329180",
-          "netAmount": -247.3
-        },
-        {
-          "rank": 6,
-          "name": "한화에어로스페이스",
-          "code": "012450",
-          "netAmount": -235.1
-        },
-        {
-          "rank": 7,
-          "name": "삼성전기",
-          "code": "009150",
-          "netAmount": -201.0
-        },
-        {
-          "rank": 8,
-          "name": "두산",
-          "code": "000150",
-          "netAmount": -200.9
-        },
-        {
-          "rank": 9,
-          "name": "에코프로",
-          "code": "086520",
-          "netAmount": -191.2
-        },
-        {
-          "rank": 10,
-          "name": "한국항공우주",
-          "code": "047810",
-          "netAmount": -188.6
-        }
-      ]
+      "daily": {
+        "asOf": "2026-08-11 종가 기준 (KRX)",
+        "foreignBuy": [
+          {
+            "rank": 1,
+            "name": "삼성전자",
+            "code": "005930",
+            "netAmount": 5840.9
+          },
+          {
+            "rank": 2,
+            "name": "SK스퀘어",
+            "code": "402340",
+            "netAmount": 646.1
+          },
+          {
+            "rank": 3,
+            "name": "셀트리온",
+            "code": "068270",
+            "netAmount": 634.7
+          },
+          {
+            "rank": 4,
+            "name": "삼성바이오로직스",
+            "code": "207940",
+            "netAmount": 180.8
+          },
+          {
+            "rank": 5,
+            "name": "SK",
+            "code": "034730",
+            "netAmount": 161.0
+          },
+          {
+            "rank": 6,
+            "name": "카카오",
+            "code": "035720",
+            "netAmount": 159.6
+          },
+          {
+            "rank": 7,
+            "name": "HD현대중공업",
+            "code": "329180",
+            "netAmount": 132.7
+          },
+          {
+            "rank": 8,
+            "name": "우리금융지주",
+            "code": "316140",
+            "netAmount": 119.0
+          },
+          {
+            "rank": 9,
+            "name": "아모레퍼시픽",
+            "code": "090430",
+            "netAmount": 116.4
+          },
+          {
+            "rank": 10,
+            "name": "한진칼",
+            "code": "180640",
+            "netAmount": 111.6
+          }
+        ],
+        "foreignSell": [
+          {
+            "rank": 1,
+            "name": "SK하이닉스",
+            "code": "000660",
+            "netAmount": -2985.5
+          },
+          {
+            "rank": 2,
+            "name": "삼성전기",
+            "code": "009150",
+            "netAmount": -471.0
+          },
+          {
+            "rank": 3,
+            "name": "LG전자",
+            "code": "066570",
+            "netAmount": -426.7
+          },
+          {
+            "rank": 4,
+            "name": "주성엔지니어링",
+            "code": "036930",
+            "netAmount": -372.1
+          },
+          {
+            "rank": 5,
+            "name": "삼화콘덴서",
+            "code": "001820",
+            "netAmount": -348.1
+          },
+          {
+            "rank": 6,
+            "name": "KB금융",
+            "code": "105560",
+            "netAmount": -338.5
+          },
+          {
+            "rank": 7,
+            "name": "삼성SDI",
+            "code": "006400",
+            "netAmount": -299.0
+          },
+          {
+            "rank": 8,
+            "name": "알테오젠",
+            "code": "196170",
+            "netAmount": -284.9
+          },
+          {
+            "rank": 9,
+            "name": "한화오션",
+            "code": "042660",
+            "netAmount": -266.1
+          },
+          {
+            "rank": 10,
+            "name": "CJ제일제당",
+            "code": "097950",
+            "netAmount": -261.9
+          }
+        ],
+        "institutionBuy": [
+          {
+            "rank": 1,
+            "name": "SK하이닉스",
+            "code": "000660",
+            "netAmount": 1035.3
+          },
+          {
+            "rank": 2,
+            "name": "삼성전자",
+            "code": "005930",
+            "netAmount": 763.0
+          },
+          {
+            "rank": 3,
+            "name": "삼성전자우",
+            "code": "005935",
+            "netAmount": 377.3
+          },
+          {
+            "rank": 4,
+            "name": "한화솔루션",
+            "code": "009830",
+            "netAmount": 324.6
+          },
+          {
+            "rank": 5,
+            "name": "삼성에스디에스",
+            "code": "018260",
+            "netAmount": 264.9
+          },
+          {
+            "rank": 6,
+            "name": "삼성바이오로직스",
+            "code": "207940",
+            "netAmount": 263.5
+          },
+          {
+            "rank": 7,
+            "name": "S-Oil",
+            "code": "010950",
+            "netAmount": 204.0
+          },
+          {
+            "rank": 8,
+            "name": "GS건설",
+            "code": "006360",
+            "netAmount": 176.2
+          },
+          {
+            "rank": 9,
+            "name": "제주반도체",
+            "code": "080220",
+            "netAmount": 175.9
+          },
+          {
+            "rank": 10,
+            "name": "에스피지",
+            "code": "058610",
+            "netAmount": 167.4
+          }
+        ],
+        "institutionSell": [
+          {
+            "rank": 1,
+            "name": "SK스퀘어",
+            "code": "402340",
+            "netAmount": -755.9
+          },
+          {
+            "rank": 2,
+            "name": "알테오젠",
+            "code": "196170",
+            "netAmount": -555.0
+          },
+          {
+            "rank": 3,
+            "name": "한화오션",
+            "code": "042660",
+            "netAmount": -337.0
+          },
+          {
+            "rank": 4,
+            "name": "삼양식품",
+            "code": "003230",
+            "netAmount": -271.2
+          },
+          {
+            "rank": 5,
+            "name": "HD현대중공업",
+            "code": "329180",
+            "netAmount": -247.3
+          },
+          {
+            "rank": 6,
+            "name": "한화에어로스페이스",
+            "code": "012450",
+            "netAmount": -235.1
+          },
+          {
+            "rank": 7,
+            "name": "삼성전기",
+            "code": "009150",
+            "netAmount": -201.0
+          },
+          {
+            "rank": 8,
+            "name": "두산",
+            "code": "000150",
+            "netAmount": -200.9
+          },
+          {
+            "rank": 9,
+            "name": "에코프로",
+            "code": "086520",
+            "netAmount": -191.2
+          },
+          {
+            "rank": 10,
+            "name": "한국항공우주",
+            "code": "047810",
+            "netAmount": -188.6
+          }
+        ]
+      },
+      "weekly": {
+        "asOf": "1주일 누적 (KRX)",
+        "foreignBuy": [
+          {
+            "rank": 1,
+            "name": "현대차",
+            "code": "005380",
+            "netAmount": 4172.0
+          },
+          {
+            "rank": 2,
+            "name": "기아",
+            "code": "000270",
+            "netAmount": 3657.1
+          },
+          {
+            "rank": 3,
+            "name": "신한지주",
+            "code": "055550",
+            "netAmount": 2990.5
+          },
+          {
+            "rank": 4,
+            "name": "삼성전자",
+            "code": "005930",
+            "netAmount": 2789.6
+          },
+          {
+            "rank": 5,
+            "name": "삼성바이오로직스",
+            "code": "207940",
+            "netAmount": 2646.0
+          },
+          {
+            "rank": 6,
+            "name": "카카오",
+            "code": "035720",
+            "netAmount": 2372.3
+          },
+          {
+            "rank": 7,
+            "name": "현대모비스",
+            "code": "012330",
+            "netAmount": 2340.2
+          },
+          {
+            "rank": 8,
+            "name": "삼성SDI",
+            "code": "006400",
+            "netAmount": 2252.7
+          },
+          {
+            "rank": 9,
+            "name": "삼성물산",
+            "code": "028260",
+            "netAmount": 1157.9
+          },
+          {
+            "rank": 10,
+            "name": "HD현대중공업",
+            "code": "329180",
+            "netAmount": 807.9
+          }
+        ],
+        "foreignSell": [
+          {
+            "rank": 1,
+            "name": "현대모비스",
+            "code": "012330",
+            "netAmount": -4191.4
+          },
+          {
+            "rank": 2,
+            "name": "한화에어로스페이스",
+            "code": "012450",
+            "netAmount": -4131.4
+          },
+          {
+            "rank": 3,
+            "name": "신한지주",
+            "code": "055550",
+            "netAmount": -4108.1
+          },
+          {
+            "rank": 4,
+            "name": "POSCO홀딩스",
+            "code": "005490",
+            "netAmount": -2996.2
+          },
+          {
+            "rank": 5,
+            "name": "두산에너빌리티",
+            "code": "034020",
+            "netAmount": -2608.9
+          },
+          {
+            "rank": 6,
+            "name": "기아",
+            "code": "000270",
+            "netAmount": -2586.6
+          },
+          {
+            "rank": 7,
+            "name": "HD현대중공업",
+            "code": "329180",
+            "netAmount": -2453.4
+          },
+          {
+            "rank": 8,
+            "name": "삼성전자",
+            "code": "005930",
+            "netAmount": -1676.3
+          },
+          {
+            "rank": 9,
+            "name": "삼성물산",
+            "code": "028260",
+            "netAmount": -1095.2
+          },
+          {
+            "rank": 10,
+            "name": "셀트리온",
+            "code": "068270",
+            "netAmount": -327.4
+          }
+        ],
+        "institutionBuy": [
+          {
+            "rank": 1,
+            "name": "현대차",
+            "code": "005380",
+            "netAmount": 4759.7
+          },
+          {
+            "rank": 2,
+            "name": "SK하이닉스",
+            "code": "000660",
+            "netAmount": 4325.8
+          },
+          {
+            "rank": 3,
+            "name": "한화에어로스페이스",
+            "code": "012450",
+            "netAmount": 3756.2
+          },
+          {
+            "rank": 4,
+            "name": "POSCO홀딩스",
+            "code": "005490",
+            "netAmount": 3515.9
+          },
+          {
+            "rank": 5,
+            "name": "삼성전자",
+            "code": "005930",
+            "netAmount": 2743.7
+          },
+          {
+            "rank": 6,
+            "name": "현대모비스",
+            "code": "012330",
+            "netAmount": 1786.3
+          },
+          {
+            "rank": 7,
+            "name": "삼성바이오로직스",
+            "code": "207940",
+            "netAmount": 1756.7
+          },
+          {
+            "rank": 8,
+            "name": "네이버",
+            "code": "035420",
+            "netAmount": 1373.1
+          },
+          {
+            "rank": 9,
+            "name": "신한지주",
+            "code": "055550",
+            "netAmount": 704.9
+          },
+          {
+            "rank": 10,
+            "name": "LG에너지솔루션",
+            "code": "373220",
+            "netAmount": 605.1
+          }
+        ],
+        "institutionSell": [
+          {
+            "rank": 1,
+            "name": "현대모비스",
+            "code": "012330",
+            "netAmount": -4725.9
+          },
+          {
+            "rank": 2,
+            "name": "현대차",
+            "code": "005380",
+            "netAmount": -4648.3
+          },
+          {
+            "rank": 3,
+            "name": "POSCO홀딩스",
+            "code": "005490",
+            "netAmount": -4157.8
+          },
+          {
+            "rank": 4,
+            "name": "네이버",
+            "code": "035420",
+            "netAmount": -3984.9
+          },
+          {
+            "rank": 5,
+            "name": "신한지주",
+            "code": "055550",
+            "netAmount": -3288.9
+          },
+          {
+            "rank": 6,
+            "name": "셀트리온",
+            "code": "068270",
+            "netAmount": -1079.5
+          },
+          {
+            "rank": 7,
+            "name": "한화에어로스페이스",
+            "code": "012450",
+            "netAmount": -892.9
+          },
+          {
+            "rank": 8,
+            "name": "카카오",
+            "code": "035720",
+            "netAmount": -862.0
+          },
+          {
+            "rank": 9,
+            "name": "SK하이닉스",
+            "code": "000660",
+            "netAmount": -496.1
+          },
+          {
+            "rank": 10,
+            "name": "삼성바이오로직스",
+            "code": "207940",
+            "netAmount": -474.9
+          }
+        ]
+      },
+      "monthly": {
+        "asOf": "1개월 누적 (KRX)",
+        "foreignBuy": [
+          {
+            "rank": 1,
+            "name": "현대모비스",
+            "code": "012330",
+            "netAmount": 14150.5
+          },
+          {
+            "rank": 2,
+            "name": "한화에어로스페이스",
+            "code": "012450",
+            "netAmount": 11790.9
+          },
+          {
+            "rank": 3,
+            "name": "삼성물산",
+            "code": "028260",
+            "netAmount": 11672.9
+          },
+          {
+            "rank": 4,
+            "name": "LG화학",
+            "code": "051910",
+            "netAmount": 10724.7
+          },
+          {
+            "rank": 5,
+            "name": "셀트리온",
+            "code": "068270",
+            "netAmount": 10263.4
+          },
+          {
+            "rank": 6,
+            "name": "기아",
+            "code": "000270",
+            "netAmount": 9647.2
+          },
+          {
+            "rank": 7,
+            "name": "삼성바이오로직스",
+            "code": "207940",
+            "netAmount": 9182.4
+          },
+          {
+            "rank": 8,
+            "name": "네이버",
+            "code": "035420",
+            "netAmount": 7657.6
+          },
+          {
+            "rank": 9,
+            "name": "SK하이닉스",
+            "code": "000660",
+            "netAmount": 2281.6
+          },
+          {
+            "rank": 10,
+            "name": "LG에너지솔루션",
+            "code": "373220",
+            "netAmount": 952.5
+          }
+        ],
+        "foreignSell": [
+          {
+            "rank": 1,
+            "name": "삼성물산",
+            "code": "028260",
+            "netAmount": -14065.6
+          },
+          {
+            "rank": 2,
+            "name": "메리츠금융지주",
+            "code": "138040",
+            "netAmount": -11120.2
+          },
+          {
+            "rank": 3,
+            "name": "HD현대중공업",
+            "code": "329180",
+            "netAmount": -9569.6
+          },
+          {
+            "rank": 4,
+            "name": "신한지주",
+            "code": "055550",
+            "netAmount": -9320.3
+          },
+          {
+            "rank": 5,
+            "name": "한화에어로스페이스",
+            "code": "012450",
+            "netAmount": -9280.6
+          },
+          {
+            "rank": 6,
+            "name": "LG에너지솔루션",
+            "code": "373220",
+            "netAmount": -8504.8
+          },
+          {
+            "rank": 7,
+            "name": "두산에너빌리티",
+            "code": "034020",
+            "netAmount": -8007.8
+          },
+          {
+            "rank": 8,
+            "name": "삼성전자",
+            "code": "005930",
+            "netAmount": -7373.6
+          },
+          {
+            "rank": 9,
+            "name": "POSCO홀딩스",
+            "code": "005490",
+            "netAmount": -5916.2
+          },
+          {
+            "rank": 10,
+            "name": "삼성SDI",
+            "code": "006400",
+            "netAmount": -3200.8
+          }
+        ],
+        "institutionBuy": [
+          {
+            "rank": 1,
+            "name": "SK하이닉스",
+            "code": "000660",
+            "netAmount": 11792.3
+          },
+          {
+            "rank": 2,
+            "name": "셀트리온",
+            "code": "068270",
+            "netAmount": 11107.7
+          },
+          {
+            "rank": 3,
+            "name": "POSCO홀딩스",
+            "code": "005490",
+            "netAmount": 10047.9
+          },
+          {
+            "rank": 4,
+            "name": "현대차",
+            "code": "005380",
+            "netAmount": 8501.9
+          },
+          {
+            "rank": 5,
+            "name": "KB금융",
+            "code": "105560",
+            "netAmount": 7755.7
+          },
+          {
+            "rank": 6,
+            "name": "삼성바이오로직스",
+            "code": "207940",
+            "netAmount": 6988.6
+          },
+          {
+            "rank": 7,
+            "name": "한화에어로스페이스",
+            "code": "012450",
+            "netAmount": 4468.5
+          },
+          {
+            "rank": 8,
+            "name": "삼성물산",
+            "code": "028260",
+            "netAmount": 2377.8
+          },
+          {
+            "rank": 9,
+            "name": "두산에너빌리티",
+            "code": "034020",
+            "netAmount": 1691.2
+          },
+          {
+            "rank": 10,
+            "name": "현대모비스",
+            "code": "012330",
+            "netAmount": 918.4
+          }
+        ],
+        "institutionSell": [
+          {
+            "rank": 1,
+            "name": "네이버",
+            "code": "035420",
+            "netAmount": -14059.4
+          },
+          {
+            "rank": 2,
+            "name": "POSCO홀딩스",
+            "code": "005490",
+            "netAmount": -13604.9
+          },
+          {
+            "rank": 3,
+            "name": "신한지주",
+            "code": "055550",
+            "netAmount": -12581.5
+          },
+          {
+            "rank": 4,
+            "name": "두산에너빌리티",
+            "code": "034020",
+            "netAmount": -10656.6
+          },
+          {
+            "rank": 5,
+            "name": "LG화학",
+            "code": "051910",
+            "netAmount": -9794.2
+          },
+          {
+            "rank": 6,
+            "name": "삼성전자",
+            "code": "005930",
+            "netAmount": -4606.3
+          },
+          {
+            "rank": 7,
+            "name": "LG에너지솔루션",
+            "code": "373220",
+            "netAmount": -4111.0
+          },
+          {
+            "rank": 8,
+            "name": "현대모비스",
+            "code": "012330",
+            "netAmount": -3846.5
+          },
+          {
+            "rank": 9,
+            "name": "기아",
+            "code": "000270",
+            "netAmount": -2403.3
+          },
+          {
+            "rank": 10,
+            "name": "메리츠금융지주",
+            "code": "138040",
+            "netAmount": -1196.0
+          }
+        ]
+      }
     }
   },
   "meta": {
