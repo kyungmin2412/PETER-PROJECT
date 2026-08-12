@@ -28,7 +28,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.ref }}
+          # For workflow_run, head_sha is fixed at the commit that *triggered*
+          # update-data.yml, not the data-update commit it pushes at the end
+          # of its own run — using it here silently rebuilt the previous,
+          # pre-refresh commit on every cron-triggered deploy. head_branch
+          # checks out the branch's current tip instead, which does include
+          # that just-pushed commit.
+          ref: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_branch || github.ref }}
 
       - uses: actions/setup-node@v4
         with:
