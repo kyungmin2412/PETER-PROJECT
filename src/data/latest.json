@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-12T05:33:59.405679+00:00",
+  "generatedAt": "2026-08-12T05:42:27.677752+00:00",
   "asOfLabel": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT",
   "forUser": "Peterk",
   "us": {
@@ -11,27 +11,6 @@
       "changePercent": -0.6,
       "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT",
       "candles": [
-        {
-          "date": "2026-07-07",
-          "open": 25960.13,
-          "high": 26010.02,
-          "low": 25684.15,
-          "close": 25818.69
-        },
-        {
-          "date": "2026-07-08",
-          "open": 25704.66,
-          "high": 25896.07,
-          "low": 25526.46,
-          "close": 25870.65
-        },
-        {
-          "date": "2026-07-09",
-          "open": 25918.31,
-          "high": 26215.82,
-          "low": 25825.85,
-          "close": 26206.89
-        },
         {
           "date": "2026-07-10",
           "open": 26175.54,
@@ -82,6 +61,20 @@
           "close": 25508.07
         },
         {
+          "date": "2026-07-21",
+          "open": 25772.55,
+          "high": 25880.34,
+          "low": 25672.83,
+          "close": 25837.21
+        },
+        {
+          "date": "2026-07-22",
+          "open": 25693.72,
+          "high": 25841.31,
+          "low": 25681.32,
+          "close": 25690.9
+        },
+        {
           "date": "2026-07-23",
           "open": 25245.54,
           "high": 25358.28,
@@ -122,6 +115,13 @@
           "high": 25171.44,
           "low": 24813.84,
           "close": 25122.18
+        },
+        {
+          "date": "2026-07-31",
+          "open": 25340.71,
+          "high": 25460.86,
+          "low": 25004.33,
+          "close": 25373.85
         },
         {
           "date": "2026-08-03",
@@ -183,27 +183,6 @@
       "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT",
       "candles": [
         {
-          "date": "2026-07-07",
-          "open": 7516.63,
-          "high": 7536.06,
-          "low": 7478.63,
-          "close": 7503.85
-        },
-        {
-          "date": "2026-07-08",
-          "open": 7476.54,
-          "high": 7488.51,
-          "low": 7421.82,
-          "close": 7482.71
-        },
-        {
-          "date": "2026-07-09",
-          "open": 7491.6,
-          "high": 7546.89,
-          "low": 7481.73,
-          "close": 7543.64
-        },
-        {
           "date": "2026-07-10",
           "open": 7547.64,
           "high": 7579.93,
@@ -253,6 +232,20 @@
           "close": 7443.28
         },
         {
+          "date": "2026-07-21",
+          "open": 7489.95,
+          "high": 7515.31,
+          "low": 7467.86,
+          "close": 7509.2
+        },
+        {
+          "date": "2026-07-22",
+          "open": 7497.47,
+          "high": 7525.94,
+          "low": 7485.85,
+          "close": 7498.96
+        },
+        {
           "date": "2026-07-23",
           "open": 7418.29,
           "high": 7450.12,
@@ -293,6 +286,13 @@
           "high": 7448.75,
           "low": 7370.98,
           "close": 7437.63
+        },
+        {
+          "date": "2026-07-31",
+          "open": 7462.13,
+          "high": 7512.04,
+          "low": 7399.83,
+          "close": 7489.72
         },
         {
           "date": "2026-08-03",
@@ -354,27 +354,6 @@
       "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT",
       "candles": [
         {
-          "date": "2026-07-07",
-          "open": 53104.06,
-          "high": 53289.3,
-          "low": 52774.17,
-          "close": 52925.15
-        },
-        {
-          "date": "2026-07-08",
-          "open": 52758.47,
-          "high": 52758.47,
-          "low": 52069.87,
-          "close": 52348.39
-        },
-        {
-          "date": "2026-07-09",
-          "open": 52249.44,
-          "high": 52574.89,
-          "low": 52249.44,
-          "close": 52487.41
-        },
-        {
           "date": "2026-07-10",
           "open": 52622.92,
           "high": 52709.75,
@@ -424,6 +403,20 @@
           "close": 51839.26
         },
         {
+          "date": "2026-07-21",
+          "open": 51916.79,
+          "high": 52370.65,
+          "low": 51890.1,
+          "close": 52224.64
+        },
+        {
+          "date": "2026-07-22",
+          "open": 52287.14,
+          "high": 52511.21,
+          "low": 52148.87,
+          "close": 52218.58
+        },
+        {
           "date": "2026-07-23",
           "open": 51755.54,
           "high": 51885.14,
@@ -464,6 +457,13 @@
           "high": 52266.45,
           "low": 51655.52,
           "close": 52208.06
+        },
+        {
+          "date": "2026-07-31",
+          "open": 52235.03,
+          "high": 52623.14,
+          "low": 51996.32,
+          "close": 52485.03
         },
         {
           "date": "2026-08-03",
@@ -526,6 +526,69 @@
       "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT",
       "candles": [
         {
+          "date": "2026-07-10",
+          "open": 4.541,
+          "high": 4.571,
+          "low": 4.539,
+          "close": 4.569
+        },
+        {
+          "date": "2026-07-13",
+          "open": 4.585,
+          "high": 4.618,
+          "low": 4.573,
+          "close": 4.609
+        },
+        {
+          "date": "2026-07-14",
+          "open": 4.614,
+          "high": 4.614,
+          "low": 4.525,
+          "close": 4.585
+        },
+        {
+          "date": "2026-07-15",
+          "open": 4.608,
+          "high": 4.61,
+          "low": 4.539,
+          "close": 4.545
+        },
+        {
+          "date": "2026-07-16",
+          "open": 4.582,
+          "high": 4.596,
+          "low": 4.561,
+          "close": 4.569
+        },
+        {
+          "date": "2026-07-17",
+          "open": 4.521,
+          "high": 4.55,
+          "low": 4.511,
+          "close": 4.541
+        },
+        {
+          "date": "2026-07-20",
+          "open": 4.566,
+          "high": 4.608,
+          "low": 4.56,
+          "close": 4.598
+        },
+        {
+          "date": "2026-07-21",
+          "open": 4.6,
+          "high": 4.64,
+          "low": 4.598,
+          "close": 4.628
+        },
+        {
+          "date": "2026-07-22",
+          "open": 4.64,
+          "high": 4.661,
+          "low": 4.632,
+          "close": 4.657
+        },
+        {
           "date": "2026-07-23",
           "open": 4.699,
           "high": 4.714,
@@ -566,6 +629,13 @@
           "high": 4.686,
           "low": 4.651,
           "close": 4.663
+        },
+        {
+          "date": "2026-07-31",
+          "open": 4.684,
+          "high": 4.747,
+          "low": 4.682,
+          "close": 4.745
         },
         {
           "date": "2026-08-03",
@@ -622,9 +692,9 @@
       "symbol": "CL",
       "name": "WTI유",
       "unit": "$/bbl",
-      "last": 83.8,
-      "change": 0.6,
-      "changePercent": 0.72,
+      "last": 83.55,
+      "change": 0.35,
+      "changePercent": 0.42,
       "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT",
       "candles": [
         {
@@ -784,9 +854,9 @@
         {
           "date": "2026-08-12",
           "open": 83.49,
-          "high": 84.34,
+          "high": 84.35,
           "low": 83.35,
-          "close": 83.8
+          "close": 83.55
         }
       ]
     },
@@ -834,12 +904,12 @@
       {
         "name": "부동산",
         "symbol": "XLRE",
-        "changePercent": -0.72
+        "changePercent": -1.29
       },
       {
         "name": "통신서비스",
         "symbol": "XLC",
-        "changePercent": -0.5
+        "changePercent": 0.52
       },
       {
         "name": "금융",
@@ -890,12 +960,12 @@
         "category": "우주",
         "name": "스페이스X",
         "ticker": "SPCX",
-        "price": 133.29,
-        "change": -5.45,
-        "changePercent": -3.93,
-        "changePercent1w": 6.35,
-        "changePercent1m": -4.2,
-        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 138.74,
+        "change": 5.63,
+        "changePercent": 4.23,
+        "changePercent1w": 21.14,
+        "changePercent1m": -4.51,
+        "asOf": "2026-08-10 (월) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "이커머스",
@@ -912,12 +982,12 @@
         "category": "광고",
         "name": "메타",
         "ticker": "META",
-        "price": 599.12,
-        "change": 4.2,
-        "changePercent": 0.71,
-        "changePercent1w": 1.9,
-        "changePercent1m": -8.77,
-        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 594.92,
+        "change": 2.82,
+        "changePercent": 0.48,
+        "changePercent1w": 0.79,
+        "changePercent1m": -11.1,
+        "asOf": "2026-08-10 (월) 미국 시장 종가 · 뉴욕 16:00 EDT"
       }
     ],
     "aiHardware": [
@@ -980,12 +1050,12 @@
         "category": "SSD",
         "name": "샌디스크",
         "ticker": "SNDK",
-        "price": 1271.05,
-        "change": 33.13,
-        "changePercent": 2.68,
-        "changePercent1w": -10.97,
-        "changePercent1m": -24.07,
-        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 1237.92,
+        "change": 25.71,
+        "changePercent": 2.12,
+        "changePercent1w": -3.89,
+        "changePercent1m": -35.39,
+        "asOf": "2026-08-10 (월) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "HDD",
@@ -1002,45 +1072,45 @@
         "category": "네트워킹",
         "name": "아스테라랩스",
         "ticker": "ALAB",
-        "price": 311.99,
-        "change": -5.24,
-        "changePercent": -1.65,
-        "changePercent1w": -13.74,
-        "changePercent1m": -13.83,
-        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 317.23,
+        "change": -16.94,
+        "changePercent": -5.07,
+        "changePercent1w": -1.19,
+        "changePercent1m": -23.18,
+        "asOf": "2026-08-10 (월) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "네트워킹",
         "name": "크레도테크놀로지",
         "ticker": "CRDO",
-        "price": 247.69,
-        "change": 7.76,
-        "changePercent": 3.23,
-        "changePercent1w": 4.11,
-        "changePercent1m": 4.56,
-        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 239.93,
+        "change": -9.96,
+        "changePercent": -3.98,
+        "changePercent1w": 9.89,
+        "changePercent1m": -6.93,
+        "asOf": "2026-08-10 (월) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "네트워킹",
         "name": "아리스타네트웍스",
         "ticker": "ANET",
-        "price": 197.85,
-        "change": 6.33,
-        "changePercent": 3.31,
-        "changePercent1w": 3.85,
-        "changePercent1m": 9.22,
-        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 191.52,
+        "change": 2.85,
+        "changePercent": 1.51,
+        "changePercent1w": 3.59,
+        "changePercent1m": 2.44,
+        "asOf": "2026-08-10 (월) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "광연결",
         "name": "루멘텀홀딩스",
         "ticker": "LITE",
-        "price": 820.59,
-        "change": 7.08,
-        "changePercent": 0.87,
-        "changePercent1w": -3.4,
-        "changePercent1m": 6.83,
-        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 813.51,
+        "change": -76.66,
+        "changePercent": -8.61,
+        "changePercent1w": 4.31,
+        "changePercent1m": 1.43,
+        "asOf": "2026-08-10 (월) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "광연결",
@@ -1068,12 +1138,12 @@
         "category": "트랜시버",
         "name": "어플라이드옵토일렉트로닉스",
         "ticker": "AAOI",
-        "price": 134.33,
-        "change": 1.52,
-        "changePercent": 1.14,
-        "changePercent1w": 2.05,
-        "changePercent1m": 20.07,
-        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 132.81,
+        "change": -2.82,
+        "changePercent": -2.08,
+        "changePercent1w": 20.51,
+        "changePercent1m": 10.75,
+        "asOf": "2026-08-10 (월) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "DCI",
@@ -1090,23 +1160,23 @@
         "category": "DCI",
         "name": "키사이트테크놀로지스",
         "ticker": "KEYS",
-        "price": 343.7,
-        "change": 8.29,
-        "changePercent": 2.47,
-        "changePercent1w": 0.72,
-        "changePercent1m": 8.34,
-        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 335.41,
+        "change": -5.56,
+        "changePercent": -1.63,
+        "changePercent1w": 4.2,
+        "changePercent1m": 4.15,
+        "asOf": "2026-08-10 (월) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "전력/냉각",
         "name": "버티브홀딩스",
         "ticker": "VRT",
-        "price": 281.81,
-        "change": 11.71,
-        "changePercent": 4.34,
-        "changePercent1w": 4.4,
-        "changePercent1m": -7.87,
-        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 270.1,
+        "change": -2.3,
+        "changePercent": -0.84,
+        "changePercent1w": 2.68,
+        "changePercent1m": -15.29,
+        "asOf": "2026-08-10 (월) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "서버",
@@ -1145,12 +1215,12 @@
         "category": "전력반도체",
         "name": "나비타스세미컨덕터",
         "ticker": "NVTS",
-        "price": 13.6,
-        "change": 0.43,
-        "changePercent": 3.26,
-        "changePercent1w": 7.17,
-        "changePercent1m": 5.67,
-        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 13.17,
+        "change": -0.72,
+        "changePercent": -5.18,
+        "changePercent1w": 14.32,
+        "changePercent1m": -2.23,
+        "asOf": "2026-08-10 (월) 미국 시장 종가 · 뉴욕 16:00 EDT"
       }
     ],
     "renewable": [
@@ -1162,63 +1232,63 @@
         "change": 1.58,
         "changePercent": 0.66,
         "changePercent1w": -1.12,
-        "changePercent1m": 5.74,
+        "changePercent1m": 8.99,
         "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "Inverter",
         "name": "엔페이즈에너지",
         "ticker": "ENPH",
-        "price": 42.3,
-        "change": 1.38,
-        "changePercent": 3.37,
-        "changePercent1w": 1.27,
-        "changePercent1m": -1.76,
-        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 40.92,
+        "change": -0.95,
+        "changePercent": -2.27,
+        "changePercent1w": 3.99,
+        "changePercent1m": -8.72,
+        "asOf": "2026-08-10 (월) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "Installer",
         "name": "선런",
         "ticker": "RUN",
-        "price": 10.03,
-        "change": 0.16,
-        "changePercent": 1.62,
-        "changePercent1w": -9.07,
-        "changePercent1m": -19.18,
-        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 9.87,
+        "change": -0.33,
+        "changePercent": -3.24,
+        "changePercent1w": -5.37,
+        "changePercent1m": -20.85,
+        "asOf": "2026-08-10 (월) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "Tracker",
         "name": "넥스트래커",
         "ticker": "NXT",
-        "price": 104.88,
-        "change": 1.97,
-        "changePercent": 1.91,
-        "changePercent1w": 6.54,
-        "changePercent1m": -6.95,
-        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 102.91,
+        "change": -0.35,
+        "changePercent": -0.34,
+        "changePercent1w": 13.5,
+        "changePercent1m": -7.7,
+        "asOf": "2026-08-10 (월) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "Tracker",
         "name": "어레이테크놀로지스",
         "ticker": "ARRY",
-        "price": 5.35,
-        "change": 0.03,
-        "changePercent": 0.56,
-        "changePercent1w": -10.98,
-        "changePercent1m": -12.58,
-        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 5.32,
+        "change": -0.23,
+        "changePercent": -4.14,
+        "changePercent1w": -6.26,
+        "changePercent1m": -16.48,
+        "asOf": "2026-08-10 (월) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "EBOC",
         "name": "숄스테크놀로지스",
         "ticker": "SHLS",
-        "price": 8.73,
-        "change": 0.17,
-        "changePercent": 1.99,
-        "changePercent1w": -5.31,
-        "changePercent1m": -7.13,
-        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 8.56,
+        "change": -0.37,
+        "changePercent": -4.14,
+        "changePercent1w": -8.64,
+        "changePercent1m": -14.57,
+        "asOf": "2026-08-10 (월) 미국 시장 종가 · 뉴욕 16:00 EDT"
       }
     ],
     "powerInfra": [
@@ -1226,23 +1296,23 @@
         "category": "SOFC",
         "name": "블룸에너지",
         "ticker": "BE",
-        "price": 211.21,
-        "change": 0.58,
-        "changePercent": 0.28,
-        "changePercent1w": -7.41,
-        "changePercent1m": -9.54,
-        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 210.63,
+        "change": -8.71,
+        "changePercent": -3.97,
+        "changePercent1w": -3.52,
+        "changePercent1m": -13.89,
+        "asOf": "2026-08-10 (월) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "가스터빈",
         "name": "솔라리스에너지인프라",
         "ticker": "SEI",
-        "price": 58.79,
-        "change": 0.19,
-        "changePercent": 0.32,
-        "changePercent1w": 1.5,
-        "changePercent1m": -13.87,
-        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 58.6,
+        "change": 0.64,
+        "changePercent": 1.1,
+        "changePercent1w": 5.55,
+        "changePercent1m": -18.12,
+        "asOf": "2026-08-10 (월) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "전력기기",
@@ -1252,19 +1322,19 @@
         "change": 14.33,
         "changePercent": 3.22,
         "changePercent1w": 3.26,
-        "changePercent1m": 13.17,
+        "changePercent1m": 14.01,
         "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "가스터빈",
         "name": "GE버노바",
         "ticker": "GEV",
-        "price": 1011.88,
-        "change": 21.03,
-        "changePercent": 2.12,
-        "changePercent1w": -0.65,
-        "changePercent1m": -2.95,
-        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 990.85,
+        "change": 0.53,
+        "changePercent": 0.05,
+        "changePercent1w": -1.58,
+        "changePercent1m": -9.23,
+        "asOf": "2026-08-10 (월) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "전력설치",
@@ -1285,52 +1355,52 @@
         "change": 1.16,
         "changePercent": 0.56,
         "changePercent1w": -1.42,
-        "changePercent1m": -11.92,
+        "changePercent1m": -7.66,
         "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "원자력",
         "name": "컨스텔레이션에너지",
         "ticker": "CEG",
-        "price": 278.36,
-        "change": 7.93,
-        "changePercent": 2.93,
-        "changePercent1w": 4.16,
-        "changePercent1m": 8.07,
-        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 270.43,
+        "change": 0.54,
+        "changePercent": 0.2,
+        "changePercent1w": -1.2,
+        "changePercent1m": 7.58,
+        "asOf": "2026-08-10 (월) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "원자력",
         "name": "비스트라",
         "ticker": "VST",
-        "price": 144.92,
-        "change": 2.05,
-        "changePercent": 1.43,
-        "changePercent1w": 1.18,
-        "changePercent1m": -8.35,
-        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 142.87,
+        "change": 2.28,
+        "changePercent": 1.62,
+        "changePercent1w": -8.38,
+        "changePercent1m": -10.07,
+        "asOf": "2026-08-10 (월) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "SMR",
         "name": "뉴스케일파워",
         "ticker": "SMR",
-        "price": 9.89,
-        "change": 0.71,
-        "changePercent": 7.73,
-        "changePercent1w": 4.21,
-        "changePercent1m": 18.44,
-        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 9.18,
+        "change": -0.64,
+        "changePercent": -6.52,
+        "changePercent1w": 1.89,
+        "changePercent1m": 1.55,
+        "asOf": "2026-08-10 (월) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "SMR",
         "name": "오클로",
         "ticker": "OKLO",
-        "price": 47.01,
-        "change": 2.52,
-        "changePercent": 5.66,
-        "changePercent1w": 8.49,
-        "changePercent1m": 2.62,
-        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 44.49,
+        "change": -3.93,
+        "changePercent": -8.12,
+        "changePercent1w": 7.93,
+        "changePercent1m": -8.93,
+        "asOf": "2026-08-10 (월) 미국 시장 종가 · 뉴욕 16:00 EDT"
       }
     ],
     "enterprise": [
@@ -1338,100 +1408,100 @@
         "category": "ERP",
         "name": "SAP",
         "ticker": "SAP",
-        "price": 100.0,
-        "change": 0,
-        "changePercent": 0,
-        "changePercent1w": 0,
-        "changePercent1m": 0,
+        "price": 209.68,
+        "change": 1.13,
+        "changePercent": 0.54,
+        "changePercent1w": 7.26,
+        "changePercent1m": 31.07,
         "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "ITSW",
         "name": "서비스나우",
         "ticker": "NOW",
-        "price": 100.0,
-        "change": 0,
-        "changePercent": 0,
-        "changePercent1w": 0,
-        "changePercent1m": 0,
-        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 127.44,
+        "change": 2.56,
+        "changePercent": 2.05,
+        "changePercent1w": 11.6,
+        "changePercent1m": 18.32,
+        "asOf": "2026-08-10 (월) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "HCI",
         "name": "뉴타닉스",
         "ticker": "NTNX",
-        "price": 100.0,
-        "change": 0,
-        "changePercent": 0,
-        "changePercent1w": 0,
-        "changePercent1m": 0,
-        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 64.46,
+        "change": 1.79,
+        "changePercent": 2.86,
+        "changePercent1w": 5.57,
+        "changePercent1m": 17.65,
+        "asOf": "2026-08-10 (월) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "CPaaS",
         "name": "트윌리오",
         "ticker": "TWLO",
-        "price": 100.0,
-        "change": 0,
-        "changePercent": 0,
-        "changePercent1w": 0,
-        "changePercent1m": 0,
-        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 250.06,
+        "change": 8.78,
+        "changePercent": 3.64,
+        "changePercent1w": 27.2,
+        "changePercent1m": 16.55,
+        "asOf": "2026-08-10 (월) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "Consulting",
         "name": "액센츄어",
         "ticker": "ACN",
-        "price": 100.0,
-        "change": 0,
-        "changePercent": 0,
-        "changePercent1w": 0,
-        "changePercent1m": 0,
+        "price": 179.82,
+        "change": 1.57,
+        "changePercent": 0.88,
+        "changePercent1w": 5.51,
+        "changePercent1m": 29.82,
         "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "사이버보안",
         "name": "팔로알토네트웍스",
         "ticker": "PANW",
-        "price": 100.0,
-        "change": 0,
-        "changePercent": 0,
-        "changePercent1w": 0,
-        "changePercent1m": 0,
-        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 385.04,
+        "change": 21.18,
+        "changePercent": 5.82,
+        "changePercent1w": 10.92,
+        "changePercent1m": 18.14,
+        "asOf": "2026-08-10 (월) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "사이버보안",
         "name": "포티넷",
         "ticker": "FTNT",
-        "price": 100.0,
-        "change": 0,
-        "changePercent": 0,
-        "changePercent1w": 0,
-        "changePercent1m": 0,
+        "price": 161.89,
+        "change": -2.32,
+        "changePercent": -1.41,
+        "changePercent1w": -3.8,
+        "changePercent1m": 0.79,
         "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "사이버보안",
         "name": "크라우드스트라이크",
         "ticker": "CRWD",
-        "price": 100.0,
-        "change": 0,
-        "changePercent": 0,
-        "changePercent1w": 0,
-        "changePercent1m": 0,
-        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 225.16,
+        "change": 10.74,
+        "changePercent": 5.01,
+        "changePercent1w": 11.17,
+        "changePercent1m": 20.29,
+        "asOf": "2026-08-10 (월) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "사이버보안",
         "name": "루브릭",
         "ticker": "RBRK",
-        "price": 100.0,
-        "change": 0,
-        "changePercent": 0,
-        "changePercent1w": 0,
-        "changePercent1m": 0,
-        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 97.91,
+        "change": 7.84,
+        "changePercent": 8.7,
+        "changePercent1w": 31.0,
+        "changePercent1m": 16.03,
+        "asOf": "2026-08-10 (월) 미국 시장 종가 · 뉴욕 16:00 EDT"
       }
     ],
     "gpuColo": [
@@ -1439,45 +1509,45 @@
         "category": "GPU",
         "name": "오라클",
         "ticker": "ORCL",
-        "price": 100.0,
-        "change": 0,
-        "changePercent": 0,
-        "changePercent1w": 0,
-        "changePercent1m": 0,
+        "price": 145.48,
+        "change": -5.57,
+        "changePercent": -3.69,
+        "changePercent1w": -0.18,
+        "changePercent1m": 10.6,
         "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "GPU",
         "name": "코어위브",
         "ticker": "CRWV",
-        "price": 100.0,
-        "change": 0,
-        "changePercent": 0,
-        "changePercent1w": 0,
-        "changePercent1m": 0,
-        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 88.19,
+        "change": -2.48,
+        "changePercent": -2.74,
+        "changePercent1w": 2.83,
+        "changePercent1m": -0.78,
+        "asOf": "2026-08-10 (월) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "GPU",
         "name": "네비우스그룹",
         "ticker": "NBIS",
-        "price": 100.0,
-        "change": 0,
-        "changePercent": 0,
-        "changePercent1w": 0,
-        "changePercent1m": 0,
-        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 184.11,
+        "change": -3.86,
+        "changePercent": -2.05,
+        "changePercent1w": -13.39,
+        "changePercent1m": -16.18,
+        "asOf": "2026-08-10 (월) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "GPU",
         "name": "아이렌",
         "ticker": "IREN",
-        "price": 100.0,
-        "change": 0,
-        "changePercent": 0,
-        "changePercent1w": 0,
-        "changePercent1m": 0,
-        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 38.74,
+        "change": -2.49,
+        "changePercent": -6.04,
+        "changePercent1w": -2.54,
+        "changePercent1m": -5.83,
+        "asOf": "2026-08-10 (월) 미국 시장 종가 · 뉴욕 16:00 EDT"
       }
     ]
   },
@@ -1485,9 +1555,9 @@
     "kospi": {
       "symbol": "KOSPI",
       "name": "코스피",
-      "last": 6587.37,
-      "change": 241.84,
-      "changePercent": 3.81,
+      "last": 6581.84,
+      "change": 236.31,
+      "changePercent": 3.72,
       "asOf": "2026-08-12 코스피 종가",
       "candles": [
         {
@@ -1611,19 +1681,19 @@
         },
         {
           "date": "2026-08-12",
-          "open": 6587.37,
-          "high": 6587.37,
-          "low": 6587.37,
-          "close": 6587.37
+          "open": 6581.84,
+          "high": 6581.84,
+          "low": 6581.84,
+          "close": 6581.84
         }
       ]
     },
     "kosdaq": {
       "symbol": "KOSDAQ",
       "name": "코스닥",
-      "last": 858.54,
-      "change": 0.7,
-      "changePercent": 0.08,
+      "last": 859.9,
+      "change": 2.06,
+      "changePercent": 0.24,
       "asOf": "2026-08-12 코스닥 종가",
       "candles": [
         {
@@ -1747,19 +1817,19 @@
         },
         {
           "date": "2026-08-12",
-          "open": 858.54,
-          "high": 858.54,
-          "low": 858.54,
-          "close": 858.54
+          "open": 859.9,
+          "high": 859.9,
+          "low": 859.9,
+          "close": 859.9
         }
       ]
     },
     "usdkrw": {
       "symbol": "USDKRW",
       "name": "달러/원",
-      "last": 1414.8,
-      "change": -2.5,
-      "changePercent": -0.18,
+      "last": 1415.2,
+      "change": -2.1,
+      "changePercent": -0.15,
       "asOf": "2026-08-12 달러/원 종가",
       "candles": [
         {
@@ -1921,7 +1991,7 @@
           "open": 1412.3,
           "high": 1417.8,
           "low": 1411.1,
-          "close": 1414.8
+          "close": 1415.2
         }
       ]
     },
