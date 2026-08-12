@@ -17,6 +17,16 @@ import yfinance as yf
 
 from data_io import candles_from_ohlc_df, load_data, pct_change, save_data
 
+KOREAN_WEEKDAYS = ["월", "화", "수", "목", "금", "토", "일"]
+
+
+def format_as_of(date_str: str) -> str:
+    """'2026-08-11' -> '2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT'."""
+    d = datetime.strptime(date_str, "%Y-%m-%d")
+    weekday = KOREAN_WEEKDAYS[d.weekday()]
+    return f"{date_str} ({weekday}) 미국 시장 종가 · 뉴욕 16:00 EDT"
+
+
 MACRO_TICKERS = {
     "nasdaq": ("^IXIC", 2, 1.0),
     "sp500": ("^GSPC", 2, 1.0),
@@ -43,28 +53,41 @@ def fetch_series(symbol: str, decimals: int, scale: float):
     return candles, last, round(last - prev, decimals), pct_change(last, prev)
 
 
-def update_price_series(node: dict, symbol: str, decimals: int, scale: float, as_of: str) -> bool:
-    try:
-        candles, last, change, change_pct = fetch_series(symbol, decimals, scale)
-    except Exception as exc:  # noqa: BLE001 - log and continue with stale data
-        print(f"[warn] {symbol}: {exc}", file=sys.stderr)
-        return False
-    node["last"] = last
-    node["change"] = change
-    node["changePercent"] = change_pct
-    node["candles"] = candles
-    node["asOf"] = as_of
-    return True
-
-
 def main() -> None:
     data = load_data()
     now_kst = datetime.now(timezone.utc).astimezone().isoformat()
-    as_of = data.get("asOfLabel", "미국 시장 종가 기준")
 
+    # Fetch everything first so the as-of label can be derived from the
+    # actual latest trading day fetched, rather than reusing whatever label
+    # happened to already be stored (which never advanced — a real bug: the
+    # displayed date was frozen at the original sample's "2026-08-07" even
+    # after live prices were fetched for later trading days).
     ok = True
+    results: dict[str, tuple] = {}
     for key, (symbol, decimals, scale) in MACRO_TICKERS.items():
-        ok &= update_price_series(data["us"][key], symbol, decimals, scale, as_of)
+        try:
+            results[key] = fetch_series(symbol, decimals, scale)
+        except Exception as exc:  # noqa: BLE001 - log and continue with stale data
+            print(f"[warn] {symbol}: {exc}", file=sys.stderr)
+            ok = False
+
+    if "nasdaq" in results:
+        latest_date = results["nasdaq"][0][-1]["date"]
+        as_of = format_as_of(latest_date)
+        data["asOfLabel"] = as_of
+    else:
+        as_of = data.get("asOfLabel", "미국 시장 종가 기준")
+
+    for key in MACRO_TICKERS:
+        if key not in results:
+            continue
+        candles, last, change, change_pct = results[key]
+        node = data["us"][key]
+        node["last"] = last
+        node["change"] = change
+        node["changePercent"] = change_pct
+        node["candles"] = candles
+        node["asOf"] = as_of
 
     sector_by_symbol = {s["symbol"]: s for s in data["us"]["sectors"]}
     for symbol in SECTOR_TICKERS:

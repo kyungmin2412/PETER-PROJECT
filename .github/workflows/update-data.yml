@@ -2,11 +2,12 @@ name: Update market data
 
 on:
   schedule:
-    # ~06:17 KST Mon–Fri (21:17 UTC Sun–Thu), after the US market close.
-    # Off the top of the hour on purpose — GitHub queues scheduled runs and
-    # exact hour/half-hour marks see the most congestion, which is the most
-    # likely reason the 21:00-on-the-dot run landed ~2h late on 2026-08-10.
-    - cron: "17 21 * * 0-4"
+    # 06:30 KST every day (21:30 UTC the previous day), per explicit request.
+    # GitHub queues scheduled runs and the exact half-hour mark can see some
+    # congestion (a contributing factor in a ~2h-late run on 2026-08-10 at
+    # the top of the hour), so an actual firing a few minutes after 06:30 is
+    # expected/normal, not a failure.
+    - cron: "30 21 * * *"
   workflow_dispatch: {}
 
 permissions:

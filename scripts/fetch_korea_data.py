@@ -219,7 +219,7 @@ def main() -> None:
         prev = candles[-2]["close"]
         data["korea"]["usdkrw"].update(
             {"last": last, "change": round(last - prev, 1), "changePercent": pct_change(last, prev),
-             "candles": candles}
+             "candles": candles, "asOf": f"{candles[-1]['date']} 달러/원 종가"}
         )
     except Exception as exc:  # noqa: BLE001
         print(f"[warn] USD/KRW: {exc}", file=sys.stderr)
