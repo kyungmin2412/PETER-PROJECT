@@ -16,16 +16,16 @@
 ## 아키텍처
 
 ```
-scripts/fetch_market_data.py   (yfinance)  ─┐
-scripts/fetch_korea_data.py    (pykrx)     ─┼─▶ src/data/latest.json ─▶ Next.js 정적 빌드 ─▶ GitHub Pages
-GitHub Actions (스케줄 cron)   ────────────┘
+scripts/fetch_market_data.py   (yfinance)         ─┐
+scripts/fetch_korea_data.py    (Naver Finance 스크래핑 + yfinance) ─┼─▶ src/data/latest.json ─▶ Next.js 정적 빌드 ─▶ GitHub Pages
+GitHub Actions (스케줄 cron)   ─────────────────────┘
 ```
 
 - **프론트엔드**: Next.js (App Router) + TypeScript + Tailwind, `output: "export"`로 완전 정적 빌드.
   서버가 필요 없어 GitHub Pages에 바로 올라갑니다.
 - **데이터**: `src/data/latest.json` 하나가 대시보드 전체를 구동합니다. 스키마는
   `src/lib/types.ts` 참고.
-- **자동 갱신**: `.github/workflows/update-data.yml`이 평일 06:17 KST경 실행되어
+- **자동 갱신**: `.github/workflows/update-data.yml`이 매일 06:30 KST경 실행되어
   `scripts/fetch_*.py`로 실데이터를 받아 `latest.json`을 갱신하고 `main`에 커밋합니다.
   그 커밋이 `.github/workflows/deploy.yml`을 트리거해 정적 사이트를 다시 빌드·배포합니다.
 
@@ -37,7 +37,14 @@ investing.com은 공개 API가 없고, HTML 구조를 직접 파싱하는 방식
 
 - **미국 지표**(나스닥·S&P500·다우존스·미국채 10년·WTI·섹터 ETF): `yfinance` — 공식 API는 아니지만
   Yahoo Finance 시세를 안정적으로 반환하며, 이미 이 저장소의 기존 파이프라인에서 매일 정상 동작 중입니다.
-- **한국 지표**(코스피·코스닥·원/달러): `pykrx` (KRX 데이터), 환율은 `yfinance`.
+- **원/달러 환율**: `yfinance` (`KRW=X`).
+- **코스피·코스닥**: 네이버금융 지수 일별시세 페이지(`finance.naver.com/sise/sise_index_day.naver`)를
+  `scripts/fetch_korea_data.py`의 `fetch_naver_index_series()`가 스크래핑합니다. 원래는 `pykrx`
+  (KRX 데이터)를 썼지만 `KRX_ID`/`KRX_PW` 로그인 없이는 안정적으로 통하지 않는 것이 실제 Actions
+  실행에서 반복 확인되어, 이미 `fetch_customer_deposits()`가 정상 동작 중인 것과 같은 네이버금융
+  스크래핑 방식으로 전환했습니다. 이 페이지는 종가("체결가")만 제공하고 시가/고가/저가는 없어서,
+  캔들은 open=high=low=close로 평평하게 채웁니다 — 화면에서는 어차피 종가만 스파크라인으로
+  그리므로 문제 없습니다.
 - **고객예탁금**: 네이버금융 증시자금동향 페이지(`finance.naver.com/sise/sise_deposit.naver`)를
   `scripts/fetch_korea_data.py`의 `fetch_customer_deposits()`가 파싱합니다. 고정된 컬럼 위치
   대신 헤더 텍스트("고객예탁금", "실질고객예탁금" 제외)로 컬럼을 찾고, 단위도 헤더에 적힌 그대로
@@ -45,6 +52,12 @@ investing.com은 공개 API가 없고, HTML 구조를 직접 파싱하는 방식
   조용히 잘못된 값을 쓰는 대신 기존 값을 유지합니다. 페이지의 날짜 컬럼이 2자리 연도("26.08.10")를
   쓰고 헤더가 중복 `<tr>`이라 pandas가 2-레벨 MultiIndex로 읽는 것까지 실제 GitHub Actions 실행
   로그로 확인·수정했습니다(2026-08-11 실행에서 정상 파싱 확인됨).
+
+`fetch_naver_index_series()`(코스피/코스닥)는 `fetch_customer_deposits()`와 같은 방어 로직
+(헤더 텍스트로 컬럼 탐색, 2/4자리 연도 모두 허용, MultiIndex 평탄화, 파싱 실패 시 debug 덤프)을
+재사용하지만, 이 세션은 `finance.naver.com`에 직접 접근할 수 없어 이 함수 자체는 라이브 페이지로
+검증하지 못했습니다. 첫 실행 로그에서 `[warn] KOSPI:`/`[debug] KOSPI:` 같은 출력이 있는지 확인해
+주세요.
 
 ## 로컬 실행
 
@@ -82,14 +95,11 @@ python scripts/fetch_korea_data.py
 2. `main` 브랜치에 푸시하면 `deploy.yml`이 자동으로 빌드·배포합니다.
 3. `next.config.ts`의 `basePath`는 `GITHUB_REPOSITORY` 환경변수(Actions가 자동 설정,
    정확한 대소문자 포함)에서 저장소 이름을 가져옵니다.
-4. (선택) `data.krx.co.kr`에 계정을 만들고, 저장소 Settings → Secrets and variables →
-   Actions에 `KRX_ID`, `KRX_PW`를 등록하면 한국 시장 데이터 수집이 더 안정적으로
-   동작할 가능성이 높습니다.
 
 ## 알려진 한계
 
-- **한국 시장 데이터(코스피/코스닥)가 pykrx에서 실패합니다 (확인됨, 미해결).** `KRX_ID`/`KRX_PW`
-  시크릿이 등록되지 않은 상태에서는 비로그인 요청이 안정적으로 통하지 않아, 2026-08-11 수동
-  실행에서도 두 지수 모두 갱신에 실패했습니다(`KeyError: '지수명'`, KRX 로그인 실패 로그).
-  저장소 Settings → Secrets에 `KRX_ID`/`KRX_PW`를 등록하면 해결될 가능성이 높지만, 이 세션은
-  KRX 계정을 만들 수 없어 실제로 고쳐지는지는 검증하지 못했습니다.
+- **코스피/코스닥·고객예탁금(네이버금융 스크래핑) 전반**: 이 세션이 `finance.naver.com`에
+  직접 접근할 수 없어(에이전트 프록시가 403으로 차단), 페이지 구조가 바뀌면 이 저장소 밖에서
+  먼저 확인·수정해야 합니다. 파싱 실패 시 크래시 대신 경고만 남기고 기존 값을 유지하도록 방어적으로
+  작성돼 있지만, 그 상태로 계속 갱신이 멈출 수 있으니 Actions 로그의 `[warn]`/`[debug]` 출력을
+  주기적으로 확인하는 것을 권장합니다.

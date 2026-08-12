@@ -215,7 +215,7 @@ const data = {
     },
   },
   meta: {
-    sources: ["Yahoo Finance (yfinance)", "한국거래소(KRX) / pykrx", "금융투자협회(KOFIA)"],
+    sources: ["Yahoo Finance (yfinance)", "네이버금융 (finance.naver.com)"],
     disclaimer: "본 대시보드는 정보 제공 목적이며 투자 판단의 근거로 사용할 수 없습니다.",
     dataMode: "sample",
   },

@@ -1,18 +1,29 @@
 """Fetch Korean market data (KOSPI/KOSDAQ, USD/KRW, customer deposits) via
-pykrx/yfinance/Naver Finance and update the objective fields in
+Naver Finance (scraped) and yfinance, and update the objective fields in
 src/data/latest.json.
 
 Run from an environment with normal internet access (this repo's GitHub
-Actions workflow, or a local machine) — pykrx talks to KRX's data API and
-fetch_customer_deposits() scrapes finance.naver.com, both of which this
-sandbox's egress policy blocks (confirmed: CONNECT to finance.naver.com
-returns 403 from the sandbox's own egress proxy). See README.md.
+Actions workflow, or a local machine) — this sandbox's egress policy blocks
+finance.naver.com (confirmed: CONNECT returns 403 from the sandbox's own
+egress proxy), so nothing that scrapes it can be exercised or verified here.
+See README.md.
+
+KOSPI/KOSDAQ previously came from pykrx, which talks to KRX's data API and
+reliably failed without a KRX_ID/KRX_PW login (confirmed via live Actions
+runs: KeyError on an unauthenticated response). Switched to scraping the
+same finance.naver.com daily-index page fetch_customer_deposits() already
+uses successfully, removing the KRX login dependency entirely. Naver's page
+only exposes a daily close ("체결가"), not full OHLC, so candles are built
+flat (open = high = low = close) — fine for this dashboard, since the UI
+only ever renders the close values (as a sparkline).
 
 fetch_customer_deposits() has been verified against a live GitHub Actions
 run: the page's date column uses a 2-digit year ("26.08.10", not
-"2026.08.10") and the amount is in 억원 with no unit suffix in the header —
-both are now handled. KOSPI/KOSDAQ still fail via pykrx without
-KRX_ID/KRX_PW secrets set (pre-existing, documented in README).
+"2026.08.10"), the header renders as a duplicated <tr> that pandas reads as
+a 2-level MultiIndex, and the amount is in 억원 with no unit suffix in the
+header — all now handled. fetch_naver_index_series() (KOSPI/KOSDAQ) reuses
+the same date/MultiIndex handling but its own live-page behavior is
+unverified — check the first Actions run's logs for [warn]/[debug] output.
 
 Usage:
     python scripts/fetch_korea_data.py
@@ -21,20 +32,17 @@ from __future__ import annotations
 
 import re
 import sys
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timezone
 from io import StringIO
 
 import pandas as pd
 import requests
 import yfinance as yf
-from pykrx import stock
 
 from data_io import candles_from_ohlc_df, load_data, pct_change, save_data
 
-KOSPI_INDEX_CODE = "1001"
-KOSDAQ_INDEX_CODE = "2001"
-
 NAVER_DEPOSIT_URL = "https://finance.naver.com/sise/sise_deposit.naver"
+NAVER_INDEX_DAY_URL = "https://finance.naver.com/sise/sise_index_day.naver"
 
 # Won-per-unit for whatever unit label Naver's column header uses, so we
 # don't have to hardcode an assumed unit — read it off the header text.
@@ -46,38 +54,26 @@ UNIT_TO_WON = {"백만원": 1_000_000, "억원": 100_000_000, "천원": 1_000, "
 PLAUSIBLE_DEPOSIT_RANGE_TRILLION_WON = (10, 500)
 
 
-def latest_trading_date() -> str:
-    """Most recent KRX business day, as YYYYMMDD."""
-    today = datetime.now()
-    for offset in range(10):
-        candidate = today - timedelta(days=offset)
-        if candidate.weekday() < 5:
-            df = stock.get_index_ohlcv_by_date(
-                candidate.strftime("%Y%m%d"), candidate.strftime("%Y%m%d"), KOSPI_INDEX_CODE
-            )
-            if not df.empty:
-                return candidate.strftime("%Y%m%d")
-    raise RuntimeError("could not find a recent KRX trading date")
-
-
-def fetch_index_series(index_code: str, decimals: int = 2):
-    end = latest_trading_date()
-    start = (datetime.strptime(end, "%Y%m%d") - timedelta(days=45)).strftime("%Y%m%d")
-    df = stock.get_index_ohlcv_by_date(start, end, index_code)
-    df = df.rename(columns={"시가": "Open", "고가": "High", "저가": "Low", "종가": "Close"})
-    df = df.tail(23)
-    candles = candles_from_ohlc_df(df[["Open", "High", "Low", "Close"]], decimals)
-    last = candles[-1]["close"]
-    prev = candles[-2]["close"]
-    return candles, last, round(last - prev, decimals), pct_change(last, prev), end
+def _flatten_multiindex_columns(df: pd.DataFrame) -> None:
+    """Some Naver Finance pages render a visually-merged header as two
+    literal <tr> header rows, which pandas reads as a 2-level MultiIndex of
+    columns (confirmed live on the deposits page: columns come back as e.g.
+    ('날짜', '날짜')). Flatten to plain strings in place so every later
+    column lookup is unambiguous."""
+    if isinstance(df.columns, pd.MultiIndex):
+        df.columns = [
+            " ".join(dict.fromkeys(str(level) for level in col if str(level) != "nan"))
+            for col in df.columns
+        ]
 
 
 _NAVER_DATE_RE = re.compile(r"^(\d{2}|\d{4})\.(\d{2})\.(\d{2})$")
 
 
 def _parse_naver_date(raw: str) -> str | None:
-    """Naver's date column uses a 2-digit year ('26.08.10'), confirmed against
-    a live run's logs; also accept a 4-digit year in case that ever changes."""
+    """Naver's date columns use a 2-digit year ('26.08.10'), confirmed
+    against a live run's logs; also accept a 4-digit year in case that ever
+    changes or differs page-to-page."""
     m = _NAVER_DATE_RE.match(str(raw).strip())
     if not m:
         return None
@@ -92,6 +88,89 @@ def _deposit_unit_divisor(header: str) -> int:
         if unit in header:
             return won
     return 100_000_000  # Naver's most common convention for this page: 억원
+
+
+def fetch_naver_index_series(code: str, decimals: int = 2, pages: int = 3):
+    """Scrape KOSPI/KOSDAQ daily closes from Naver Finance's index-day page
+    (code='KOSPI' or 'KOSDAQ'). Only a daily close is available, not full
+    OHLC, so candles are built flat (open=high=low=close). Raises on
+    failure so callers' existing try/except leaves prior data untouched."""
+    rows_by_date: dict[str, float] = {}
+    close_col = None
+    first_table_sample = None
+    for page in range(1, pages + 1):
+        try:
+            resp = requests.get(
+                NAVER_INDEX_DAY_URL,
+                params={"code": code, "page": page},
+                headers={"User-Agent": "Mozilla/5.0"},
+                timeout=15,
+            )
+            resp.raise_for_status()
+            resp.encoding = "euc-kr"
+            tables = pd.read_html(StringIO(resp.text))
+        except Exception:
+            if page == 1:
+                raise
+            break  # later pages sometimes fail/render empty; stop paginating with what we have
+
+        table = None
+        for df in tables:
+            _flatten_multiindex_columns(df)
+            cols = [str(c) for c in df.columns]
+            if any("날짜" in c for c in cols) and any(
+                any(cand in c for cand in ("체결가", "종가", "지수")) for c in cols
+            ):
+                table = df
+                break
+        if table is None:
+            if page == 1:
+                raise RuntimeError(f"{code}: no matching table found on page 1 (layout may have changed)")
+            break  # later pages sometimes have no matching table; stop paginating
+
+        date_col = next(c for c in table.columns if "날짜" in str(c))
+        if close_col is None:
+            close_col = next(
+                (c for c in table.columns if any(cand in str(c) for cand in ("체결가", "종가", "지수"))),
+                None,
+            )
+        if first_table_sample is None:
+            first_table_sample = table[[date_col, close_col]].head(5).to_string()
+        rows = table[[date_col, close_col]].dropna()
+        for _, row in rows.iterrows():
+            iso_date = _parse_naver_date(row[date_col])
+            if iso_date is None:
+                continue
+            try:
+                close = float(str(row[close_col]).replace(",", ""))
+            except ValueError:
+                continue
+            rows_by_date[iso_date] = close
+
+    if len(rows_by_date) < 2:
+        print(
+            f"[debug] {code}: close_col={close_col!r} sample rows:\n{first_table_sample}",
+            file=sys.stderr,
+        )
+        raise RuntimeError(
+            f"{code}: fewer than 2 dated rows parsed across {pages} page(s) "
+            f"(close_col={close_col!r}); layout likely changed"
+        )
+
+    ordered_dates = sorted(rows_by_date)[-23:]
+    candles = [
+        {
+            "date": d,
+            "open": round(rows_by_date[d], decimals),
+            "high": round(rows_by_date[d], decimals),
+            "low": round(rows_by_date[d], decimals),
+            "close": round(rows_by_date[d], decimals),
+        }
+        for d in ordered_dates
+    ]
+    last = candles[-1]["close"]
+    prev = candles[-2]["close"]
+    return candles, last, round(last - prev, decimals), pct_change(last, prev), ordered_dates[-1]
 
 
 def fetch_customer_deposits() -> dict | None:
@@ -119,15 +198,7 @@ def fetch_customer_deposits() -> dict | None:
 
     deposit_table = None
     for df in tables:
-        # Naver's page renders a visually-merged header as two literal <tr>
-        # header rows, which pandas reads as a 2-level MultiIndex of columns
-        # (confirmed live: columns come back as e.g. ('날짜', '날짜')). Flatten
-        # to plain strings so every later column lookup is unambiguous.
-        if isinstance(df.columns, pd.MultiIndex):
-            df.columns = [
-                " ".join(dict.fromkeys(str(level) for level in col if str(level) != "nan"))
-                for col in df.columns
-            ]
+        _flatten_multiindex_columns(df)
         cols = [str(c) for c in df.columns]
         if any("날짜" in c for c in cols) and any("고객예탁금" in c for c in cols):
             deposit_table = df
@@ -194,19 +265,19 @@ def main() -> None:
     data = load_data()
 
     try:
-        candles, last, change, change_pct, end = fetch_index_series(KOSPI_INDEX_CODE)
+        candles, last, change, change_pct, end = fetch_naver_index_series("KOSPI")
         data["korea"]["kospi"].update(
             {"last": last, "change": change, "changePercent": change_pct, "candles": candles,
-             "asOf": f"{end[:4]}-{end[4:6]}-{end[6:]} 코스피 종가"}
+             "asOf": f"{end} 코스피 종가"}
         )
     except Exception as exc:  # noqa: BLE001
         print(f"[warn] KOSPI: {exc}", file=sys.stderr)
 
     try:
-        candles, last, change, change_pct, end = fetch_index_series(KOSDAQ_INDEX_CODE, decimals=2)
+        candles, last, change, change_pct, end = fetch_naver_index_series("KOSDAQ")
         data["korea"]["kosdaq"].update(
             {"last": last, "change": change, "changePercent": change_pct, "candles": candles,
-             "asOf": f"{end[:4]}-{end[4:6]}-{end[6:]} 코스닥 종가"}
+             "asOf": f"{end} 코스닥 종가"}
         )
     except Exception as exc:  # noqa: BLE001
         print(f"[warn] KOSDAQ: {exc}", file=sys.stderr)
