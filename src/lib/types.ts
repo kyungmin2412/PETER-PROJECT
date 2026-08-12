@@ -47,6 +47,21 @@ export interface CustomerDeposits {
   estimated?: boolean;
 }
 
+export interface InvestorFlowItem {
+  rank: number;
+  name: string;
+  code: string;
+  netAmount: number;
+}
+
+export interface InvestorFlowData {
+  asOf: string;
+  foreignBuy: InvestorFlowItem[];
+  foreignSell: InvestorFlowItem[];
+  institutionBuy: InvestorFlowItem[];
+  institutionSell: InvestorFlowItem[];
+}
+
 export interface UsMarketData {
   nasdaq: PriceSeries;
   sp500: PriceSeries;
@@ -67,6 +82,7 @@ export interface KoreaMarketData {
   kosdaq: PriceSeries;
   usdkrw: PriceSeries;
   customerDeposits: CustomerDeposits;
+  investorFlow: InvestorFlowData;
 }
 
 export interface DashboardMeta {

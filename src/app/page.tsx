@@ -5,6 +5,7 @@ import { Header } from "@/components/Header";
 import { StatTile } from "@/components/StatTile";
 import { SectorGrid } from "@/components/SectorGrid";
 import { BigTechTable } from "@/components/BigTechTable";
+import { InvestorFlowGrid } from "@/components/InvestorFlowGrid";
 import { DepositChart } from "@/components/DepositChart";
 
 const data = rawData as unknown as DashboardData;
@@ -108,6 +109,13 @@ export default function Home() {
               points={data.korea.customerDeposits.series}
               asOf={data.korea.customerDeposits.asOf}
             />
+          </div>
+          <div className="mt-6">
+            <div className="mb-3 flex items-baseline justify-between gap-2">
+              <h3 className="text-sm font-medium text-ink-secondary">외국인/기관 순매수·순매도 상위 (거래대금순)</h3>
+              <span className="text-[11px] text-ink-muted">{data.korea.investorFlow.asOf}</span>
+            </div>
+            <InvestorFlowGrid data={data.korea.investorFlow} />
           </div>
         </MarketPanel>
       </main>

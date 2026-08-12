@@ -25,14 +25,24 @@ header — all now handled. fetch_naver_index_series() (KOSPI/KOSDAQ) reuses
 the same date/MultiIndex handling but its own live-page behavior is
 unverified — check the first Actions run's logs for [warn]/[debug] output.
 
+fetch_investor_top10() (외국인/기관 순매수·순매도 상위) is UNVERIFIED — it
+targets KRX's own MDC JSON API rather than Naver, since Naver has no single
+scrapable page for this. Both the bld code and the response field names are
+best-effort guesses from general KRX API conventions, not confirmed against
+a live response (this sandbox can't reach data.krx.co.kr either). On
+mismatch it prints the raw response shape/sample as [debug] output instead
+of guessing further — read that from the first Actions run to fix the field
+mapping precisely.
+
 Usage:
     python scripts/fetch_korea_data.py
 """
 from __future__ import annotations
 
+import json
 import re
 import sys
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from io import StringIO
 
 import pandas as pd
@@ -43,6 +53,16 @@ from data_io import candles_from_ohlc_df, load_data, pct_change, save_data
 
 NAVER_DEPOSIT_URL = "https://finance.naver.com/sise/sise_deposit.naver"
 NAVER_INDEX_DAY_URL = "https://finance.naver.com/sise/sise_index_day.naver"
+
+KRX_MDC_URL = "https://data.krx.co.kr/comm/bldAttendant/getJsonData.cmd"
+KRX_HEADERS = {
+    "User-Agent": "Mozilla/5.0",
+    "Referer": "https://data.krx.co.kr/contents/MDC/MDI/mdiLoader/index.cmd",
+}
+# "투자자별 순매수 상위" screen's JSON bld — see module docstring: unverified.
+KRX_INVESTOR_TOP_BLD = "dbms/MDC/STAT/standard/MDCSTAT04901"
+FOREIGN_INVST_TP_CD = "9000"
+INSTITUTION_INVST_TP_CD = "7050"
 
 # Won-per-unit for whatever unit label Naver's column header uses, so we
 # don't have to hardcode an assumed unit — read it off the header text.
@@ -261,6 +281,103 @@ def fetch_customer_deposits() -> dict | None:
     }
 
 
+def _krx_prev_trading_day() -> str:
+    """Previous KST calendar weekday as YYYYMMDD. Doesn't account for Korean
+    public holidays — if trdDd lands on one, KRX returns no rows for that
+    date, which _krx_investor_net_list's caller treats as a failure (leaves
+    prior data untouched) rather than silently succeeding with an empty
+    top-10."""
+    d = datetime.now(timezone.utc) + timedelta(hours=9) - timedelta(days=1)
+    while d.weekday() >= 5:  # Sat=5, Sun=6
+        d -= timedelta(days=1)
+    return d.strftime("%Y%m%d")
+
+
+def _pick_field(row: dict, candidates: tuple[str, ...]) -> str | None:
+    return next((c for c in candidates if c in row), None)
+
+
+def _krx_investor_net_list(invst_tp_cd: str, trd_dd: str, label: str) -> list[dict]:
+    """One KRX call returns the whole market's 순매수거래대금 (net buy value,
+    already signed) for a given investor type — sorting that list ascending/
+    descending client-side gives both the buy-top and sell-top without
+    needing to guess a separate buy/sell request parameter."""
+    payload = {
+        "bld": KRX_INVESTOR_TOP_BLD,
+        "mktId": "ALL",
+        "trdDd": trd_dd,
+        "invstTpCd": invst_tp_cd,
+        "money": "1",  # 거래대금 기준
+    }
+    resp = requests.post(KRX_MDC_URL, data=payload, headers=KRX_HEADERS, timeout=15)
+    resp.raise_for_status()
+    body = resp.json()
+
+    rows = None
+    for key in ("output", "OutBlock_1", "block1", "list"):
+        if isinstance(body.get(key), list) and body[key]:
+            rows = body[key]
+            break
+    if rows is None:
+        print(f"[debug] investor top10 ({label}): unrecognized response shape, keys={list(body.keys())}", file=sys.stderr)
+        print(f"[debug] investor top10 ({label}): raw body (truncated): {json.dumps(body, ensure_ascii=False)[:2000]}", file=sys.stderr)
+        raise RuntimeError(f"unrecognized KRX response shape for invstTpCd={invst_tp_cd}")
+
+    first = rows[0]
+    name_key = _pick_field(first, ("ISU_ABBRV", "ISU_NM", "HOST_ISU_ABBRV"))
+    code_key = _pick_field(first, ("ISU_SRT_CD", "ISU_CD"))
+    amount_key = _pick_field(first, ("NETBID_TRDVAL", "NETBID_TRDVAL1", "ACC_TRDVAL"))
+    if not (name_key and amount_key):
+        print(f"[debug] investor top10 ({label}): couldn't map fields, sample row keys={list(first.keys())}", file=sys.stderr)
+        print(f"[debug] investor top10 ({label}): sample row: {first}", file=sys.stderr)
+        raise RuntimeError(f"couldn't map response fields for invstTpCd={invst_tp_cd}")
+
+    parsed = []
+    for r in rows:
+        try:
+            amount_won = float(str(r[amount_key]).replace(",", ""))
+        except (KeyError, ValueError):
+            continue
+        parsed.append(
+            {
+                "name": str(r[name_key]),
+                "code": str(r.get(code_key, "")) if code_key else "",
+                "netAmount": round(amount_won / 100_000_000, 1),  # 원 -> 억원
+            }
+        )
+    if len(parsed) < 10:
+        print(f"[debug] investor top10 ({label}): only {len(parsed)} rows parsed, expected a full market list", file=sys.stderr)
+        raise RuntimeError(f"too few rows parsed for invstTpCd={invst_tp_cd}")
+    return parsed
+
+
+def fetch_investor_top10() -> dict | None:
+    """전일 외국인/기관 순매수·순매도 상위 10종목 (거래대금 기준). Returning
+    None means "leave existing data untouched", same convention as
+    fetch_customer_deposits()."""
+    trd_dd = _krx_prev_trading_day()
+    try:
+        result: dict = {}
+        for label, invst_tp_cd in (("foreign", FOREIGN_INVST_TP_CD), ("institution", INSTITUTION_INVST_TP_CD)):
+            parsed = _krx_investor_net_list(invst_tp_cd, trd_dd, label)
+            buy_sorted = sorted(parsed, key=lambda x: x["netAmount"], reverse=True)[:10]
+            sell_sorted = sorted(parsed, key=lambda x: x["netAmount"])[:10]
+            result[f"{label}Buy"] = [{"rank": i + 1, **p} for i, p in enumerate(buy_sorted)]
+            result[f"{label}Sell"] = [{"rank": i + 1, **p} for i, p in enumerate(sell_sorted)]
+    except Exception as exc:  # noqa: BLE001
+        print(f"[warn] investor top10: {exc}", file=sys.stderr)
+        return None
+
+    d = datetime.strptime(trd_dd, "%Y%m%d")
+    return {
+        "asOf": f"{d.strftime('%Y-%m-%d')} 종가 기준 (KRX)",
+        "foreignBuy": result["foreignBuy"],
+        "foreignSell": result["foreignSell"],
+        "institutionBuy": result["institutionBuy"],
+        "institutionSell": result["institutionSell"],
+    }
+
+
 def main() -> None:
     data = load_data()
 
@@ -298,6 +415,10 @@ def main() -> None:
     deposits = fetch_customer_deposits()
     if deposits is not None:
         data["korea"]["customerDeposits"] = deposits
+
+    investor_flow = fetch_investor_top10()
+    if investor_flow is not None:
+        data["korea"]["investorFlow"] = investor_flow
 
     data["generatedAt"] = datetime.now(timezone.utc).astimezone().isoformat()
     save_data(data)
