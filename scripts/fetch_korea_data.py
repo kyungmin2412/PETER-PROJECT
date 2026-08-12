@@ -59,6 +59,11 @@ KRX_HEADERS = {
     "User-Agent": "Mozilla/5.0",
     "Referer": "https://data.krx.co.kr/contents/MDC/MDI/mdiLoader/index.cmd",
 }
+# getJsonData.cmd specifically rejects requests that don't look like the
+# page's own AJAX call — confirmed live: without this header the response
+# body is the literal string "LOGOUT" (HTTP 400), even with a valid session
+# cookie already attached.
+KRX_AJAX_HEADERS = {**KRX_HEADERS, "X-Requested-With": "XMLHttpRequest"}
 # "투자자별 순매수 상위" screen's JSON bld — see module docstring: unverified.
 KRX_INVESTOR_TOP_BLD = "dbms/MDC/STAT/standard/MDCSTAT04901"
 FOREIGN_INVST_TP_CD = "9000"
@@ -309,7 +314,7 @@ def _krx_investor_net_list(session: requests.Session, invst_tp_cd: str, trd_dd: 
         "invstTpCd": invst_tp_cd,
         "money": "1",  # 거래대금 기준
     }
-    resp = session.post(KRX_MDC_URL, data=payload, headers=KRX_HEADERS, timeout=15)
+    resp = session.post(KRX_MDC_URL, data=payload, headers=KRX_AJAX_HEADERS, timeout=15)
     if resp.status_code >= 400:
         print(
             f"[debug] investor top10 ({label}): HTTP {resp.status_code}, body (truncated): {resp.text[:1000]!r}",
