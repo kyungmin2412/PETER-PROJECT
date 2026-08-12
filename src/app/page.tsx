@@ -75,6 +75,10 @@ export default function Home() {
             <h3 className="mb-3 text-sm font-medium text-ink-secondary">빅테크</h3>
             <BigTechTable items={data.us.bigTech} />
           </div>
+          <div className="mt-6">
+            <h3 className="mb-3 text-sm font-medium text-ink-secondary">AI HW</h3>
+            <BigTechTable items={data.us.aiHardware} />
+          </div>
         </MarketPanel>
 
         <MarketPanel id="korea" flag="🇰🇷" title="한국 시장" subtitle={data.korea.kospi.asOf}>

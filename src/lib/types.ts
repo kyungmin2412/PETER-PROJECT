@@ -55,6 +55,7 @@ export interface UsMarketData {
   wti: PriceSeries;
   sectors: SectorItem[];
   bigTech: BigTechItem[];
+  aiHardware: BigTechItem[];
 }
 
 export interface KoreaMarketData {

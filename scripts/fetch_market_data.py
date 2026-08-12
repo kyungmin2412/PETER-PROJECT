@@ -52,6 +52,30 @@ BIGTECH_TICKERS = [
     ("광고", "META", "메타"),
 ]
 
+AI_HW_TICKERS = [
+    ("엔비디아", "NVDA", "엔비디아"),
+    ("ASIC/네트워킹", "AVGO", "브로드컴"),
+    ("ASIC/네트워킹", "MRVL", "마벨테크놀로지"),
+    ("GPU", "AMD", "AMD"),
+    ("메모리", "MU", "마이크론테크놀로지"),
+    ("SSD", "SNDK", "샌디스크"),
+    ("HDD", "WDC", "웨스턴디지털"),
+    ("네트워킹", "ALAB", "아스테라랩스"),
+    ("네트워킹", "CRDO", "크레도테크놀로지"),
+    ("네트워킹", "ANET", "아리스타네트웍스"),
+    ("광연결", "LITE", "루멘텀홀딩스"),
+    ("광연결", "COHR", "코히런트"),
+    ("구리/광", "SMTC", "세미테크"),
+    ("트랜시버", "AAOI", "어플라이드옵토일렉트로닉스"),
+    ("DCI", "VIAV", "바이아비솔루션즈"),
+    ("DCI", "KEYS", "키사이트테크놀로지스"),
+    ("전력/냉각", "VRT", "버티브홀딩스"),
+    ("서버", "SMCI", "슈퍼마이크로컴퓨터"),
+    ("번인장비", "AEHR", "에어테스트시스템즈"),
+    ("전력반도체", "VICR", "바이코"),
+    ("전력반도체", "NVTS", "나비타스세미컨덕터"),
+]
+
 
 def fetch_bigtech_item(symbol: str, decimals: int = 2):
     """1일/1주/1개월 등락률. 1주 = 최근 5거래일 전 종가 대비, 1개월 = 최근
@@ -73,6 +97,36 @@ def fetch_bigtech_item(symbol: str, decimals: int = 2):
         pct_change(last, month_ago),
         last_date,
     )
+
+
+def update_watchlist(items: list[dict], tickers: list[tuple[str, str, str]], label: str) -> None:
+    """Fetch each (구분, 티커, 종목명) into `items` in place: update existing
+    entries, append new ones, and leave a ticker's entry untouched (with a
+    warning) if that one fetch fails."""
+    by_ticker = {item["ticker"]: item for item in items}
+    for category, symbol, name in tickers:
+        try:
+            price, change, change_pct, change_pct_1w, change_pct_1m, last_date = fetch_bigtech_item(symbol)
+        except Exception as exc:  # noqa: BLE001
+            print(f"[warn] {label} {symbol}: {exc}", file=sys.stderr)
+            continue
+        item = by_ticker.get(symbol)
+        if item is None:
+            item = {"category": category, "name": name, "ticker": symbol}
+            items.append(item)
+            by_ticker[symbol] = item
+        item.update(
+            {
+                "category": category,
+                "name": name,
+                "price": price,
+                "change": change,
+                "changePercent": change_pct,
+                "changePercent1w": change_pct_1w,
+                "changePercent1m": change_pct_1m,
+                "asOf": format_as_of(last_date),
+            }
+        )
 
 
 def fetch_series(symbol: str, decimals: int, scale: float):
@@ -138,30 +192,8 @@ def main() -> None:
         except Exception as exc:  # noqa: BLE001
             print(f"[warn] sector {symbol}: {exc}", file=sys.stderr)
 
-    bigtech_by_ticker = {item["ticker"]: item for item in data["us"]["bigTech"]}
-    for category, symbol, name in BIGTECH_TICKERS:
-        try:
-            price, change, change_pct, change_pct_1w, change_pct_1m, last_date = fetch_bigtech_item(symbol)
-        except Exception as exc:  # noqa: BLE001
-            print(f"[warn] bigtech {symbol}: {exc}", file=sys.stderr)
-            continue
-        item = bigtech_by_ticker.get(symbol)
-        if item is None:
-            item = {"category": category, "name": name, "ticker": symbol}
-            data["us"]["bigTech"].append(item)
-            bigtech_by_ticker[symbol] = item
-        item.update(
-            {
-                "category": category,
-                "name": name,
-                "price": price,
-                "change": change,
-                "changePercent": change_pct,
-                "changePercent1w": change_pct_1w,
-                "changePercent1m": change_pct_1m,
-                "asOf": format_as_of(last_date),
-            }
-        )
+    update_watchlist(data["us"]["bigTech"], BIGTECH_TICKERS, "bigtech")
+    update_watchlist(data["us"]["aiHardware"], AI_HW_TICKERS, "ai-hw")
 
     data["generatedAt"] = now_kst
     data["meta"]["dataMode"] = "live"
