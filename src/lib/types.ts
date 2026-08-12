@@ -58,6 +58,8 @@ export interface UsMarketData {
   aiHardware: BigTechItem[];
   renewable: BigTechItem[];
   powerInfra: BigTechItem[];
+  enterprise: BigTechItem[];
+  gpuColo: BigTechItem[];
 }
 
 export interface KoreaMarketData {

@@ -98,6 +98,25 @@ POWER_INFRA_TICKERS = [
     ("SMR", "OKLO", "오클로"),
 ]
 
+ENTERPRISE_TICKERS = [
+    ("ERP", "SAP", "SAP"),
+    ("ITSW", "NOW", "서비스나우"),
+    ("HCI", "NTNX", "뉴타닉스"),
+    ("CPaaS", "TWLO", "트윌리오"),
+    ("Consulting", "ACN", "액센츄어"),
+    ("사이버보안", "PANW", "팔로알토네트웍스"),
+    ("사이버보안", "FTNT", "포티넷"),
+    ("사이버보안", "CRWD", "크라우드스트라이크"),
+    ("사이버보안", "RBRK", "루브릭"),
+]
+
+GPU_COLO_TICKERS = [
+    ("GPU", "ORCL", "오라클"),
+    ("GPU", "CRWV", "코어위브"),
+    ("GPU", "NBIS", "네비우스그룹"),
+    ("GPU", "IREN", "아이렌"),
+]
+
 
 def fetch_bigtech_item(symbol: str, decimals: int = 2):
     """1일/1주/1개월 등락률. 1주 = 최근 5거래일 전 종가 대비, 1개월 = 최근
@@ -218,6 +237,8 @@ def main() -> None:
     update_watchlist(data["us"]["aiHardware"], AI_HW_TICKERS, "ai-hw")
     update_watchlist(data["us"]["renewable"], RENEWABLE_TICKERS, "renewable")
     update_watchlist(data["us"]["powerInfra"], POWER_INFRA_TICKERS, "power-infra")
+    update_watchlist(data["us"]["enterprise"], ENTERPRISE_TICKERS, "enterprise")
+    update_watchlist(data["us"]["gpuColo"], GPU_COLO_TICKERS, "gpu-colo")
 
     data["generatedAt"] = now_kst
     data["meta"]["dataMode"] = "live"

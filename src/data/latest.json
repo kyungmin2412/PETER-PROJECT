@@ -1332,6 +1332,153 @@
         "changePercent1m": 2.62,
         "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
       }
+    ],
+    "enterprise": [
+      {
+        "category": "ERP",
+        "name": "SAP",
+        "ticker": "SAP",
+        "price": 100.0,
+        "change": 0,
+        "changePercent": 0,
+        "changePercent1w": 0,
+        "changePercent1m": 0,
+        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+      },
+      {
+        "category": "ITSW",
+        "name": "서비스나우",
+        "ticker": "NOW",
+        "price": 100.0,
+        "change": 0,
+        "changePercent": 0,
+        "changePercent1w": 0,
+        "changePercent1m": 0,
+        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+      },
+      {
+        "category": "HCI",
+        "name": "뉴타닉스",
+        "ticker": "NTNX",
+        "price": 100.0,
+        "change": 0,
+        "changePercent": 0,
+        "changePercent1w": 0,
+        "changePercent1m": 0,
+        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+      },
+      {
+        "category": "CPaaS",
+        "name": "트윌리오",
+        "ticker": "TWLO",
+        "price": 100.0,
+        "change": 0,
+        "changePercent": 0,
+        "changePercent1w": 0,
+        "changePercent1m": 0,
+        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+      },
+      {
+        "category": "Consulting",
+        "name": "액센츄어",
+        "ticker": "ACN",
+        "price": 100.0,
+        "change": 0,
+        "changePercent": 0,
+        "changePercent1w": 0,
+        "changePercent1m": 0,
+        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+      },
+      {
+        "category": "사이버보안",
+        "name": "팔로알토네트웍스",
+        "ticker": "PANW",
+        "price": 100.0,
+        "change": 0,
+        "changePercent": 0,
+        "changePercent1w": 0,
+        "changePercent1m": 0,
+        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+      },
+      {
+        "category": "사이버보안",
+        "name": "포티넷",
+        "ticker": "FTNT",
+        "price": 100.0,
+        "change": 0,
+        "changePercent": 0,
+        "changePercent1w": 0,
+        "changePercent1m": 0,
+        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+      },
+      {
+        "category": "사이버보안",
+        "name": "크라우드스트라이크",
+        "ticker": "CRWD",
+        "price": 100.0,
+        "change": 0,
+        "changePercent": 0,
+        "changePercent1w": 0,
+        "changePercent1m": 0,
+        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+      },
+      {
+        "category": "사이버보안",
+        "name": "루브릭",
+        "ticker": "RBRK",
+        "price": 100.0,
+        "change": 0,
+        "changePercent": 0,
+        "changePercent1w": 0,
+        "changePercent1m": 0,
+        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+      }
+    ],
+    "gpuColo": [
+      {
+        "category": "GPU",
+        "name": "오라클",
+        "ticker": "ORCL",
+        "price": 100.0,
+        "change": 0,
+        "changePercent": 0,
+        "changePercent1w": 0,
+        "changePercent1m": 0,
+        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+      },
+      {
+        "category": "GPU",
+        "name": "코어위브",
+        "ticker": "CRWV",
+        "price": 100.0,
+        "change": 0,
+        "changePercent": 0,
+        "changePercent1w": 0,
+        "changePercent1m": 0,
+        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+      },
+      {
+        "category": "GPU",
+        "name": "네비우스그룹",
+        "ticker": "NBIS",
+        "price": 100.0,
+        "change": 0,
+        "changePercent": 0,
+        "changePercent1w": 0,
+        "changePercent1m": 0,
+        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+      },
+      {
+        "category": "GPU",
+        "name": "아이렌",
+        "ticker": "IREN",
+        "price": 100.0,
+        "change": 0,
+        "changePercent": 0,
+        "changePercent1w": 0,
+        "changePercent1m": 0,
+        "asOf": "2026-08-11 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+      }
     ]
   },
   "korea": {

@@ -219,6 +219,23 @@ const data = {
       { category: "SMR", name: "뉴스케일파워", ticker: "SMR", price: 9.89, change: 0.16, changePercent: 1.57, changePercent1w: 3.39, changePercent1m: -3.9, asOf: asOfUS },
       { category: "SMR", name: "오클로", ticker: "OKLO", price: 47.01, change: 0.27, changePercent: 0.58, changePercent1w: 1.3, changePercent1m: 11.88, asOf: asOfUS },
     ],
+    enterprise: [
+      { category: "ERP", name: "SAP", ticker: "SAP", price: 100.0, change: 0, changePercent: 0, changePercent1w: 0, changePercent1m: 0, asOf: asOfUS },
+      { category: "ITSW", name: "서비스나우", ticker: "NOW", price: 100.0, change: 0, changePercent: 0, changePercent1w: 0, changePercent1m: 0, asOf: asOfUS },
+      { category: "HCI", name: "뉴타닉스", ticker: "NTNX", price: 100.0, change: 0, changePercent: 0, changePercent1w: 0, changePercent1m: 0, asOf: asOfUS },
+      { category: "CPaaS", name: "트윌리오", ticker: "TWLO", price: 100.0, change: 0, changePercent: 0, changePercent1w: 0, changePercent1m: 0, asOf: asOfUS },
+      { category: "Consulting", name: "액센츄어", ticker: "ACN", price: 100.0, change: 0, changePercent: 0, changePercent1w: 0, changePercent1m: 0, asOf: asOfUS },
+      { category: "사이버보안", name: "팔로알토네트웍스", ticker: "PANW", price: 100.0, change: 0, changePercent: 0, changePercent1w: 0, changePercent1m: 0, asOf: asOfUS },
+      { category: "사이버보안", name: "포티넷", ticker: "FTNT", price: 100.0, change: 0, changePercent: 0, changePercent1w: 0, changePercent1m: 0, asOf: asOfUS },
+      { category: "사이버보안", name: "크라우드스트라이크", ticker: "CRWD", price: 100.0, change: 0, changePercent: 0, changePercent1w: 0, changePercent1m: 0, asOf: asOfUS },
+      { category: "사이버보안", name: "루브릭", ticker: "RBRK", price: 100.0, change: 0, changePercent: 0, changePercent1w: 0, changePercent1m: 0, asOf: asOfUS },
+    ],
+    gpuColo: [
+      { category: "GPU", name: "오라클", ticker: "ORCL", price: 100.0, change: 0, changePercent: 0, changePercent1w: 0, changePercent1m: 0, asOf: asOfUS },
+      { category: "GPU", name: "코어위브", ticker: "CRWV", price: 100.0, change: 0, changePercent: 0, changePercent1w: 0, changePercent1m: 0, asOf: asOfUS },
+      { category: "GPU", name: "네비우스그룹", ticker: "NBIS", price: 100.0, change: 0, changePercent: 0, changePercent1w: 0, changePercent1m: 0, asOf: asOfUS },
+      { category: "GPU", name: "아이렌", ticker: "IREN", price: 100.0, change: 0, changePercent: 0, changePercent1w: 0, changePercent1m: 0, asOf: asOfUS },
+    ],
   },
   korea: {
     kospi: series({

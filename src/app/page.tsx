@@ -87,6 +87,14 @@ export default function Home() {
             <h3 className="mb-3 text-sm font-medium text-ink-secondary">전력기기/인프라</h3>
             <BigTechTable items={data.us.powerInfra} />
           </div>
+          <div className="mt-6">
+            <h3 className="mb-3 text-sm font-medium text-ink-secondary">Enterprise</h3>
+            <BigTechTable items={data.us.enterprise} />
+          </div>
+          <div className="mt-6">
+            <h3 className="mb-3 text-sm font-medium text-ink-secondary">GPU/Colo</h3>
+            <BigTechTable items={data.us.gpuColo} />
+          </div>
         </MarketPanel>
 
         <MarketPanel id="korea" flag="🇰🇷" title="한국 시장" subtitle={data.korea.kospi.asOf}>
