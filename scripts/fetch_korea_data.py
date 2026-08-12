@@ -8,19 +8,18 @@ fetch_customer_deposits() scrapes finance.naver.com, both of which this
 sandbox's egress policy blocks (confirmed: CONNECT to finance.naver.com
 returns 403 from the sandbox's own egress proxy). See README.md.
 
-fetch_customer_deposits() was written and validated against finance.naver.com's
-known page structure from training data, not a live fetch in this sandbox —
-it could not be run and inspected here. It's deliberately defensive (matches
-table columns by header text/unit label rather than fixed positions, and
-sanity-checks the result before writing) so a structure drift degrades to a
-warning instead of writing bad data, but the very first scheduled Actions run
-should still have its logs checked to confirm it actually parses correctly.
+fetch_customer_deposits() has been verified against a live GitHub Actions
+run: the page's date column uses a 2-digit year ("26.08.10", not
+"2026.08.10") and the amount is in 억원 with no unit suffix in the header —
+both are now handled. KOSPI/KOSDAQ still fail via pykrx without
+KRX_ID/KRX_PW secrets set (pre-existing, documented in README).
 
 Usage:
     python scripts/fetch_korea_data.py
 """
 from __future__ import annotations
 
+import re
 import sys
 from datetime import datetime, timedelta, timezone
 from io import StringIO
@@ -73,6 +72,21 @@ def fetch_index_series(index_code: str, decimals: int = 2):
     return candles, last, round(last - prev, decimals), pct_change(last, prev), end
 
 
+_NAVER_DATE_RE = re.compile(r"^(\d{2}|\d{4})\.(\d{2})\.(\d{2})$")
+
+
+def _parse_naver_date(raw: str) -> str | None:
+    """Naver's date column uses a 2-digit year ('26.08.10'), confirmed against
+    a live run's logs; also accept a 4-digit year in case that ever changes."""
+    m = _NAVER_DATE_RE.match(str(raw).strip())
+    if not m:
+        return None
+    year, month, day = m.groups()
+    if len(year) == 2:
+        year = f"20{year}"
+    return f"{year}-{month}-{day}"
+
+
 def _deposit_unit_divisor(header: str) -> int:
     for unit, won in UNIT_TO_WON.items():
         if unit in header:
@@ -105,6 +119,15 @@ def fetch_customer_deposits() -> dict | None:
 
     deposit_table = None
     for df in tables:
+        # Naver's page renders a visually-merged header as two literal <tr>
+        # header rows, which pandas reads as a 2-level MultiIndex of columns
+        # (confirmed live: columns come back as e.g. ('날짜', '날짜')). Flatten
+        # to plain strings so every later column lookup is unambiguous.
+        if isinstance(df.columns, pd.MultiIndex):
+            df.columns = [
+                " ".join(dict.fromkeys(str(level) for level in col if str(level) != "nan"))
+                for col in df.columns
+            ]
         cols = [str(c) for c in df.columns]
         if any("날짜" in c for c in cols) and any("고객예탁금" in c for c in cols):
             deposit_table = df
@@ -125,12 +148,18 @@ def fetch_customer_deposits() -> dict | None:
     divisor = _deposit_unit_divisor(str(amount_col))
 
     rows = deposit_table[[date_col, amount_col]].dropna()
-    rows = rows[rows[date_col].astype(str).str.match(r"^\d{4}\.\d{2}\.\d{2}$")]
+    parsed_dates = rows[date_col].map(_parse_naver_date)
+    rows = rows[parsed_dates.notna()].assign(_iso_date=parsed_dates[parsed_dates.notna()])
     if rows.empty:
         print("[warn] customer deposits: no valid dated rows parsed", file=sys.stderr)
+        print(
+            f"[debug] customer deposits: date_col={date_col!r} amount_col={amount_col!r} "
+            f"sample rows:\n{deposit_table[[date_col, amount_col]].head(5).to_string()}",
+            file=sys.stderr,
+        )
         return None
 
-    rows = rows.sort_values(date_col)
+    rows = rows.sort_values("_iso_date")
     series = []
     for _, row in rows.iterrows():
         try:
@@ -138,7 +167,7 @@ def fetch_customer_deposits() -> dict | None:
         except ValueError:
             continue
         trillion_won = round(raw * divisor / 1_000_000_000_000, 1)
-        series.append({"date": str(row[date_col]).replace(".", "-"), "amount": trillion_won})
+        series.append({"date": row["_iso_date"], "amount": trillion_won})
 
     if not series:
         print("[warn] customer deposits: no numeric amounts parsed", file=sys.stderr)

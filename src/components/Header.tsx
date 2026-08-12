@@ -5,7 +5,7 @@ interface HeaderProps {
   dataMode: "sample" | "live";
 }
 
-export function Header({ asOfLabel, generatedAt, forUser, dataMode }: HeaderProps) {
+export function Header({ generatedAt, forUser, dataMode }: HeaderProps) {
   const generated = new Date(generatedAt);
   const generatedLabel = Number.isNaN(generated.getTime())
     ? generatedAt
@@ -16,29 +16,20 @@ export function Header({ asOfLabel, generatedAt, forUser, dataMode }: HeaderProp
       });
 
   return (
-    <header style={{ background: "var(--surface)" }}>
-      <div className="mx-auto max-w-6xl px-4 py-8">
-        <div className="flex flex-wrap items-center gap-2">
-          <span
-            className="rounded-full px-2.5 py-1 text-xs font-semibold"
-            style={{ background: "var(--accent-tint)", color: "var(--accent)" }}
-          >
-            Investment Dashboard
-          </span>
+    <header className="border-b" style={{ background: "var(--surface)", borderColor: "var(--border)" }}>
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-2 px-4 py-4">
+        <div className="flex items-center gap-2">
+          <h1 className="text-lg font-bold tracking-tight text-ink-primary">투자 대시보드</h1>
           {dataMode === "sample" && (
             <span
-              className="rounded-full px-2.5 py-1 text-xs font-medium text-ink-muted"
+              className="rounded-full px-2 py-0.5 text-[11px] font-medium text-ink-muted"
               style={{ background: "var(--surface-2)" }}
             >
               샘플 데이터
             </span>
           )}
         </div>
-        <h1 className="mt-3 text-3xl font-bold tracking-tight text-ink-primary">
-          투자 대시보드
-        </h1>
-        <p className="mt-2 text-sm text-ink-secondary">{asOfLabel}</p>
-        <p className="mt-1 text-xs text-ink-muted">
+        <p className="text-xs text-ink-muted">
           발행 {generatedLabel} KST{forUser ? ` · For. ${forUser}` : ""}
         </p>
       </div>
