@@ -297,7 +297,7 @@ def _pick_field(row: dict, candidates: tuple[str, ...]) -> str | None:
     return next((c for c in candidates if c in row), None)
 
 
-def _krx_investor_net_list(invst_tp_cd: str, trd_dd: str, label: str) -> list[dict]:
+def _krx_investor_net_list(session: requests.Session, invst_tp_cd: str, trd_dd: str, label: str) -> list[dict]:
     """One KRX call returns the whole market's 순매수거래대금 (net buy value,
     already signed) for a given investor type — sorting that list ascending/
     descending client-side gives both the buy-top and sell-top without
@@ -309,7 +309,12 @@ def _krx_investor_net_list(invst_tp_cd: str, trd_dd: str, label: str) -> list[di
         "invstTpCd": invst_tp_cd,
         "money": "1",  # 거래대금 기준
     }
-    resp = requests.post(KRX_MDC_URL, data=payload, headers=KRX_HEADERS, timeout=15)
+    resp = session.post(KRX_MDC_URL, data=payload, headers=KRX_HEADERS, timeout=15)
+    if resp.status_code >= 400:
+        print(
+            f"[debug] investor top10 ({label}): HTTP {resp.status_code}, body (truncated): {resp.text[:1000]!r}",
+            file=sys.stderr,
+        )
     resp.raise_for_status()
     body = resp.json()
 
@@ -357,9 +362,20 @@ def fetch_investor_top10() -> dict | None:
     fetch_customer_deposits()."""
     trd_dd = _krx_prev_trading_day()
     try:
+        # KRX's WAF rejects the JSON POST with a bare 400 unless the client
+        # already carries a session cookie from a normal page visit first
+        # (confirmed live: the very first attempt without this got exactly
+        # that 400, before the request even reached JSON parsing).
+        session = requests.Session()
+        session.get(
+            "https://data.krx.co.kr/contents/MDC/MDI/mdiLoader/index.cmd",
+            headers=KRX_HEADERS,
+            timeout=15,
+        )
+
         result: dict = {}
         for label, invst_tp_cd in (("foreign", FOREIGN_INVST_TP_CD), ("institution", INSTITUTION_INVST_TP_CD)):
-            parsed = _krx_investor_net_list(invst_tp_cd, trd_dd, label)
+            parsed = _krx_investor_net_list(session, invst_tp_cd, trd_dd, label)
             buy_sorted = sorted(parsed, key=lambda x: x["netAmount"], reverse=True)[:10]
             sell_sorted = sorted(parsed, key=lambda x: x["netAmount"])[:10]
             result[f"{label}Buy"] = [{"rank": i + 1, **p} for i, p in enumerate(buy_sorted)]
