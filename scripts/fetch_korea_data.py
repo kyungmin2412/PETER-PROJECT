@@ -25,21 +25,23 @@ header — all now handled. fetch_naver_index_series() (KOSPI/KOSDAQ) reuses
 the same date/MultiIndex handling but its own live-page behavior is
 unverified — check the first Actions run's logs for [warn]/[debug] output.
 
-fetch_investor_top10() (외국인/기관 순매수·순매도 상위) is UNVERIFIED — it
-targets KRX's own MDC JSON API rather than Naver, since Naver has no single
-scrapable page for this. Both the bld code and the response field names are
-best-effort guesses from general KRX API conventions, not confirmed against
-a live response (this sandbox can't reach data.krx.co.kr either). On
-mismatch it prints the raw response shape/sample as [debug] output instead
-of guessing further — read that from the first Actions run to fix the field
-mapping precisely.
+fetch_investor_top10() (외국인/기관 순매수·순매도 상위) went through two failed
+hand-rolled attempts against KRX's raw MDC JSON API (a bare 400, then a
+400 with body "LOGOUT" even with a session cookie + X-Requested-With) before
+switching to the pykrx library instead of guessing further. pykrx's
+get_market_net_purchases_of_equities_by_ticker() implements KRX's actual
+login flow itself (JSESSIONID cookie via a real POST login, not just a
+warm-up GET) when KRX_ID/KRX_PW env vars are set — those come from this
+repo's KRX_ID/KRX_PW GitHub Actions secrets. Confirmed locally that pykrx
+prints "KRX 로그인 실패" and returns no usable session without them; this
+sandbox can't verify past that point since data.krx.co.kr is unreachable
+from here.
 
 Usage:
     python scripts/fetch_korea_data.py
 """
 from __future__ import annotations
 
-import json
 import re
 import sys
 from datetime import datetime, timedelta, timezone
@@ -48,26 +50,12 @@ from io import StringIO
 import pandas as pd
 import requests
 import yfinance as yf
+from pykrx import stock as pykrx_stock
 
 from data_io import candles_from_ohlc_df, load_data, pct_change, save_data
 
 NAVER_DEPOSIT_URL = "https://finance.naver.com/sise/sise_deposit.naver"
 NAVER_INDEX_DAY_URL = "https://finance.naver.com/sise/sise_index_day.naver"
-
-KRX_MDC_URL = "https://data.krx.co.kr/comm/bldAttendant/getJsonData.cmd"
-KRX_HEADERS = {
-    "User-Agent": "Mozilla/5.0",
-    "Referer": "https://data.krx.co.kr/contents/MDC/MDI/mdiLoader/index.cmd",
-}
-# getJsonData.cmd specifically rejects requests that don't look like the
-# page's own AJAX call — confirmed live: without this header the response
-# body is the literal string "LOGOUT" (HTTP 400), even with a valid session
-# cookie already attached.
-KRX_AJAX_HEADERS = {**KRX_HEADERS, "X-Requested-With": "XMLHttpRequest"}
-# "투자자별 순매수 상위" screen's JSON bld — see module docstring: unverified.
-KRX_INVESTOR_TOP_BLD = "dbms/MDC/STAT/standard/MDCSTAT04901"
-FOREIGN_INVST_TP_CD = "9000"
-INSTITUTION_INVST_TP_CD = "7050"
 
 # Won-per-unit for whatever unit label Naver's column header uses, so we
 # don't have to hardcode an assumed unit — read it off the header text.
@@ -288,8 +276,8 @@ def fetch_customer_deposits() -> dict | None:
 
 def _krx_prev_trading_day() -> str:
     """Previous KST calendar weekday as YYYYMMDD. Doesn't account for Korean
-    public holidays — if trdDd lands on one, KRX returns no rows for that
-    date, which _krx_investor_net_list's caller treats as a failure (leaves
+    public holidays — if trdDd lands on one, pykrx returns an empty frame
+    for that date, which fetch_investor_top10 treats as a failure (leaves
     prior data untouched) rather than silently succeeding with an empty
     top-10."""
     d = datetime.now(timezone.utc) + timedelta(hours=9) - timedelta(days=1)
@@ -298,89 +286,42 @@ def _krx_prev_trading_day() -> str:
     return d.strftime("%Y%m%d")
 
 
-def _pick_field(row: dict, candidates: tuple[str, ...]) -> str | None:
-    return next((c for c in candidates if c in row), None)
-
-
-def _krx_investor_net_list(session: requests.Session, invst_tp_cd: str, trd_dd: str, label: str) -> list[dict]:
-    """One KRX call returns the whole market's 순매수거래대금 (net buy value,
-    already signed) for a given investor type — sorting that list ascending/
-    descending client-side gives both the buy-top and sell-top without
-    needing to guess a separate buy/sell request parameter."""
-    payload = {
-        "bld": KRX_INVESTOR_TOP_BLD,
-        "mktId": "ALL",
-        "trdDd": trd_dd,
-        "invstTpCd": invst_tp_cd,
-        "money": "1",  # 거래대금 기준
-    }
-    resp = session.post(KRX_MDC_URL, data=payload, headers=KRX_AJAX_HEADERS, timeout=15)
-    if resp.status_code >= 400:
-        print(
-            f"[debug] investor top10 ({label}): HTTP {resp.status_code}, body (truncated): {resp.text[:1000]!r}",
-            file=sys.stderr,
-        )
-    resp.raise_for_status()
-    body = resp.json()
-
-    rows = None
-    for key in ("output", "OutBlock_1", "block1", "list"):
-        if isinstance(body.get(key), list) and body[key]:
-            rows = body[key]
-            break
-    if rows is None:
-        print(f"[debug] investor top10 ({label}): unrecognized response shape, keys={list(body.keys())}", file=sys.stderr)
-        print(f"[debug] investor top10 ({label}): raw body (truncated): {json.dumps(body, ensure_ascii=False)[:2000]}", file=sys.stderr)
-        raise RuntimeError(f"unrecognized KRX response shape for invstTpCd={invst_tp_cd}")
-
-    first = rows[0]
-    name_key = _pick_field(first, ("ISU_ABBRV", "ISU_NM", "HOST_ISU_ABBRV"))
-    code_key = _pick_field(first, ("ISU_SRT_CD", "ISU_CD"))
-    amount_key = _pick_field(first, ("NETBID_TRDVAL", "NETBID_TRDVAL1", "ACC_TRDVAL"))
-    if not (name_key and amount_key):
-        print(f"[debug] investor top10 ({label}): couldn't map fields, sample row keys={list(first.keys())}", file=sys.stderr)
-        print(f"[debug] investor top10 ({label}): sample row: {first}", file=sys.stderr)
-        raise RuntimeError(f"couldn't map response fields for invstTpCd={invst_tp_cd}")
+def _pykrx_net_purchases(trd_dd: str, investor: str) -> list[dict]:
+    """전 종목의 순매수거래대금 (net buy value, already signed) for one
+    investor type on one day — sorting this list ascending/descending
+    client-side gives both the buy-top and sell-top."""
+    df = pykrx_stock.get_market_net_purchases_of_equities_by_ticker(trd_dd, trd_dd, "ALL", investor)
+    if df is None or df.empty:
+        raise RuntimeError(f"pykrx returned no rows for investor={investor!r}, date={trd_dd}")
 
     parsed = []
-    for r in rows:
+    for code, row in df.iterrows():
         try:
-            amount_won = float(str(r[amount_key]).replace(",", ""))
+            amount_won = float(row["순매수거래대금"])
         except (KeyError, ValueError):
             continue
         parsed.append(
             {
-                "name": str(r[name_key]),
-                "code": str(r.get(code_key, "")) if code_key else "",
+                "name": str(row.get("종목명", "")),
+                "code": str(code),
                 "netAmount": round(amount_won / 100_000_000, 1),  # 원 -> 억원
             }
         )
     if len(parsed) < 10:
-        print(f"[debug] investor top10 ({label}): only {len(parsed)} rows parsed, expected a full market list", file=sys.stderr)
-        raise RuntimeError(f"too few rows parsed for invstTpCd={invst_tp_cd}")
+        raise RuntimeError(f"only {len(parsed)} rows parsed for investor={investor!r}, expected a full market list")
     return parsed
 
 
 def fetch_investor_top10() -> dict | None:
-    """전일 외국인/기관 순매수·순매도 상위 10종목 (거래대금 기준). Returning
-    None means "leave existing data untouched", same convention as
+    """전일 외국인/기관 순매수·순매도 상위 10종목 (거래대금 기준), via pykrx
+    (needs KRX_ID/KRX_PW env vars — see module docstring). Returning None
+    means "leave existing data untouched", same convention as
     fetch_customer_deposits()."""
     trd_dd = _krx_prev_trading_day()
     try:
-        # KRX's WAF rejects the JSON POST with a bare 400 unless the client
-        # already carries a session cookie from a normal page visit first
-        # (confirmed live: the very first attempt without this got exactly
-        # that 400, before the request even reached JSON parsing).
-        session = requests.Session()
-        session.get(
-            "https://data.krx.co.kr/contents/MDC/MDI/mdiLoader/index.cmd",
-            headers=KRX_HEADERS,
-            timeout=15,
-        )
-
         result: dict = {}
-        for label, invst_tp_cd in (("foreign", FOREIGN_INVST_TP_CD), ("institution", INSTITUTION_INVST_TP_CD)):
-            parsed = _krx_investor_net_list(session, invst_tp_cd, trd_dd, label)
+        for label, investor in (("foreign", "외국인"), ("institution", "기관합계")):
+            parsed = _pykrx_net_purchases(trd_dd, investor)
             buy_sorted = sorted(parsed, key=lambda x: x["netAmount"], reverse=True)[:10]
             sell_sorted = sorted(parsed, key=lambda x: x["netAmount"])[:10]
             result[f"{label}Buy"] = [{"rank": i + 1, **p} for i, p in enumerate(buy_sorted)]

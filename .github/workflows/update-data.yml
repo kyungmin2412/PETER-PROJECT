@@ -30,6 +30,9 @@ jobs:
         run: python scripts/fetch_market_data.py
 
       - name: Fetch Korea market data
+        env:
+          KRX_ID: ${{ secrets.KRX_ID }}
+          KRX_PW: ${{ secrets.KRX_PW }}
         run: python scripts/fetch_korea_data.py
 
       - name: Commit data if changed
