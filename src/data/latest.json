@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-14T22:01:19.271698+00:00",
+  "generatedAt": "2026-08-15T21:57:20.261881+00:00",
   "asOfLabel": "2026-08-14 (금) 미국 시장 종가 · 뉴욕 16:00 EDT",
   "forUser": "Peterk",
   "us": {
@@ -805,7 +805,7 @@
         {
           "date": "2026-08-14",
           "open": 81.27,
-          "high": 82.98,
+          "high": 82.99,
           "low": 80.71,
           "close": 82.4
         }
@@ -1183,7 +1183,7 @@
         "change": 1.87,
         "changePercent": 0.84,
         "changePercent1w": -9.79,
-        "changePercent1m": 0.78,
+        "changePercent1m": 6.43,
         "asOf": "2026-08-14 (금) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
@@ -1216,7 +1216,7 @@
         "change": -3.08,
         "changePercent": -2.95,
         "changePercent1w": -1.73,
-        "changePercent1m": -3.05,
+        "changePercent1m": -5.04,
         "asOf": "2026-08-14 (금) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
@@ -1262,7 +1262,7 @@
         "change": 3.4,
         "changePercent": 5.68,
         "changePercent1w": 9.21,
-        "changePercent1m": -8.92,
+        "changePercent1m": 3.11,
         "asOf": "2026-08-14 (금) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
@@ -1363,7 +1363,7 @@
         "change": -1.31,
         "changePercent": -0.63,
         "changePercent1w": 0.88,
-        "changePercent1m": 33.39,
+        "changePercent1m": 28.66,
         "asOf": "2026-08-14 (금) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
@@ -1385,7 +1385,7 @@
         "change": -1.34,
         "changePercent": -1.98,
         "changePercent1w": 6.28,
-        "changePercent1m": 20.62,
+        "changePercent1m": 19.26,
         "asOf": "2026-08-14 (금) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
@@ -1396,7 +1396,7 @@
         "change": -11.22,
         "changePercent": -4.5,
         "changePercent1w": -1.28,
-        "changePercent1m": 12.6,
+        "changePercent1m": 15.24,
         "asOf": "2026-08-14 (금) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
@@ -1778,18 +1778,11 @@
     "usdkrw": {
       "symbol": "USDKRW",
       "name": "달러/원",
-      "last": 1416.5,
-      "change": 0.0,
-      "changePercent": 0.0,
-      "asOf": "2026-08-14 달러/원 종가",
+      "last": 1412.0,
+      "change": -4.8,
+      "changePercent": -0.34,
+      "asOf": "2026-08-15 달러/원 종가",
       "candles": [
-        {
-          "date": "2026-07-15",
-          "open": 1488.9,
-          "high": 1493.8,
-          "low": 1484.7,
-          "close": 1487.9
-        },
         {
           "date": "2026-07-16",
           "open": 1486.2,
@@ -1939,10 +1932,17 @@
         },
         {
           "date": "2026-08-14",
-          "open": 1418.1,
-          "high": 1420.1,
-          "low": 1408.3,
-          "close": 1416.5
+          "open": 1416.9,
+          "high": 1419.1,
+          "low": 1408.4,
+          "close": 1416.8
+        },
+        {
+          "date": "2026-08-15",
+          "open": 1416.5,
+          "high": 1416.5,
+          "low": 1412.0,
+          "close": 1412.0
         }
       ]
     },
