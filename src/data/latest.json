@@ -1,16 +1,30 @@
 {
-  "generatedAt": "2026-08-18T21:59:41.053208+00:00",
-  "asOfLabel": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT",
+  "generatedAt": "2026-08-19T22:04:14.870164+00:00",
+  "asOfLabel": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT",
   "forUser": "Peterk",
   "us": {
     "nasdaq": {
       "symbol": "IXIC",
       "name": "나스닥종합지수",
-      "last": 26289.71,
-      "change": -355.2,
-      "changePercent": -1.33,
-      "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT",
+      "last": 26331.09,
+      "change": 41.38,
+      "changePercent": 0.16,
+      "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT",
       "candles": [
+        {
+          "date": "2026-07-15",
+          "open": 26261.18,
+          "high": 26316.81,
+          "low": 26041.13,
+          "close": 26269.23
+        },
+        {
+          "date": "2026-07-16",
+          "open": 26155.4,
+          "high": 26165.37,
+          "low": 25765.45,
+          "close": 25881.95
+        },
         {
           "date": "2026-07-17",
           "open": 25412.26,
@@ -24,20 +38,6 @@
           "high": 25815.6,
           "low": 25501.1,
           "close": 25508.07
-        },
-        {
-          "date": "2026-07-21",
-          "open": 25772.55,
-          "high": 25880.34,
-          "low": 25672.83,
-          "close": 25837.21
-        },
-        {
-          "date": "2026-07-22",
-          "open": 25693.72,
-          "high": 25841.31,
-          "low": 25681.32,
-          "close": 25690.9
         },
         {
           "date": "2026-07-23",
@@ -80,13 +80,6 @@
           "high": 25171.44,
           "low": 24813.84,
           "close": 25122.18
-        },
-        {
-          "date": "2026-07-31",
-          "open": 25340.71,
-          "high": 25460.86,
-          "low": 25004.33,
-          "close": 25373.85
         },
         {
           "date": "2026-08-03",
@@ -171,17 +164,38 @@
           "high": 26422.5,
           "low": 26266.68,
           "close": 26289.71
+        },
+        {
+          "date": "2026-08-19",
+          "open": 26393.89,
+          "high": 26456.78,
+          "low": 26185.13,
+          "close": 26331.09
         }
       ]
     },
     "sp500": {
       "symbol": "SPX",
       "name": "S&P500",
-      "last": 7691.76,
-      "change": -53.3,
-      "changePercent": -0.69,
-      "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT",
+      "last": 7707.98,
+      "change": 16.22,
+      "changePercent": 0.21,
+      "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT",
       "candles": [
+        {
+          "date": "2026-07-15",
+          "open": 7571.72,
+          "high": 7581.5,
+          "low": 7526.95,
+          "close": 7572.4
+        },
+        {
+          "date": "2026-07-16",
+          "open": 7558.8,
+          "high": 7570.74,
+          "low": 7504.02,
+          "close": 7533.77
+        },
         {
           "date": "2026-07-17",
           "open": 7447.52,
@@ -195,20 +209,6 @@
           "high": 7513.23,
           "low": 7440.53,
           "close": 7443.28
-        },
-        {
-          "date": "2026-07-21",
-          "open": 7489.95,
-          "high": 7515.31,
-          "low": 7467.86,
-          "close": 7509.2
-        },
-        {
-          "date": "2026-07-22",
-          "open": 7497.47,
-          "high": 7525.94,
-          "low": 7485.85,
-          "close": 7498.96
         },
         {
           "date": "2026-07-23",
@@ -251,13 +251,6 @@
           "high": 7448.75,
           "low": 7370.98,
           "close": 7437.63
-        },
-        {
-          "date": "2026-07-31",
-          "open": 7462.13,
-          "high": 7512.04,
-          "low": 7399.83,
-          "close": 7489.72
         },
         {
           "date": "2026-08-03",
@@ -342,24 +335,24 @@
           "high": 7713.95,
           "low": 7688.63,
           "close": 7691.76
+        },
+        {
+          "date": "2026-08-19",
+          "open": 7716.74,
+          "high": 7743.93,
+          "low": 7700.07,
+          "close": 7707.98
         }
       ]
     },
     "dow": {
       "symbol": "DJI",
       "name": "다우존스",
-      "last": 53343.4,
-      "change": -116.38,
-      "changePercent": -0.22,
-      "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT",
+      "last": 53463.05,
+      "change": 119.65,
+      "changePercent": 0.22,
+      "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT",
       "candles": [
-        {
-          "date": "2026-07-17",
-          "open": 52426.46,
-          "high": 52610.97,
-          "low": 51986.74,
-          "close": 52146.42
-        },
         {
           "date": "2026-07-20",
           "open": 52154.57,
@@ -513,6 +506,13 @@
           "high": 53478.76,
           "low": 53256.34,
           "close": 53343.4
+        },
+        {
+          "date": "2026-08-19",
+          "open": 53463.47,
+          "high": 53710.06,
+          "low": 53399.53,
+          "close": 53463.05
         }
       ]
     },
@@ -520,39 +520,11 @@
       "symbol": "US10Y",
       "name": "미국 10년물 국채금리",
       "unit": "%",
-      "last": 4.706,
-      "change": -0.018,
-      "changePercent": -0.38,
-      "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT",
+      "last": 4.653,
+      "change": -0.053,
+      "changePercent": -1.13,
+      "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT",
       "candles": [
-        {
-          "date": "2026-07-17",
-          "open": 4.521,
-          "high": 4.55,
-          "low": 4.511,
-          "close": 4.541
-        },
-        {
-          "date": "2026-07-20",
-          "open": 4.566,
-          "high": 4.608,
-          "low": 4.56,
-          "close": 4.598
-        },
-        {
-          "date": "2026-07-21",
-          "open": 4.6,
-          "high": 4.64,
-          "low": 4.598,
-          "close": 4.628
-        },
-        {
-          "date": "2026-07-22",
-          "open": 4.64,
-          "high": 4.661,
-          "low": 4.632,
-          "close": 4.657
-        },
         {
           "date": "2026-07-23",
           "open": 4.699,
@@ -594,13 +566,6 @@
           "high": 4.686,
           "low": 4.651,
           "close": 4.663
-        },
-        {
-          "date": "2026-07-31",
-          "open": 4.684,
-          "high": 4.747,
-          "low": 4.682,
-          "close": 4.745
         },
         {
           "date": "2026-08-03",
@@ -685,6 +650,13 @@
           "high": 4.746,
           "low": 4.704,
           "close": 4.706
+        },
+        {
+          "date": "2026-08-19",
+          "open": 4.684,
+          "high": 4.684,
+          "low": 4.637,
+          "close": 4.653
         }
       ]
     },
@@ -692,18 +664,11 @@
       "symbol": "CL",
       "name": "WTI유",
       "unit": "$/bbl",
-      "last": 84.42,
-      "change": -0.08,
-      "changePercent": -0.09,
-      "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT",
+      "last": 84.4,
+      "change": -0.54,
+      "changePercent": -0.64,
+      "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT",
       "candles": [
-        {
-          "date": "2026-07-17",
-          "open": 79.57,
-          "high": 82.76,
-          "low": 78.61,
-          "close": 82.49
-        },
         {
           "date": "2026-07-20",
           "open": 83.76,
@@ -854,9 +819,16 @@
         {
           "date": "2026-08-18",
           "open": 84.98,
-          "high": 85.07,
-          "low": 83.77,
-          "close": 84.42
+          "high": 85.94,
+          "low": 84.57,
+          "close": 84.94
+        },
+        {
+          "date": "2026-08-19",
+          "open": 84.46,
+          "high": 85.84,
+          "low": 83.45,
+          "close": 84.4
         }
       ]
     },
@@ -864,62 +836,62 @@
       {
         "name": "임의소비재",
         "symbol": "XLY",
-        "changePercent": -0.33
+        "changePercent": 1.92
       },
       {
         "name": "소재",
         "symbol": "XLB",
-        "changePercent": -0.88
+        "changePercent": 1.43
       },
       {
         "name": "유틸리티",
         "symbol": "XLU",
-        "changePercent": -0.36
+        "changePercent": 0.0
       },
       {
         "name": "산업재",
         "symbol": "XLI",
-        "changePercent": -1.48
+        "changePercent": -0.88
       },
       {
         "name": "필수소비재",
         "symbol": "XLP",
-        "changePercent": 1.06
+        "changePercent": 1.12
       },
       {
         "name": "에너지",
         "symbol": "XLE",
-        "changePercent": 1.76
+        "changePercent": -0.16
       },
       {
         "name": "정보기술",
         "symbol": "XLK",
-        "changePercent": -2.47
+        "changePercent": -1.07
       },
       {
         "name": "헬스케어",
         "symbol": "XLV",
-        "changePercent": 1.6
+        "changePercent": 3.51
       },
       {
         "name": "부동산",
         "symbol": "XLRE",
-        "changePercent": -0.45
+        "changePercent": 0.81
       },
       {
         "name": "통신서비스",
         "symbol": "XLC",
-        "changePercent": -0.31
+        "changePercent": 0.76
       },
       {
         "name": "금융",
         "symbol": "XLF",
-        "changePercent": 0.45
+        "changePercent": -0.62
       },
       {
         "name": "반도체",
         "symbol": "SOXX",
-        "changePercent": -4.96
+        "changePercent": -2.21
       }
     ],
     "bigTech": [
@@ -927,67 +899,67 @@
         "category": "HW",
         "name": "애플",
         "ticker": "AAPL",
-        "price": 310.03,
-        "change": 4.44,
-        "changePercent": 1.45,
-        "changePercent1w": 1.68,
-        "changePercent1m": -5.07,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 316.83,
+        "change": 6.8,
+        "changePercent": 2.19,
+        "changePercent1w": 4.82,
+        "changePercent1m": -3.33,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "SW",
         "name": "마이크로소프트",
         "ticker": "MSFT",
-        "price": 481.63,
-        "change": 1.28,
-        "changePercent": 0.27,
-        "changePercent1w": -4.4,
-        "changePercent1m": 19.72,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 484.31,
+        "change": 2.68,
+        "changePercent": 0.56,
+        "changePercent1w": -1.65,
+        "changePercent1m": 21.76,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "광고",
         "name": "알파벳",
         "ticker": "GOOGL",
-        "price": 344.2,
-        "change": 0.2,
-        "changePercent": 0.06,
-        "changePercent1w": 0.12,
-        "changePercent1m": -2.21,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 344.72,
+        "change": 0.52,
+        "changePercent": 0.15,
+        "changePercent1w": 0.34,
+        "changePercent1m": -0.7,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "우주",
         "name": "스페이스X",
         "ticker": "SPCX",
-        "price": 143.34,
-        "change": -2.89,
-        "changePercent": -1.98,
-        "changePercent1w": 7.54,
-        "changePercent1m": 19.6,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 139.65,
+        "change": -3.69,
+        "changePercent": -2.57,
+        "changePercent1w": -4.45,
+        "changePercent1m": 13.04,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "이커머스",
         "name": "아마존",
         "ticker": "AMZN",
-        "price": 259.45,
-        "change": -1.86,
-        "changePercent": -0.71,
-        "changePercent1w": -4.71,
-        "changePercent1m": 3.78,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 265.84,
+        "change": 6.39,
+        "changePercent": 2.46,
+        "changePercent1w": -0.54,
+        "changePercent1m": 7.39,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "광고",
         "name": "메타",
         "ticker": "META",
-        "price": 543.67,
-        "change": -25.3,
-        "changePercent": -4.45,
-        "changePercent1w": -9.26,
-        "changePercent1m": -15.82,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 546.03,
+        "change": 2.36,
+        "changePercent": 0.43,
+        "changePercent1w": -5.67,
+        "changePercent1m": -15.19,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       }
     ],
     "aiHardware": [
@@ -995,232 +967,232 @@
         "category": "엔비디아",
         "name": "엔비디아",
         "ticker": "NVDA",
-        "price": 219.74,
-        "change": -5.27,
-        "changePercent": -2.34,
-        "changePercent1w": 1.03,
-        "changePercent1m": 8.1,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 217.56,
+        "change": -2.18,
+        "changePercent": -0.99,
+        "changePercent1w": -2.91,
+        "changePercent1m": 4.95,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "ASIC/네트워킹",
         "name": "브로드컴",
         "ticker": "AVGO",
-        "price": 380.0,
-        "change": -12.43,
-        "changePercent": -3.17,
-        "changePercent1w": -8.67,
-        "changePercent1m": 0.49,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 362.48,
+        "change": -17.52,
+        "changePercent": -4.61,
+        "changePercent1w": -12.88,
+        "changePercent1m": -6.21,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "ASIC/네트워킹",
         "name": "마벨테크놀로지",
         "ticker": "MRVL",
-        "price": 216.0,
-        "change": -18.33,
-        "changePercent": -7.82,
-        "changePercent1w": 1.74,
-        "changePercent1m": 10.8,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 237.27,
+        "change": 21.27,
+        "changePercent": 9.85,
+        "changePercent1w": 9.3,
+        "changePercent1m": 14.09,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "GPU",
         "name": "AMD",
         "ticker": "AMD",
-        "price": 484.39,
-        "change": -21.61,
-        "changePercent": -4.27,
-        "changePercent1w": 2.12,
-        "changePercent1m": -3.81,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 466.42,
+        "change": -17.97,
+        "changePercent": -3.71,
+        "changePercent1w": -3.42,
+        "changePercent1m": -14.33,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "메모리",
         "name": "마이크론테크놀로지",
         "ticker": "MU",
-        "price": 940.76,
-        "change": -70.99,
-        "changePercent": -7.02,
-        "changePercent1w": 8.32,
-        "changePercent1m": 8.7,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 937.1,
+        "change": -3.66,
+        "changePercent": -0.39,
+        "changePercent1w": 2.83,
+        "changePercent1m": -3.47,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "SSD",
         "name": "샌디스크",
         "ticker": "SNDK",
-        "price": 1625.78,
-        "change": -161.07,
-        "changePercent": -9.01,
-        "changePercent1w": 27.91,
-        "changePercent1m": 16.88,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 1568.87,
+        "change": -56.91,
+        "changePercent": -3.5,
+        "changePercent1w": 16.71,
+        "changePercent1m": -1.29,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "HDD",
         "name": "웨스턴디지털",
         "ticker": "WDC",
-        "price": 496.16,
-        "change": -39.85,
-        "changePercent": -7.43,
-        "changePercent1w": 13.3,
-        "changePercent1m": 1.79,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 462.09,
+        "change": -34.07,
+        "changePercent": -6.87,
+        "changePercent1w": 1.76,
+        "changePercent1m": -15.74,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "네트워킹",
         "name": "아스테라랩스",
         "ticker": "ALAB",
-        "price": 303.44,
-        "change": -16.73,
-        "changePercent": -5.23,
-        "changePercent1w": -2.74,
-        "changePercent1m": -1.83,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 289.02,
+        "change": -14.42,
+        "changePercent": -4.75,
+        "changePercent1w": -9.34,
+        "changePercent1m": -9.62,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "네트워킹",
         "name": "크레도테크놀로지",
         "ticker": "CRDO",
-        "price": 245.97,
-        "change": -36.85,
-        "changePercent": -13.03,
-        "changePercent1w": -0.69,
-        "changePercent1m": 15.99,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 234.82,
+        "change": -11.15,
+        "changePercent": -4.53,
+        "changePercent1w": -12.43,
+        "changePercent1m": 4.89,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "네트워킹",
         "name": "아리스타네트웍스",
         "ticker": "ANET",
-        "price": 193.18,
-        "change": -8.62,
-        "changePercent": -4.27,
-        "changePercent1w": -2.36,
-        "changePercent1m": 14.07,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 186.45,
+        "change": -6.73,
+        "changePercent": -3.48,
+        "changePercent1w": -11.43,
+        "changePercent1m": 6.8,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "광연결",
         "name": "루멘텀홀딩스",
         "ticker": "LITE",
-        "price": 873.31,
-        "change": -95.59,
-        "changePercent": -9.87,
-        "changePercent1w": 6.42,
-        "changePercent1m": 14.08,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 827.6,
+        "change": -45.71,
+        "changePercent": -5.23,
+        "changePercent1w": -11.25,
+        "changePercent1m": -1.19,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "광연결",
         "name": "코히런트",
         "ticker": "COHR",
-        "price": 306.43,
-        "change": -44.79,
-        "changePercent": -12.75,
-        "changePercent1w": -6.74,
-        "changePercent1m": 7.37,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 287.47,
+        "change": -18.96,
+        "changePercent": -6.19,
+        "changePercent1w": -19.17,
+        "changePercent1m": -9.38,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "구리/광",
         "name": "세미테크",
         "ticker": "SMTC",
-        "price": 135.23,
-        "change": -18.99,
-        "changePercent": -12.31,
-        "changePercent1w": 3.09,
-        "changePercent1m": 7.43,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 125.36,
+        "change": -9.87,
+        "changePercent": -7.3,
+        "changePercent1w": -10.46,
+        "changePercent1m": -9.05,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "트랜시버",
         "name": "어플라이드옵토일렉트로닉스",
         "ticker": "AAOI",
-        "price": 131.41,
-        "change": -23.48,
-        "changePercent": -15.16,
-        "changePercent1w": -2.17,
-        "changePercent1m": 27.56,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 122.19,
+        "change": -9.22,
+        "changePercent": -7.02,
+        "changePercent1w": -11.51,
+        "changePercent1m": 2.46,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "DCI",
         "name": "바이아비솔루션즈",
         "ticker": "VIAV",
-        "price": 41.37,
-        "change": -4.89,
-        "changePercent": -10.57,
-        "changePercent1w": 7.73,
-        "changePercent1m": 4.92,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 38.74,
+        "change": -2.63,
+        "changePercent": -6.36,
+        "changePercent1w": -10.14,
+        "changePercent1m": -9.95,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "DCI",
         "name": "키사이트테크놀로지스",
         "ticker": "KEYS",
-        "price": 341.0,
-        "change": -20.15,
-        "changePercent": -5.58,
-        "changePercent1w": 1.67,
-        "changePercent1m": 7.95,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 319.45,
+        "change": -21.55,
+        "changePercent": -6.32,
+        "changePercent1w": -9.89,
+        "changePercent1m": -2.64,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "전력/냉각",
         "name": "버티브홀딩스",
         "ticker": "VRT",
-        "price": 272.54,
-        "change": -19.89,
-        "changePercent": -6.8,
-        "changePercent1w": -3.29,
-        "changePercent1m": -6.56,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 261.0,
+        "change": -11.54,
+        "changePercent": -4.23,
+        "changePercent1w": -9.49,
+        "changePercent1m": -14.29,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "서버",
         "name": "슈퍼마이크로컴퓨터",
         "ticker": "SMCI",
-        "price": 37.41,
-        "change": -0.87,
-        "changePercent": -2.27,
-        "changePercent1w": 18.39,
-        "changePercent1m": 56.99,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 36.58,
+        "change": -0.83,
+        "changePercent": -2.22,
+        "changePercent1w": -2.74,
+        "changePercent1m": 43.45,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "번인장비",
         "name": "에어테스트시스템즈",
         "ticker": "AEHR",
-        "price": 123.25,
-        "change": -22.36,
-        "changePercent": -15.36,
-        "changePercent1w": 5.18,
-        "changePercent1m": 59.32,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 107.96,
+        "change": -15.29,
+        "changePercent": -12.41,
+        "changePercent1w": -16.46,
+        "changePercent1m": 9.15,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "전력반도체",
         "name": "바이코",
         "ticker": "VICR",
-        "price": 242.41,
-        "change": -11.09,
-        "changePercent": -4.37,
-        "changePercent1w": 14.95,
-        "changePercent1m": 4.94,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 217.35,
+        "change": -25.06,
+        "changePercent": -10.34,
+        "changePercent1w": -3.88,
+        "changePercent1m": 1.23,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "전력반도체",
         "name": "나비타스세미컨덕터",
         "ticker": "NVTS",
-        "price": 13.17,
-        "change": -1.41,
-        "changePercent": -9.67,
-        "changePercent1w": -3.16,
-        "changePercent1m": 14.12,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 12.83,
+        "change": -0.34,
+        "changePercent": -2.58,
+        "changePercent1w": -7.9,
+        "changePercent1m": 0.04,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       }
     ],
     "renewable": [
@@ -1228,67 +1200,67 @@
         "category": "Utility",
         "name": "퍼스트솔라",
         "ticker": "FSLR",
-        "price": 220.01,
-        "change": 2.16,
-        "changePercent": 0.99,
-        "changePercent1w": -8.68,
-        "changePercent1m": 7.16,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 222.4,
+        "change": 2.39,
+        "changePercent": 1.09,
+        "changePercent1w": -1.93,
+        "changePercent1m": 7.93,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "Inverter",
         "name": "엔페이즈에너지",
         "ticker": "ENPH",
-        "price": 37.58,
-        "change": -1.07,
-        "changePercent": -2.77,
-        "changePercent1w": -11.16,
-        "changePercent1m": -4.76,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 39.37,
+        "change": 1.79,
+        "changePercent": 4.76,
+        "changePercent1w": -3.43,
+        "changePercent1m": -1.43,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "Installer",
         "name": "선런",
         "ticker": "RUN",
-        "price": 9.26,
-        "change": -0.57,
-        "changePercent": -5.8,
-        "changePercent1w": -7.68,
-        "changePercent1m": -19.06,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 9.8,
+        "change": 0.54,
+        "changePercent": 5.83,
+        "changePercent1w": -0.41,
+        "changePercent1m": -14.34,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "Tracker",
         "name": "넥스트래커",
         "ticker": "NXT",
-        "price": 91.15,
-        "change": -7.94,
-        "changePercent": -8.01,
-        "changePercent1w": -11.43,
-        "changePercent1m": -11.59,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 92.12,
+        "change": 0.97,
+        "changePercent": 1.06,
+        "changePercent1w": -11.14,
+        "changePercent1m": -12.82,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "Tracker",
         "name": "어레이테크놀로지스",
         "ticker": "ARRY",
-        "price": 4.8,
-        "change": -0.18,
-        "changePercent": -3.61,
-        "changePercent1w": -10.28,
-        "changePercent1m": -19.33,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 4.92,
+        "change": 0.12,
+        "changePercent": 2.5,
+        "changePercent1w": -5.2,
+        "changePercent1m": -18.61,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "EBOC",
         "name": "숄스테크놀로지스",
         "ticker": "SHLS",
-        "price": 7.68,
-        "change": -0.55,
-        "changePercent": -6.68,
-        "changePercent1w": -10.28,
-        "changePercent1m": -25.44,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 7.95,
+        "change": 0.27,
+        "changePercent": 3.52,
+        "changePercent1w": -4.68,
+        "changePercent1m": -23.41,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       }
     ],
     "powerInfra": [
@@ -1296,111 +1268,111 @@
         "category": "SOFC",
         "name": "블룸에너지",
         "ticker": "BE",
-        "price": 209.01,
-        "change": -23.15,
-        "changePercent": -9.97,
-        "changePercent1w": -1.04,
-        "changePercent1m": 6.06,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 206.63,
+        "change": -2.38,
+        "changePercent": -1.14,
+        "changePercent1w": -12.87,
+        "changePercent1m": -8.68,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "가스터빈",
         "name": "솔라리스에너지인프라",
         "ticker": "SEI",
-        "price": 61.94,
-        "change": -4.03,
-        "changePercent": -6.11,
-        "changePercent1w": 5.7,
-        "changePercent1m": 2.75,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 58.8,
+        "change": -3.14,
+        "changePercent": -5.07,
+        "changePercent1w": -4.85,
+        "changePercent1m": -9.77,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "전력기기",
         "name": "이턴",
         "ticker": "ETN",
-        "price": 431.33,
-        "change": -24.07,
-        "changePercent": -5.29,
-        "changePercent1w": -6.09,
-        "changePercent1m": 7.45,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 424.67,
+        "change": -6.66,
+        "changePercent": -1.54,
+        "changePercent1w": -7.67,
+        "changePercent1m": 6.17,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "가스터빈",
         "name": "GE버노바",
         "ticker": "GEV",
-        "price": 1004.53,
-        "change": -74.47,
-        "changePercent": -6.9,
-        "changePercent1w": -0.73,
-        "changePercent1m": -6.92,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 987.46,
+        "change": -17.07,
+        "changePercent": -1.7,
+        "changePercent1w": -5.04,
+        "changePercent1m": -8.47,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "전력설치",
         "name": "퀀타서비스",
         "ticker": "PWR",
-        "price": 696.15,
-        "change": -26.16,
-        "changePercent": -3.62,
-        "changePercent1w": 3.81,
-        "changePercent1m": 10.05,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 677.41,
+        "change": -18.74,
+        "changePercent": -2.69,
+        "changePercent1w": -0.09,
+        "changePercent1m": 5.98,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "전력기기",
         "name": "파월인더스트리즈",
         "ticker": "POWL",
-        "price": 203.55,
-        "change": -15.18,
-        "changePercent": -6.94,
-        "changePercent1w": -2.32,
-        "changePercent1m": -10.83,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 198.21,
+        "change": -5.34,
+        "changePercent": -2.62,
+        "changePercent1w": -4.7,
+        "changePercent1m": -18.9,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "원자력",
         "name": "컨스텔레이션에너지",
         "ticker": "CEG",
-        "price": 266.83,
-        "change": -11.37,
-        "changePercent": -4.09,
-        "changePercent1w": -4.14,
-        "changePercent1m": 5.26,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 274.17,
+        "change": 7.34,
+        "changePercent": 2.75,
+        "changePercent1w": -1.62,
+        "changePercent1m": 4.56,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "원자력",
         "name": "비스트라",
         "ticker": "VST",
-        "price": 140.52,
-        "change": -5.59,
-        "changePercent": -3.83,
-        "changePercent1w": -3.04,
-        "changePercent1m": -11.06,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 142.7,
+        "change": 2.18,
+        "changePercent": 1.55,
+        "changePercent1w": -2.71,
+        "changePercent1m": -12.09,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "SMR",
         "name": "뉴스케일파워",
         "ticker": "SMR",
-        "price": 8.64,
-        "change": -0.55,
-        "changePercent": -5.98,
-        "changePercent1w": -12.64,
-        "changePercent1m": 8.54,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 9.29,
+        "change": 0.65,
+        "changePercent": 7.52,
+        "changePercent1w": -3.13,
+        "changePercent1m": 6.66,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "SMR",
         "name": "오클로",
         "ticker": "OKLO",
-        "price": 41.36,
-        "change": -2.52,
-        "changePercent": -5.74,
-        "changePercent1w": -12.02,
-        "changePercent1m": -0.36,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 42.94,
+        "change": 1.58,
+        "changePercent": 3.82,
+        "changePercent1w": -4.85,
+        "changePercent1m": -2.7,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       }
     ],
     "enterprise": [
@@ -1408,100 +1380,100 @@
         "category": "ERP",
         "name": "SAP",
         "ticker": "SAP",
-        "price": 210.47,
-        "change": 2.63,
-        "changePercent": 1.27,
-        "changePercent1w": 0.38,
-        "changePercent1m": 32.91,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 215.6,
+        "change": 5.13,
+        "changePercent": 2.44,
+        "changePercent1w": 5.61,
+        "changePercent1m": 36.15,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "ITSW",
         "name": "서비스나우",
         "ticker": "NOW",
-        "price": 119.49,
-        "change": 1.79,
-        "changePercent": 1.52,
-        "changePercent1w": -6.31,
-        "changePercent1m": 14.13,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 127.2,
+        "change": 7.71,
+        "changePercent": 6.45,
+        "changePercent1w": 1.81,
+        "changePercent1m": 24.63,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "HCI",
         "name": "뉴타닉스",
         "ticker": "NTNX",
-        "price": 65.83,
-        "change": 0.17,
-        "changePercent": 0.26,
-        "changePercent1w": 2.13,
-        "changePercent1m": 19.52,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 65.42,
+        "change": -0.41,
+        "changePercent": -0.62,
+        "changePercent1w": 1.19,
+        "changePercent1m": 17.14,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "CPaaS",
         "name": "트윌리오",
         "ticker": "TWLO",
-        "price": 232.1,
-        "change": 3.49,
-        "changePercent": 1.53,
-        "changePercent1w": -9.32,
-        "changePercent1m": 13.09,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 221.87,
+        "change": -10.23,
+        "changePercent": -4.41,
+        "changePercent1w": -10.04,
+        "changePercent1m": 8.1,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "Consulting",
         "name": "액센츄어",
         "ticker": "ACN",
-        "price": 172.93,
-        "change": 2.95,
-        "changePercent": 1.74,
-        "changePercent1w": -3.83,
-        "changePercent1m": 19.48,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 183.17,
+        "change": 10.24,
+        "changePercent": 5.92,
+        "changePercent1w": 1.68,
+        "changePercent1m": 30.04,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "사이버보안",
         "name": "팔로알토네트웍스",
         "ticker": "PANW",
-        "price": 374.14,
-        "change": -1.62,
-        "changePercent": -0.43,
-        "changePercent1w": -2.52,
-        "changePercent1m": 7.31,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 359.76,
+        "change": -14.38,
+        "changePercent": -3.84,
+        "changePercent1w": -7.04,
+        "changePercent1m": 5.15,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "사이버보안",
         "name": "포티넷",
         "ticker": "FTNT",
-        "price": 158.01,
-        "change": 2.16,
-        "changePercent": 1.39,
-        "changePercent1w": -2.4,
-        "changePercent1m": -1.47,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 152.85,
+        "change": -5.16,
+        "changePercent": -3.27,
+        "changePercent1w": -4.97,
+        "changePercent1m": -3.32,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "사이버보안",
         "name": "크라우드스트라이크",
         "ticker": "CRWD",
-        "price": 212.92,
-        "change": -0.98,
-        "changePercent": -0.46,
-        "changePercent1w": -4.05,
-        "changePercent1m": 7.27,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 201.63,
+        "change": -11.29,
+        "changePercent": -5.3,
+        "changePercent1w": -9.09,
+        "changePercent1m": 5.48,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "사이버보안",
         "name": "루브릭",
         "ticker": "RBRK",
-        "price": 100.55,
-        "change": -0.47,
-        "changePercent": -0.47,
-        "changePercent1w": 3.73,
-        "changePercent1m": 28.61,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 99.78,
+        "change": -0.77,
+        "changePercent": -0.77,
+        "changePercent1w": 3.15,
+        "changePercent1m": 27.63,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       }
     ],
     "gpuColo": [
@@ -1509,45 +1481,45 @@
         "category": "GPU",
         "name": "오라클",
         "ticker": "ORCL",
-        "price": 142.79,
-        "change": -3.86,
-        "changePercent": -2.63,
-        "changePercent1w": -1.85,
-        "changePercent1m": 17.64,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 143.81,
+        "change": 1.02,
+        "changePercent": 0.71,
+        "changePercent1w": -6.18,
+        "changePercent1m": 13.19,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "GPU",
         "name": "코어위브",
         "ticker": "CRWV",
-        "price": 93.17,
-        "change": -12.83,
-        "changePercent": -12.1,
-        "changePercent1w": 3.16,
-        "changePercent1m": 27.53,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 90.87,
+        "change": -2.3,
+        "changePercent": -2.47,
+        "changePercent1w": -15.65,
+        "changePercent1m": 14.19,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "GPU",
         "name": "네비우스그룹",
         "ticker": "NBIS",
-        "price": 248.43,
-        "change": -20.42,
-        "changePercent": -7.6,
-        "changePercent1w": 28.57,
-        "changePercent1m": 36.04,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 223.9,
+        "change": -24.53,
+        "changePercent": -9.87,
+        "changePercent1w": -13.62,
+        "changePercent1m": 3.22,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
         "category": "GPU",
         "name": "아이렌",
         "ticker": "IREN",
-        "price": 42.0,
-        "change": -2.9,
-        "changePercent": -6.46,
-        "changePercent1w": 5.66,
-        "changePercent1m": 4.48,
-        "asOf": "2026-08-18 (화) 미국 시장 종가 · 뉴욕 16:00 EDT"
+        "price": 42.84,
+        "change": 0.84,
+        "changePercent": 2.0,
+        "changePercent1w": -1.9,
+        "changePercent1m": 3.75,
+        "asOf": "2026-08-19 (수) 미국 시장 종가 · 뉴욕 16:00 EDT"
       }
     ]
   },
@@ -1555,18 +1527,11 @@
     "kospi": {
       "symbol": "KOSPI",
       "name": "코스피",
-      "last": 6869.83,
-      "change": -108.11,
-      "changePercent": -1.55,
-      "asOf": "2026-08-18 코스피 종가",
+      "last": 6471.17,
+      "change": -398.66,
+      "changePercent": -5.8,
+      "asOf": "2026-08-19 코스피 종가",
       "candles": [
-        {
-          "date": "2026-07-23",
-          "open": 7096.89,
-          "high": 7096.89,
-          "low": 7096.89,
-          "close": 7096.89
-        },
         {
           "date": "2026-07-24",
           "open": 6690.62,
@@ -1685,24 +1650,24 @@
           "high": 6869.83,
           "low": 6869.83,
           "close": 6869.83
+        },
+        {
+          "date": "2026-08-19",
+          "open": 6471.17,
+          "high": 6471.17,
+          "low": 6471.17,
+          "close": 6471.17
         }
       ]
     },
     "kosdaq": {
       "symbol": "KOSDAQ",
       "name": "코스닥",
-      "last": 834.2,
-      "change": -30.45,
-      "changePercent": -3.52,
-      "asOf": "2026-08-18 코스닥 종가",
+      "last": 824.46,
+      "change": -9.74,
+      "changePercent": -1.17,
+      "asOf": "2026-08-19 코스닥 종가",
       "candles": [
-        {
-          "date": "2026-07-23",
-          "open": 790.28,
-          "high": 790.28,
-          "low": 790.28,
-          "close": 790.28
-        },
         {
           "date": "2026-07-24",
           "open": 748.22,
@@ -1821,24 +1786,24 @@
           "high": 834.2,
           "low": 834.2,
           "close": 834.2
+        },
+        {
+          "date": "2026-08-19",
+          "open": 824.46,
+          "high": 824.46,
+          "low": 824.46,
+          "close": 824.46
         }
       ]
     },
     "usdkrw": {
       "symbol": "USDKRW",
       "name": "달러/원",
-      "last": 1412.3,
-      "change": -3.1,
-      "changePercent": -0.22,
-      "asOf": "2026-08-18 달러/원 종가",
+      "last": 1387.2,
+      "change": -27.5,
+      "changePercent": -1.94,
+      "asOf": "2026-08-19 달러/원 종가",
       "candles": [
-        {
-          "date": "2026-07-17",
-          "open": 1478.7,
-          "high": 1491.2,
-          "low": 1470.0,
-          "close": 1478.8
-        },
         {
           "date": "2026-07-20",
           "open": 1487.7,
@@ -1988,21 +1953,24 @@
         },
         {
           "date": "2026-08-18",
-          "open": 1412.3,
-          "high": 1412.5,
-          "low": 1412.3,
-          "close": 1412.3
+          "open": 1414.9,
+          "high": 1415.8,
+          "low": 1407.2,
+          "close": 1414.7
+        },
+        {
+          "date": "2026-08-19",
+          "open": 1387.1,
+          "high": 1387.9,
+          "low": 1387.0,
+          "close": 1387.2
         }
       ]
     },
     "customerDeposits": {
-      "latest": 100.1,
-      "asOf": "2026-08-13 집계 (네이버금융)",
+      "latest": 100.7,
+      "asOf": "2026-08-14 집계 (네이버금융)",
       "series": [
-        {
-          "date": "2026-07-16",
-          "amount": 108.1
-        },
         {
           "date": "2026-07-20",
           "amount": 112.5
@@ -2078,196 +2046,200 @@
         {
           "date": "2026-08-13",
           "amount": 100.1
+        },
+        {
+          "date": "2026-08-14",
+          "amount": 100.7
         }
       ]
     },
     "investorFlow": {
       "daily": {
-        "asOf": "2026-08-18 종가 기준 (KRX)",
+        "asOf": "2026-08-19 종가 기준 (KRX)",
         "foreignBuy": [
           {
             "rank": 1,
-            "name": "SK하이닉스",
-            "code": "000660",
-            "netAmount": 7909.1
+            "name": "키움증권",
+            "code": "039490",
+            "netAmount": 275.3
           },
           {
             "rank": 2,
-            "name": "삼성전자",
-            "code": "005930",
-            "netAmount": 1766.9
+            "name": "한국금융지주",
+            "code": "071050",
+            "netAmount": 270.6
           },
           {
             "rank": 3,
-            "name": "SK스퀘어",
-            "code": "402340",
-            "netAmount": 497.1
+            "name": "삼성증권",
+            "code": "016360",
+            "netAmount": 225.8
           },
           {
             "rank": 4,
-            "name": "LS ELECTRIC",
-            "code": "010120",
-            "netAmount": 441.8
+            "name": "한미반도체",
+            "code": "042700",
+            "netAmount": 184.0
           },
           {
             "rank": 5,
-            "name": "효성중공업",
-            "code": "298040",
-            "netAmount": 399.7
+            "name": "DB하이텍",
+            "code": "000990",
+            "netAmount": 152.6
           },
           {
             "rank": 6,
-            "name": "HPSP",
-            "code": "403870",
-            "netAmount": 388.2
+            "name": "효성중공업",
+            "code": "298040",
+            "netAmount": 151.2
           },
           {
             "rank": 7,
-            "name": "한미반도체",
-            "code": "042700",
-            "netAmount": 327.0
+            "name": "서울보증보험",
+            "code": "031210",
+            "netAmount": 150.0
           },
           {
             "rank": 8,
-            "name": "심텍",
-            "code": "222800",
-            "netAmount": 310.5
+            "name": "피에스케이",
+            "code": "319660",
+            "netAmount": 143.5
           },
           {
             "rank": 9,
-            "name": "에이피알",
-            "code": "278470",
-            "netAmount": 274.5
+            "name": "알테오젠",
+            "code": "196170",
+            "netAmount": 135.7
           },
           {
             "rank": 10,
-            "name": "파마리서치",
-            "code": "214450",
-            "netAmount": 221.6
+            "name": "HPSP",
+            "code": "403870",
+            "netAmount": 130.9
           }
         ],
         "foreignSell": [
           {
             "rank": 1,
-            "name": "삼성전기",
-            "code": "009150",
-            "netAmount": -4187.0
+            "name": "SK하이닉스",
+            "code": "000660",
+            "netAmount": -18255.9
           },
           {
             "rank": 2,
-            "name": "삼성전자우",
-            "code": "005935",
-            "netAmount": -1881.6
+            "name": "삼성전자",
+            "code": "005930",
+            "netAmount": -10421.8
           },
           {
             "rank": 3,
-            "name": "현대차",
-            "code": "005380",
-            "netAmount": -820.0
+            "name": "SK스퀘어",
+            "code": "402340",
+            "netAmount": -2165.4
           },
           {
             "rank": 4,
-            "name": "LG이노텍",
-            "code": "011070",
-            "netAmount": -522.7
+            "name": "삼성전기",
+            "code": "009150",
+            "netAmount": -1498.5
           },
           {
             "rank": 5,
-            "name": "삼성SDI",
-            "code": "006400",
-            "netAmount": -350.8
+            "name": "삼성전자우",
+            "code": "005935",
+            "netAmount": -1337.5
           },
           {
             "rank": 6,
-            "name": "LG씨엔에스",
-            "code": "064400",
-            "netAmount": -310.8
+            "name": "한화에어로스페이스",
+            "code": "012450",
+            "netAmount": -961.1
           },
           {
             "rank": 7,
-            "name": "LG전자",
-            "code": "066570",
-            "netAmount": -273.8
+            "name": "SK텔레콤",
+            "code": "017670",
+            "netAmount": -410.7
           },
           {
             "rank": 8,
-            "name": "두산에너빌리티",
-            "code": "034020",
-            "netAmount": -264.9
+            "name": "삼성생명",
+            "code": "032830",
+            "netAmount": -230.2
           },
           {
             "rank": 9,
-            "name": "GS",
-            "code": "078930",
-            "netAmount": -233.6
+            "name": "현대차",
+            "code": "005380",
+            "netAmount": -225.8
           },
           {
             "rank": 10,
-            "name": "삼성에피스홀딩스",
-            "code": "0126Z0",
-            "netAmount": -214.8
+            "name": "하나금융지주",
+            "code": "086790",
+            "netAmount": -213.0
           }
         ],
         "institutionBuy": [
           {
             "rank": 1,
-            "name": "HMM",
-            "code": "011200",
-            "netAmount": 420.8
+            "name": "한화에어로스페이스",
+            "code": "012450",
+            "netAmount": 565.0
           },
           {
             "rank": 2,
-            "name": "SK텔레콤",
-            "code": "017670",
-            "netAmount": 347.9
+            "name": "HPSP",
+            "code": "403870",
+            "netAmount": 359.4
           },
           {
             "rank": 3,
             "name": "이수페타시스",
             "code": "007660",
-            "netAmount": 332.0
+            "netAmount": 324.6
           },
           {
             "rank": 4,
-            "name": "삼양식품",
-            "code": "003230",
-            "netAmount": 322.2
+            "name": "실리콘투",
+            "code": "257720",
+            "netAmount": 268.9
           },
           {
             "rank": 5,
-            "name": "GS",
-            "code": "078930",
-            "netAmount": 220.6
+            "name": "현대건설",
+            "code": "000720",
+            "netAmount": 239.3
           },
           {
             "rank": 6,
-            "name": "S-Oil",
-            "code": "010950",
-            "netAmount": 209.3
+            "name": "SK텔레콤",
+            "code": "017670",
+            "netAmount": 201.7
           },
           {
             "rank": 7,
-            "name": "이오테크닉스",
-            "code": "039030",
-            "netAmount": 204.7
+            "name": "OCI홀딩스",
+            "code": "010060",
+            "netAmount": 168.8
           },
           {
             "rank": 8,
-            "name": "삼성물산",
-            "code": "028260",
-            "netAmount": 140.2
+            "name": "하나금융지주",
+            "code": "086790",
+            "netAmount": 154.6
           },
           {
             "rank": 9,
-            "name": "SK",
-            "code": "034730",
-            "netAmount": 125.4
+            "name": "S-Oil",
+            "code": "010950",
+            "netAmount": 143.4
           },
           {
             "rank": 10,
-            "name": "삼성화재",
-            "code": "000810",
-            "netAmount": 124.7
+            "name": "SK이터닉스",
+            "code": "475150",
+            "netAmount": 135.0
           }
         ],
         "institutionSell": [
@@ -2275,377 +2247,126 @@
             "rank": 1,
             "name": "삼성전자",
             "code": "005930",
-            "netAmount": -2572.7
+            "netAmount": -7333.9
           },
           {
             "rank": 2,
-            "name": "삼성전기",
-            "code": "009150",
-            "netAmount": -1686.6
+            "name": "SK하이닉스",
+            "code": "000660",
+            "netAmount": -4718.5
           },
           {
             "rank": 3,
-            "name": "SK하이닉스",
-            "code": "000660",
-            "netAmount": -1237.2
+            "name": "NAVER",
+            "code": "035420",
+            "netAmount": -431.3
           },
           {
             "rank": 4,
-            "name": "알테오젠",
-            "code": "196170",
-            "netAmount": -370.5
+            "name": "삼성전자우",
+            "code": "005935",
+            "netAmount": -416.0
           },
           {
             "rank": 5,
-            "name": "SK스퀘어",
-            "code": "402340",
-            "netAmount": -358.9
+            "name": "한국전력",
+            "code": "015760",
+            "netAmount": -330.5
           },
           {
             "rank": 6,
-            "name": "LG에너지솔루션",
-            "code": "373220",
-            "netAmount": -304.8
+            "name": "SK스퀘어",
+            "code": "402340",
+            "netAmount": -234.1
           },
           {
             "rank": 7,
-            "name": "에코프로",
-            "code": "086520",
-            "netAmount": -217.6
+            "name": "현대차",
+            "code": "005380",
+            "netAmount": -230.6
           },
           {
             "rank": 8,
-            "name": "HD현대중공업",
-            "code": "329180",
-            "netAmount": -212.8
+            "name": "LG전자",
+            "code": "066570",
+            "netAmount": -157.5
           },
           {
             "rank": 9,
-            "name": "셀트리온",
-            "code": "068270",
-            "netAmount": -191.1
+            "name": "에스피지",
+            "code": "058610",
+            "netAmount": -151.7
           },
           {
             "rank": 10,
-            "name": "인제니아테라퓨틱스(Reg.S)",
-            "code": "950260",
-            "netAmount": -177.0
+            "name": "서울보증보험",
+            "code": "031210",
+            "netAmount": -149.9
           }
         ]
       },
       "weekly": {
-        "asOf": "2026-08-12 ~ 2026-08-18 누적 (KRX)",
+        "asOf": "2026-08-13 ~ 2026-08-19 누적 (KRX)",
         "foreignBuy": [
           {
             "rank": 1,
             "name": "SK하이닉스",
             "code": "000660",
-            "netAmount": 39474.3
+            "netAmount": 12696.6
           },
           {
             "rank": 2,
             "name": "삼성전자",
             "code": "005930",
-            "netAmount": 28989.5
+            "netAmount": 3751.5
           },
           {
             "rank": 3,
-            "name": "SK스퀘어",
-            "code": "402340",
-            "netAmount": 1527.0
-          },
-          {
-            "rank": 4,
-            "name": "LG전자",
-            "code": "066570",
-            "netAmount": 1442.8
-          },
-          {
-            "rank": 5,
-            "name": "에이피알",
-            "code": "278470",
-            "netAmount": 973.7
-          },
-          {
-            "rank": 6,
-            "name": "KB금융",
-            "code": "105560",
-            "netAmount": 879.5
-          },
-          {
-            "rank": 7,
             "name": "효성중공업",
             "code": "298040",
-            "netAmount": 827.7
+            "netAmount": 796.8
           },
           {
-            "rank": 8,
+            "rank": 4,
+            "name": "에이피알",
+            "code": "278470",
+            "netAmount": 791.3
+          },
+          {
+            "rank": 5,
             "name": "셀트리온",
             "code": "068270",
-            "netAmount": 803.0
-          },
-          {
-            "rank": 9,
-            "name": "한화오션",
-            "code": "042660",
-            "netAmount": 702.0
-          },
-          {
-            "rank": 10,
-            "name": "파마리서치",
-            "code": "214450",
-            "netAmount": 663.8
-          }
-        ],
-        "foreignSell": [
-          {
-            "rank": 1,
-            "name": "삼성전기",
-            "code": "009150",
-            "netAmount": -3677.7
-          },
-          {
-            "rank": 2,
-            "name": "LG이노텍",
-            "code": "011070",
-            "netAmount": -957.6
-          },
-          {
-            "rank": 3,
-            "name": "GS",
-            "code": "078930",
-            "netAmount": -902.6
-          },
-          {
-            "rank": 4,
-            "name": "삼성전자우",
-            "code": "005935",
-            "netAmount": -832.8
-          },
-          {
-            "rank": 5,
-            "name": "이오테크닉스",
-            "code": "039030",
-            "netAmount": -573.9
+            "netAmount": 745.3
           },
           {
             "rank": 6,
-            "name": "펄어비스",
-            "code": "263750",
-            "netAmount": -510.7
-          },
-          {
-            "rank": 7,
-            "name": "JYP Ent.",
-            "code": "035900",
-            "netAmount": -413.9
-          },
-          {
-            "rank": 8,
-            "name": "한국전력",
-            "code": "015760",
-            "netAmount": -400.2
-          },
-          {
-            "rank": 9,
-            "name": "맥쿼리인프라",
-            "code": "088980",
-            "netAmount": -374.4
-          },
-          {
-            "rank": 10,
-            "name": "LG씨엔에스",
-            "code": "064400",
-            "netAmount": -357.2
-          }
-        ],
-        "institutionBuy": [
-          {
-            "rank": 1,
-            "name": "삼성전자",
-            "code": "005930",
-            "netAmount": 9297.9
-          },
-          {
-            "rank": 2,
-            "name": "SK스퀘어",
-            "code": "402340",
-            "netAmount": 1229.0
-          },
-          {
-            "rank": 3,
-            "name": "GS",
-            "code": "078930",
-            "netAmount": 815.2
-          },
-          {
-            "rank": 4,
-            "name": "SK텔레콤",
-            "code": "017670",
-            "netAmount": 616.5
-          },
-          {
-            "rank": 5,
-            "name": "삼성SDI",
-            "code": "006400",
-            "netAmount": 586.4
-          },
-          {
-            "rank": 6,
-            "name": "이오테크닉스",
-            "code": "039030",
-            "netAmount": 551.4
-          },
-          {
-            "rank": 7,
-            "name": "NAVER",
-            "code": "035420",
-            "netAmount": 524.0
-          },
-          {
-            "rank": 8,
-            "name": "삼성전자우",
-            "code": "005935",
-            "netAmount": 516.0
-          },
-          {
-            "rank": 9,
-            "name": "이수페타시스",
-            "code": "007660",
-            "netAmount": 509.6
-          },
-          {
-            "rank": 10,
-            "name": "LG전자",
-            "code": "066570",
-            "netAmount": 479.6
-          }
-        ],
-        "institutionSell": [
-          {
-            "rank": 1,
-            "name": "한국전력",
-            "code": "015760",
-            "netAmount": -1389.6
-          },
-          {
-            "rank": 2,
-            "name": "SK하이닉스",
-            "code": "000660",
-            "netAmount": -1287.2
-          },
-          {
-            "rank": 3,
-            "name": "알테오젠",
-            "code": "196170",
-            "netAmount": -1177.2
-          },
-          {
-            "rank": 4,
-            "name": "셀트리온",
-            "code": "068270",
-            "netAmount": -994.6
-          },
-          {
-            "rank": 5,
-            "name": "HD현대중공업",
-            "code": "329180",
-            "netAmount": -962.1
-          },
-          {
-            "rank": 6,
-            "name": "심텍",
-            "code": "222800",
-            "netAmount": -921.9
+            "name": "한국콜마",
+            "code": "161890",
+            "netAmount": 717.0
           },
           {
             "rank": 7,
             "name": "HD한국조선해양",
             "code": "009540",
-            "netAmount": -903.2
+            "netAmount": 674.0
           },
           {
             "rank": 8,
+            "name": "파마리서치",
+            "code": "214450",
+            "netAmount": 658.6
+          },
+          {
+            "rank": 9,
             "name": "KB금융",
             "code": "105560",
-            "netAmount": -816.1
-          },
-          {
-            "rank": 9,
-            "name": "POSCO홀딩스",
-            "code": "005490",
-            "netAmount": -804.6
+            "netAmount": 639.0
           },
           {
             "rank": 10,
-            "name": "삼성바이오로직스",
-            "code": "207940",
-            "netAmount": -734.5
-          }
-        ]
-      },
-      "monthly": {
-        "asOf": "2026-07-19 ~ 2026-08-18 누적 (KRX)",
-        "foreignBuy": [
-          {
-            "rank": 1,
-            "name": "삼성전자",
-            "code": "005930",
-            "netAmount": 12240.9
-          },
-          {
-            "rank": 2,
-            "name": "SK스퀘어",
-            "code": "402340",
-            "netAmount": 8858.5
-          },
-          {
-            "rank": 3,
-            "name": "삼성전자우",
-            "code": "005935",
-            "netAmount": 3528.0
-          },
-          {
-            "rank": 4,
-            "name": "셀트리온",
-            "code": "068270",
-            "netAmount": 2412.6
-          },
-          {
-            "rank": 5,
-            "name": "기아",
-            "code": "000270",
-            "netAmount": 2340.5
-          },
-          {
-            "rank": 6,
-            "name": "한화오션",
-            "code": "042660",
-            "netAmount": 2138.7
-          },
-          {
-            "rank": 7,
-            "name": "현대모비스",
-            "code": "012330",
-            "netAmount": 2121.6
-          },
-          {
-            "rank": 8,
-            "name": "삼양식품",
-            "code": "003230",
-            "netAmount": 1852.4
-          },
-          {
-            "rank": 9,
-            "name": "미래에셋증권",
-            "code": "006800",
-            "netAmount": 1758.9
-          },
-          {
-            "rank": 10,
-            "name": "LG전자",
-            "code": "066570",
-            "netAmount": 1715.5
+            "name": "HD현대중공업",
+            "code": "329180",
+            "netAmount": 636.2
           }
         ],
         "foreignSell": [
@@ -2653,61 +2374,61 @@
             "rank": 1,
             "name": "삼성전기",
             "code": "009150",
-            "netAmount": -16099.4
+            "netAmount": -6935.6
           },
           {
             "rank": 2,
-            "name": "SK텔레콤",
-            "code": "017670",
-            "netAmount": -5349.3
+            "name": "삼성전자우",
+            "code": "005935",
+            "netAmount": -1651.4
           },
           {
             "rank": 3,
-            "name": "SK하이닉스",
-            "code": "000660",
-            "netAmount": -2949.4
+            "name": "SK스퀘어",
+            "code": "402340",
+            "netAmount": -1646.7
           },
           {
             "rank": 4,
-            "name": "GS",
-            "code": "078930",
-            "netAmount": -1625.8
+            "name": "LG이노텍",
+            "code": "011070",
+            "netAmount": -936.6
           },
           {
             "rank": 5,
-            "name": "OCI홀딩스",
-            "code": "010060",
-            "netAmount": -1577.0
+            "name": "GS",
+            "code": "078930",
+            "netAmount": -834.2
           },
           {
             "rank": 6,
-            "name": "한국항공우주",
-            "code": "047810",
-            "netAmount": -1409.7
+            "name": "SK텔레콤",
+            "code": "017670",
+            "netAmount": -607.6
           },
           {
             "rank": 7,
-            "name": "레인보우로보틱스",
-            "code": "277810",
-            "netAmount": -1319.6
+            "name": "이오테크닉스",
+            "code": "039030",
+            "netAmount": -603.3
           },
           {
             "rank": 8,
-            "name": "LS",
-            "code": "006260",
-            "netAmount": -1199.6
+            "name": "한국전력",
+            "code": "015760",
+            "netAmount": -460.9
           },
           {
             "rank": 9,
-            "name": "삼천당제약",
-            "code": "000250",
-            "netAmount": -1161.9
+            "name": "현대차",
+            "code": "005380",
+            "netAmount": -400.4
           },
           {
             "rank": 10,
-            "name": "제주반도체",
-            "code": "080220",
-            "netAmount": -1016.5
+            "name": "코오롱티슈진",
+            "code": "950160",
+            "netAmount": -393.0
           }
         ],
         "institutionBuy": [
@@ -2715,61 +2436,312 @@
             "rank": 1,
             "name": "SK텔레콤",
             "code": "017670",
-            "netAmount": 4585.9
+            "netAmount": 827.4
           },
           {
             "rank": 2,
-            "name": "NAVER",
-            "code": "035420",
-            "netAmount": 4207.1
+            "name": "이수페타시스",
+            "code": "007660",
+            "netAmount": 790.6
+          },
+          {
+            "rank": 3,
+            "name": "GS",
+            "code": "078930",
+            "netAmount": 780.5
+          },
+          {
+            "rank": 4,
+            "name": "이오테크닉스",
+            "code": "039030",
+            "netAmount": 643.1
+          },
+          {
+            "rank": 5,
+            "name": "현대해상",
+            "code": "001450",
+            "netAmount": 419.8
+          },
+          {
+            "rank": 6,
+            "name": "SK스퀘어",
+            "code": "402340",
+            "netAmount": 403.0
+          },
+          {
+            "rank": 7,
+            "name": "OCI홀딩스",
+            "code": "010060",
+            "netAmount": 383.8
+          },
+          {
+            "rank": 8,
+            "name": "SK이터닉스",
+            "code": "475150",
+            "netAmount": 350.6
+          },
+          {
+            "rank": 9,
+            "name": "HMM",
+            "code": "011200",
+            "netAmount": 330.7
+          },
+          {
+            "rank": 10,
+            "name": "대덕전자",
+            "code": "353200",
+            "netAmount": 291.2
+          }
+        ],
+        "institutionSell": [
+          {
+            "rank": 1,
+            "name": "SK하이닉스",
+            "code": "000660",
+            "netAmount": -8893.6
+          },
+          {
+            "rank": 2,
+            "name": "한국전력",
+            "code": "015760",
+            "netAmount": -1662.7
           },
           {
             "rank": 3,
             "name": "삼성전기",
             "code": "009150",
-            "netAmount": 3335.8
+            "netAmount": -976.7
+          },
+          {
+            "rank": 4,
+            "name": "KB금융",
+            "code": "105560",
+            "netAmount": -765.8
+          },
+          {
+            "rank": 5,
+            "name": "두산에너빌리티",
+            "code": "034020",
+            "netAmount": -759.6
+          },
+          {
+            "rank": 6,
+            "name": "HD한국조선해양",
+            "code": "009540",
+            "netAmount": -707.8
+          },
+          {
+            "rank": 7,
+            "name": "알테오젠",
+            "code": "196170",
+            "netAmount": -700.5
+          },
+          {
+            "rank": 8,
+            "name": "HD현대중공업",
+            "code": "329180",
+            "netAmount": -697.0
+          },
+          {
+            "rank": 9,
+            "name": "셀트리온",
+            "code": "068270",
+            "netAmount": -683.8
+          },
+          {
+            "rank": 10,
+            "name": "POSCO홀딩스",
+            "code": "005490",
+            "netAmount": -683.8
+          }
+        ]
+      },
+      "monthly": {
+        "asOf": "2026-07-20 ~ 2026-08-19 누적 (KRX)",
+        "foreignBuy": [
+          {
+            "rank": 1,
+            "name": "SK스퀘어",
+            "code": "402340",
+            "netAmount": 6693.1
+          },
+          {
+            "rank": 2,
+            "name": "셀트리온",
+            "code": "068270",
+            "netAmount": 2429.5
+          },
+          {
+            "rank": 3,
+            "name": "기아",
+            "code": "000270",
+            "netAmount": 2272.1
+          },
+          {
+            "rank": 4,
+            "name": "삼성전자우",
+            "code": "005935",
+            "netAmount": 2190.5
+          },
+          {
+            "rank": 5,
+            "name": "현대모비스",
+            "code": "012330",
+            "netAmount": 2189.8
+          },
+          {
+            "rank": 6,
+            "name": "한화오션",
+            "code": "042660",
+            "netAmount": 2156.7
+          },
+          {
+            "rank": 7,
+            "name": "삼양식품",
+            "code": "003230",
+            "netAmount": 1897.6
+          },
+          {
+            "rank": 8,
+            "name": "삼성전자",
+            "code": "005930",
+            "netAmount": 1819.1
+          },
+          {
+            "rank": 9,
+            "name": "미래에셋증권",
+            "code": "006800",
+            "netAmount": 1764.9
+          },
+          {
+            "rank": 10,
+            "name": "LG전자",
+            "code": "066570",
+            "netAmount": 1738.2
+          }
+        ],
+        "foreignSell": [
+          {
+            "rank": 1,
+            "name": "SK하이닉스",
+            "code": "000660",
+            "netAmount": -21205.3
+          },
+          {
+            "rank": 2,
+            "name": "삼성전기",
+            "code": "009150",
+            "netAmount": -17597.9
+          },
+          {
+            "rank": 3,
+            "name": "SK텔레콤",
+            "code": "017670",
+            "netAmount": -5760.1
+          },
+          {
+            "rank": 4,
+            "name": "GS",
+            "code": "078930",
+            "netAmount": -1692.1
+          },
+          {
+            "rank": 5,
+            "name": "OCI홀딩스",
+            "code": "010060",
+            "netAmount": -1526.9
+          },
+          {
+            "rank": 6,
+            "name": "한국항공우주",
+            "code": "047810",
+            "netAmount": -1393.9
+          },
+          {
+            "rank": 7,
+            "name": "레인보우로보틱스",
+            "code": "277810",
+            "netAmount": -1287.3
+          },
+          {
+            "rank": 8,
+            "name": "LS",
+            "code": "006260",
+            "netAmount": -1251.3
+          },
+          {
+            "rank": 9,
+            "name": "삼천당제약",
+            "code": "000250",
+            "netAmount": -1163.9
+          },
+          {
+            "rank": 10,
+            "name": "DB손해보험",
+            "code": "005830",
+            "netAmount": -1050.2
+          }
+        ],
+        "institutionBuy": [
+          {
+            "rank": 1,
+            "name": "SK텔레콤",
+            "code": "017670",
+            "netAmount": 4787.7
+          },
+          {
+            "rank": 2,
+            "name": "NAVER",
+            "code": "035420",
+            "netAmount": 3775.8
+          },
+          {
+            "rank": 3,
+            "name": "삼성전기",
+            "code": "009150",
+            "netAmount": 3348.8
           },
           {
             "rank": 4,
             "name": "SK이노베이션",
             "code": "096770",
-            "netAmount": 2459.1
+            "netAmount": 2560.5
           },
           {
             "rank": 5,
             "name": "삼성바이오로직스",
             "code": "207940",
-            "netAmount": 2185.1
+            "netAmount": 2203.8
           },
           {
             "rank": 6,
             "name": "GS",
             "code": "078930",
-            "netAmount": 1994.3
+            "netAmount": 2080.6
           },
           {
             "rank": 7,
             "name": "GS건설",
             "code": "006360",
-            "netAmount": 1772.8
+            "netAmount": 1846.8
           },
           {
             "rank": 8,
             "name": "파마리서치",
             "code": "214450",
-            "netAmount": 1682.2
+            "netAmount": 1669.6
           },
           {
             "rank": 9,
             "name": "삼성에스디에스",
             "code": "018260",
-            "netAmount": 1661.4
+            "netAmount": 1597.7
           },
           {
             "rank": 10,
             "name": "셀트리온",
             "code": "068270",
-            "netAmount": 1585.4
+            "netAmount": 1564.5
           }
         ],
         "institutionSell": [
@@ -2777,61 +2749,61 @@
             "rank": 1,
             "name": "삼성전자",
             "code": "005930",
-            "netAmount": -8610.6
+            "netAmount": -15944.5
           },
           {
             "rank": 2,
-            "name": "SK스퀘어",
-            "code": "402340",
-            "netAmount": -8346.7
+            "name": "SK하이닉스",
+            "code": "000660",
+            "netAmount": -11233.3
           },
           {
             "rank": 3,
-            "name": "SK하이닉스",
-            "code": "000660",
-            "netAmount": -6514.8
+            "name": "SK스퀘어",
+            "code": "402340",
+            "netAmount": -8580.8
           },
           {
             "rank": 4,
-            "name": "기아",
-            "code": "000270",
-            "netAmount": -2047.9
+            "name": "한국전력",
+            "code": "015760",
+            "netAmount": -2200.9
           },
           {
             "rank": 5,
-            "name": "한국전력",
-            "code": "015760",
-            "netAmount": -1870.4
+            "name": "기아",
+            "code": "000270",
+            "netAmount": -2033.0
           },
           {
             "rank": 6,
             "name": "한국금융지주",
             "code": "071050",
-            "netAmount": -1629.2
+            "netAmount": -1697.5
           },
           {
             "rank": 7,
             "name": "삼성생명",
             "code": "032830",
-            "netAmount": -1608.5
+            "netAmount": -1694.1
           },
           {
             "rank": 8,
             "name": "현대로템",
             "code": "064350",
-            "netAmount": -1381.7
+            "netAmount": -1421.3
           },
           {
             "rank": 9,
-            "name": "삼성증권",
-            "code": "016360",
-            "netAmount": -1220.0
+            "name": "현대차",
+            "code": "005380",
+            "netAmount": -1308.1
           },
           {
             "rank": 10,
-            "name": "현대백화점",
-            "code": "069960",
-            "netAmount": -1217.8
+            "name": "키움증권",
+            "code": "039490",
+            "netAmount": -1287.1
           }
         ]
       }
