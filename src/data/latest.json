@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-04T21:34:35.093777+00:00",
+  "generatedAt": "2026-09-05T21:32:58.917395+00:00",
   "asOfLabel": "2026-09-04 (금) 미국 시장 종가 · 뉴욕 16:00 EDT",
   "forUser": "Peterk",
   "us": {
@@ -692,9 +692,9 @@
       "symbol": "CL",
       "name": "WTI유",
       "unit": "$/bbl",
-      "last": 91.22,
-      "change": -0.08,
-      "changePercent": -0.09,
+      "last": 91.48,
+      "change": 0.18,
+      "changePercent": 0.2,
       "asOf": "2026-09-04 (금) 미국 시장 종가 · 뉴욕 16:00 EDT",
       "candles": [
         {
@@ -856,7 +856,7 @@
           "open": 91.67,
           "high": 92.17,
           "low": 88.72,
-          "close": 91.22
+          "close": 91.48
         }
       ]
     },
@@ -1006,8 +1006,8 @@
         "category": "ASIC/네트워킹",
         "name": "브로드컴",
         "ticker": "AVGO",
-        "price": 357.89,
-        "change": 0.73,
+        "price": 357.9,
+        "change": 0.74,
         "changePercent": 0.21,
         "changePercent1w": -2.95,
         "changePercent1m": -14.9,
@@ -1127,11 +1127,11 @@
         "category": "구리/광",
         "name": "세미테크",
         "ticker": "SMTC",
-        "price": 147.88,
+        "price": 147.89,
         "change": 12.49,
         "changePercent": 9.22,
-        "changePercent1w": 12.74,
-        "changePercent1m": 9.72,
+        "changePercent1w": 12.75,
+        "changePercent1m": 9.73,
         "asOf": "2026-09-04 (금) 미국 시장 종가 · 뉴욕 16:00 EDT"
       },
       {
@@ -1827,18 +1827,11 @@
     "usdkrw": {
       "symbol": "USDKRW",
       "name": "달러/원",
-      "last": 1346.0,
-      "change": -12.4,
-      "changePercent": -0.91,
-      "asOf": "2026-09-04 달러/원 종가",
+      "last": 1351.1,
+      "change": -4.3,
+      "changePercent": -0.32,
+      "asOf": "2026-09-05 달러/원 종가",
       "candles": [
-        {
-          "date": "2026-08-05",
-          "open": 1430.3,
-          "high": 1430.3,
-          "low": 1420.2,
-          "close": 1428.4
-        },
         {
           "date": "2026-08-06",
           "open": 1420.7,
@@ -1988,10 +1981,17 @@
         },
         {
           "date": "2026-09-04",
-          "open": 1355.9,
-          "high": 1359.3,
-          "low": 1343.2,
-          "close": 1346.0
+          "open": 1355.4,
+          "high": 1358.2,
+          "low": 1343.7,
+          "close": 1355.4
+        },
+        {
+          "date": "2026-09-05",
+          "open": 1346.0,
+          "high": 1351.1,
+          "low": 1346.0,
+          "close": 1351.1
         }
       ]
     },
